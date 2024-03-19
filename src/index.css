@@ -1,0 +1,55 @@
+:root {
+	--color-fondo: #;
+	--color-primario: #;
+	--color-secundario: #;
+	--color-secundarioDos: #;
+	--fuente-color-primario: #ffffff;
+	--fuente-color-secundario: #000;
+	--fuente-color-secundarioDos: #;
+	--fuente-principal: '', ;
+	--fuente-secundaria: ;
+	--fuente-tamanio-titulo: 2rem;
+	--fuente-tamanio-titulo-tablet: 2.5rem;
+	--fuente-tamanio-titulo-desktop: 3rem;
+	--fuente-tamanio-subtitulo: 1.5rem;
+	--fuente-tamanio-subtitulo-tablet: 2rem;
+	--fuente-tamanio-subtitulo-desktop: 2.5rem;
+	--fuente-tamanio-parrafo: 1rem;
+	--fuente-tamanio-parrafo-tablet: 1.15rem;
+	--fuente-tamanio-parrafo-desktop: 1.25rem;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-family: var(--fuente-principal);
+}
+
+body {
+	background-color: var(--color-fondo);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.titulo {
+	font-family: var(--fuente-principal);
+	font-size: var(--fuente-tamanio-titulo);
+	color: var(--color-primario);
+}
+
+.subtitulo {
+	color: var(--fuente-color-primario);
+	font-family: var(--fuente-secundaria);
+	font-size: var(--fuente-tamanio-subtitulo);
+}
+
+.parrafo {
+	color: var(--fuente-color-primario);
+	font-family: var(--fuente-secundaria);
+	font-size: var(--fuente-tamanio-parrafo);
+	line-height: 2rem;
+}
