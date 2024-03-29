@@ -1,4 +1,4 @@
-import fondoImagen from "../../../src/assets/footer-fondo3c.jpeg";
+import fondoImagen from "../../../src/assets/footer-fondo.webp";
 import "./Footer.css";
 
 const Footer = () => {
