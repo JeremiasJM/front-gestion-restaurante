@@ -1,0 +1,124 @@
+.container-con-fondo {
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+    min-height: 10vh;
+    
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    /* filter: grayscale(50%) blur(5px); */
+    /* opacity: 0.9; */
+}
+
+.btn-mapa{
+    text-shadow: 1px 1px 5px black;
+}
+
+
+.btn-mapa:hover{
+    
+    text-shadow: 1px 1px 5px #8a6113; 
+}
+
+.sombreado{
+    text-shadow: -5px 5px 5px black; 
+}
+
+.redes-sociales{
+    /* color: #8a6113; */
+    color: white;
+}
+
+.color-NoTitulosNiSub{
+    color: #c29747;
+    
+}
+
+.bi-instagram:hover {
+    background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    );
+
+    /* background: radial-gradient(
+      circle at 30% 107%,
+      white 0%,
+      white 5%,
+      white 45%,
+      white 60%,
+      white 90%
+    ); */
+
+    -webkit-background-clip: text;
+  
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition:all 5s;
+  }
+
+  .bi-facebook:hover{
+    color: #365fb8;
+    /* color: white; */
+    transition:all 1s;
+  }
+
+  .bi-youtube:hover{
+    color: #FF0000;
+    /* color: white; */
+    transition:all 1s;
+  }
+
+  .bi-twitter:hover{
+    color: #1DA1F2;
+    transition:all 1s;
+  }
+
+
+
+
+  :root {
+	--color-fondo: #;
+	--color-primario: #;
+	--color-secundario: #;
+	--color-secundarioDos: #;
+	--fuente-color-primario: #ffffff;
+	--fuente-color-secundario: #000;
+	--fuente-color-secundarioDos: #;
+	--fuente-principal: '', ;
+	--fuente-secundaria: ;
+	--fuente-tamanio-titulo: 2rem;
+	--fuente-tamanio-titulo-tablet: 2.5rem;
+	--fuente-tamanio-titulo-desktop: 3rem;
+	--fuente-tamanio-subtitulo: 1.5rem;
+	--fuente-tamanio-subtitulo-tablet: 2rem;
+	--fuente-tamanio-subtitulo-desktop: 2.5rem;
+	--fuente-tamanio-parrafo: 1rem;
+	--fuente-tamanio-parrafo-tablet: 1.15rem;
+	--fuente-tamanio-parrafo-desktop: 1.25rem;
+}
+
+
+.titulo, strong {
+	font-family: var(--fuente-principal);
+	font-size: var(--fuente-tamanio-titulo);
+	/* color:  #8a6113; */
+    color:  #c29747;
+}
+
+.subtitulo {
+	color: var(--fuente-color-primario);
+	font-family: var(--fuente-secundaria);
+	font-size: var(--fuente-tamanio-subtitulo);
+}
+
+.parrafo {
+	color: var(--fuente-color-primario);
+	font-family: var(--fuente-secundaria);
+	font-size: var(--fuente-tamanio-parrafo);
+	line-height: 2rem;
+}
