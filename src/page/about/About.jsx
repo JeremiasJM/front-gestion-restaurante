@@ -1,4 +1,5 @@
 import './About.css';
+import PropTypes from "prop-types";
 
 const About = (props) => {
   return (
@@ -16,6 +17,12 @@ const About = (props) => {
 
     </>
   )
+}
+
+About.propTypes = {
+  alt: PropTypes.string,
+  nombre: PropTypes.string,
+  testimonio: PropTypes.string,
 }
 
 export default About
