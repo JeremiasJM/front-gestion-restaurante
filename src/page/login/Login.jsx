@@ -1,20 +1,23 @@
 import { Form, Button, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
+import iconUsers from "../../resource/media/iconos/icons-user.png"
+import iconPassword from "../../resource/media/iconos/icons-password.png"
 
 const Login = () => {
   return (
     <>
-      <div className="px-4 shadow p-1 p-md-5 w-50 h-50">
+    <div className="bg_login d-flex justify-content-center align-items-center vh-100">
+      <div className="card_login px-4 shadow p-1 p-md-5 mt-5 ">
         <div>
-          <div className="text-center">Inicia Sesion</div>
+          <div className="text-center titulo">Inicia Sesion</div>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <div className="input-group mt-3">
                 <div className="input-group-text bg-light">
                   <Image
                     className="login_form_img"
-                    src="  "
+                    src={iconUsers}
                   />
                 </div>
                 <Form.Control
@@ -26,34 +29,36 @@ const Login = () => {
               </div>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <div className="input-group mt-2">
+              <div className="input-group mt-3">
                 <div className="input-group-text bg-light">
                   <Image
                     className="login_form_img"
-                    src="https://w7.pngwing.com/pngs/778/12/png-transparent-computer-icons-skype-icon-design-change-password-logo-internet-share-icon.png"
+                    src={iconPassword}
                   />
                 </div>
                 <Form.Control
                   type="password"
-                  placeholder="Escribe tu contraseña"
+                  placeholder="Escriba su contraseña"
+                  maxLength="40"
+                  minLength="5"
                 />
-
+{/*                 
                 <div className="invalid-feedback w-100 bg-danger ">
                   <p className="d-block text center fw-bold  text-dark rounded-1 ">
                     Credenciales incorrectas
                   </p>
-                </div>
+                </div> */}
               </div>
             </Form.Group>
-            <Button className="mt-4 w-100" variant="primary" type="submit">
+            <Button className="mt-4 w-100  button-login" variant="" type="submit">
               Iniciar Sesion
             </Button>
           </Form>
         </div>
         <div className="d-flex flex-column align-items-center flex-md-row  justify-content-center my-4 gap-4">
-          <Form.Group className="d-flex align-items-center gap-1">
-            <Form.Control className="form-check-input bg-ligth" type="checkbox" />
-            <Form.Label className="pt-1 text-dark ">Recuerdame</Form.Label>
+          <Form.Group className="d-flex align-items-center gap-2 ">
+            <Form.Control className="form-check-input  py-2 px-2 " type="checkbox" />
+            <Form.Label className="pt-1 text-dark">Recuerdame</Form.Label>
           </Form.Group>
           <div className="pt-1 d-inline-block text-center ">
             <a
@@ -77,6 +82,7 @@ const Login = () => {
             Registrate
           </a>
         </div>
+      </div>
       </div>
     </>
   );
