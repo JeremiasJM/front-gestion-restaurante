@@ -1,36 +1,57 @@
-import About from "./page/about/About";
+import About from "./page/about/About.jsx";
+import './App.css';
+import imagenAndrea from './img-about/img-andrea.png';
+import imagenGeorgina from './img-about/img-georgina.png';
+import imagenJeremias from './img-about/img-jeremias.png';
+import imagenBraian from './img-about/img-braian.png';
+// import imagenCristian from '';
 
 function App() {
   return (
     <>
       <div className='App'>
         <div className='contenedor-principal'>
-          <h1>Sobre nosotros..</h1>
+          <h1 className='titulo estilos-titulo-about'>Sobre nosotros..</h1>
           <About
             nombre='Andrea Orlandi'
-            imagen='andrea'
+            imagen={imagenAndrea}
+            alt='foto de Andrea Orlandi'
             contacto=''
-            testimonio='' />
+            testimonio='"Me considero una persona proactiva, creativa, curiosa. Poseo habilidades 
+            analíticas sólidas y resolutivas. Tengo capacidad para adaptarme rápidamente a diversos equipos de trabajo 
+            y una mentalidad innovadora para abordar los desafíos que se presenten".' />
           <About
             nombre='Georgina Costilla'
-            imagen='georgina'
+            imagen={imagenGeorgina}
+            alt='foto de Georgina Costilla'
             contacto=''
-            testimonio='' />
+            testimonio='"Me identifico como una mente intrépida y ansiosa del aprendizaje constante, con especial interés en 
+            la programación y comunicación. Disfruto explorando nuevas tecnologías y desafíos digitales, y en 
+            mi tiempo libre, me gusta participar en excursiones de trekking grupales."' />
           <About
             nombre='Jeremias Juarez Marrades'
-            imagen='jeremias'
+            imagen={imagenJeremias}
+            alt='foto de Jeremias Juarez Marrades'
             contacto=''
-            testimonio='' />
+            testimonio='Soy un entusiasta de la programación. Mi dedicación se refleja en cada línea de código que 
+            escribo. Con habilidad para resolver problemas y una curiosidad que no conoce límites, disfruto explorando 
+            nuevas tecnologías y desafiándome a mí mismo en este fascinante mundo de la informática.' />
           <About
             nombre='Braian Mena'
-            imagen='braian'
+            imagen={imagenBraian}
+            alt='foto de Braian Mena'
             contacto=''
-            testimonio='' />
+            testimonio='"Mi dedicación se manifiesta en cada proyecto que emprendo. Con destreza para resolver problemas 
+            y una curiosidad incansable, me encanta explorar nuevas tecnologías y superar desafíos en el emocionante 
+            universo de la informática."' />
           <About
             nombre='Cristian Fernández'
-            imagen='cristian'
+            imagen=''
+            alt='foto de Cristian Fernández'
             contacto=''
-            testimonio='' />
+            testimonio='"Mi compromiso se refleja en cada proyecto que inicio. Con habilidad para resolver problemas y 
+            una curiosidad inagotable, disfruto explorando nuevas tecnologías y superando retos en el apasionante mundo 
+            de la informática."' />
         </div>
       </div>
     </>
