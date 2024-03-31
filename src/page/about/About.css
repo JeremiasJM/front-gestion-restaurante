@@ -1,37 +1,43 @@
 .contenedor-about {
-  width: 1170px;
-  height: 368px;
-  margin: 10px 10px 50px;
+  width: 100%;
+  height: auto;
+  margin: 10px auto 50px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   background-color: var(--bg-color-white);
-  box-shadow: 0 3px 13px 1px rgb(0 0 0 / 10%);
+  box-shadow: 0 5px 15px 5px rgb(0 0 0 / 15%);
 }
 
 .imagen-about {
-  height: 100%;
-  width: auto;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
 }
 
 .contenedor-texto-about {
-  text-align: center;
-  padding: 40px;
-  font-weight: 400;
-  line-height: 1.5rem;
-}
+  flex: 1;
+  padding: 20px;
+} 
 
 .nombre-about {
-  font-size: 1.3rem;
-}
-
-.contacto-about {
-  font-size: 1.3rem;
-  margin-top: 15px;
-  padding-bottom: 30px;
+  font-size: var(--font-size-subtitle);
+  margin: 20px;
 }
 
 .texto-about {
   font-size: 1.1rem;
-  text-align: justify;
+  text-align: center;
+  margin: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .contenedor-about {
+    padding: 10px;
+  }
+
+  .contenedor-texto-about {
+    padding: 10px;
+  }
 }

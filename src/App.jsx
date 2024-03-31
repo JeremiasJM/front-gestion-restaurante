@@ -4,7 +4,8 @@ import imagenAndrea from './img-about/img-andrea.png';
 import imagenGeorgina from './img-about/img-georgina.png';
 import imagenJeremias from './img-about/img-jeremias.png';
 import imagenBraian from './img-about/img-braian.png';
-// import imagenCristian from '';
+import imagenCristian from './img-about/img-cristian.png';
+
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             contacto=''
             testimonio='"Me considero una persona proactiva, creativa, curiosa. Poseo habilidades 
             analíticas sólidas y resolutivas. Tengo capacidad para adaptarme rápidamente a diversos equipos de trabajo 
-            y una mentalidad innovadora para abordar los desafíos que se presenten".' />
+            y una mentalidad innovadora para abordar los desafíos que se presenten".'/>
           <About
             nombre='Georgina Costilla'
             imagen={imagenGeorgina}
@@ -46,7 +47,7 @@ function App() {
             universo de la informática."' />
           <About
             nombre='Cristian Fernández'
-            imagen=''
+            imagen={imagenCristian}
             alt='foto de Cristian Fernández'
             contacto=''
             testimonio='"Mi compromiso se refleja en cada proyecto que inicio. Con habilidad para resolver problemas y 
