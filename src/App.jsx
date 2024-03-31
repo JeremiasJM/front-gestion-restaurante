@@ -1,9 +1,9 @@
-
+import Error404 from "./page/error404/Error404";
 
 function App() {
   return (
     <>
-      <h1>hola mundo</h1>
+      <Error404 />
     </>
   );
 }
