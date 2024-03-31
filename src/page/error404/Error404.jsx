@@ -3,7 +3,7 @@ import './Error404.css';
 const Error404 = () => {
   return (
     <>
-      <section className='seccion-pagina-404'>
+      <div className='seccion-pagina-404'>
         <div className='numero-error'>
           <div className='contenedor-msj'>
             <h3>404</h3>
@@ -21,7 +21,7 @@ const Error404 = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </>
   )
 }
