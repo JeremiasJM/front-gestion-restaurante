@@ -1,10 +1,10 @@
 import About from "./page/about/About.jsx";
 import './App.css';
-import imagenAndrea from './img-about/img-andrea.png';
-import imagenGeorgina from './img-about/img-georgina.png';
-import imagenJeremias from './img-about/img-jeremias.png';
-import imagenBraian from './img-about/img-braian.png';
-import imagenCristian from './img-about/img-cristian.png';
+import imagenAndrea from './resource/media/img-about/img-andrea.png';
+import imagenGeorgina from './resource/media/img-about/img-georgina.png';
+import imagenJeremias from './resource/media/img-about/img-jeremias.png';
+import imagenBraian from './resource/media/img-about/img-braian.png';
+import imagenCristian from './resource/media/img-about/img-cristian.png';
 
 
 function App() {
