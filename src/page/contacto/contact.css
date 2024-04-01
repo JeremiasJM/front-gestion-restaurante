@@ -1,10 +1,9 @@
-.contact {
-	background-image: linear-gradient(black, black), url('../../assets/img/contact-background.webp');
-	background-repeat: no-repeat;
-	background-position: bottom;
-	background-size: cover;
-	background-blend-mode: saturation;
-}
+body{
+		background-image: url(https://img.freepik.com/foto-gratis/marron-beige-crema-claro-lujo-abstracto-como-fondo-modelo-textura-seda-algodon_1258-71591.jpg?w=900&t=st=1711945772~exp=1711946372~hmac=f68e94b0f8e2126512ee9a5add1529aab538aed829e55deff283f5b8546533da)!important;
+		background-repeat: no-repeat !important;
+		background-attachment: fixed!important;
+		background-size: cover!important;
+	}
 
 .contact__container {
 	background-color: var(--color-background);
@@ -14,7 +13,7 @@
 
 .form-label,
 .contact__textarea__mensaje {
-	color: var(--color-primary);
+	color: var(--font-color-primary);
 }
 
 form div .form-control {
@@ -30,7 +29,7 @@ form div .form-control {
 
 .contact__form__btnSubmit:hover,
 .contact__form__btnSubmit:active {
-	background-color: var(--color-primary);
+	background-color: var(--font-color-primary);
 	color: var(--color-background);
 	
 	transition: all 0.5s ease-in-out;

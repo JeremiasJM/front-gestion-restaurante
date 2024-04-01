@@ -104,7 +104,7 @@ const Contact = () => {
                 }}
               />
               <label
-                className="contact__textarea__mensaje me-0"
+                className="contact__textarea__mensaje ms-2 me-0"
                 htmlFor="validationMessage"
               >
                 Mensaje
@@ -132,7 +132,7 @@ const Contact = () => {
           <div className="col-12 col-md-8 mt-2 mt-md-0 ps-md-0">
           <iframe
                 allowFullScreen
-                height="450"
+                height="100%"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.262682594325!2d-65.2930908!3d-26.799763300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942242ceb5fd108f%3A0x9a698fce9e76eda4!2sAv.%20Juan%20Domingo%20Per%C3%B3n%201800%2C%20T4107%20Yerba%20Buena%2C%20Tucum%C3%A1n!5e0!3m2!1ses-419!2sar!4v1711936128819!5m2!1ses-419!2sar"
