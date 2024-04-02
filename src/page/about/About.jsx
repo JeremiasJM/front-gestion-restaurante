@@ -10,7 +10,7 @@ const About = (props) => {
           alt={props.alt} />
         <div className='contenedor-texto-about parrafo'>
           <p className='nombre-about'><strong>{props.nombre}</strong></p>
-          <p>Aqui van las redes sociales</p>
+          <div className='estilosIconos'>{props.email} {props.linkedIn} {props.gitHub}</div>
           <p className='texto-about'>{props.testimonio}</p>
         </div>
       </div>

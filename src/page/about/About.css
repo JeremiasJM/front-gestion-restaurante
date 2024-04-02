@@ -19,7 +19,7 @@
 .contenedor-texto-about {
   flex: 1;
   padding: 20px;
-} 
+}
 
 .nombre-about {
   font-size: var(--font-size-subtitle);
@@ -30,6 +30,17 @@
   font-size: 1.1rem;
   text-align: center;
   margin: 20px;
+}
+
+.estilosIconos svg {
+  font-size: 30px;
+  color: var(--font-color-primary);
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+.estilosIconos svg:hover {
+  color: var(--bg-color-primary);
 }
 
 @media screen and (max-width: 768px) {
