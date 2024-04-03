@@ -1,0 +1,16 @@
+.navbar {	
+    background-color: var(--color-background)!important;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	border: 1x solid var(--font-color-primary);
+}
+
+.navbar__logo {
+	width: 11rem;
+    height: 5rem;
+}
+
+.nav-link--text {
+	color: var(--font-color-primary);
+	font-size: 1.1rem;
+}
