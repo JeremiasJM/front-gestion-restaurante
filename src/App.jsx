@@ -1,10 +1,10 @@
 import Footer from "../src/components/footer/Footer"
-import Rutas from "./components/routes/Rutas";
+// import Rutas from "./components/routes/Rutas";
 
 function App() {
   return (
     <>
-      <Rutas />
+      {/* <Rutas /> */}
       <Footer />
     </>
   );
