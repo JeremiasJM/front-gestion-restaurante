@@ -1,14 +1,13 @@
-body{
-		background-image: url(https://img.freepik.com/foto-gratis/marron-beige-crema-claro-lujo-abstracto-como-fondo-modelo-textura-seda-algodon_1258-71591.jpg?w=900&t=st=1711945772~exp=1711946372~hmac=f68e94b0f8e2126512ee9a5add1529aab538aed829e55deff283f5b8546533da)!important;
-		background-repeat: no-repeat !important;
-		background-attachment: fixed!important;
-		background-size: cover!important;
-	}
+ body{
+	background: var(--bg-color-secondary);
+	background: -webkit-linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
+	background: linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
+	} 
 
 .contact__container {
-	background-color: var(--color-background);
-	opacity: 0.9;
-	border-radius: 15px;
+background: var(--bg-color-secondary);
+  background: -webkit-linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
+  background: linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
 }
 
 .form-label,
