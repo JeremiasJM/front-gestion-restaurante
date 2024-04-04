@@ -3,6 +3,7 @@ import "./contact.css";
 
 
 
+
 const Contact = () => {
   return (
     <>
@@ -113,7 +114,7 @@ const Contact = () => {
             </div>
             <div className="col-12 my-4 d-flex align-self-center justify-content-center">
               <button
-                className="btn contact__form__btnSubmit w-50"
+                className="btn contact__form__btnSubmit Light w-50"
                 type="submit"
               >
                 Enviar
