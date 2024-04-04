@@ -22,7 +22,7 @@
 }
 
 .instagram:hover {
-  background: radial-gradient(circle at 30% 107%,
+  /* background: radial-gradient(circle at 30% 107%,
       #fdf497 0%,
       #fdf497 5%,
       #fd5949 45%,
@@ -34,7 +34,10 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  transition: all 5s;
+  transition: all 5s; */
+
+  color: #d6249f;
+  transition: all 1s;
 }
 
 .facebook:hover {

@@ -1,5 +1,5 @@
 import './Footer.css';
-import logoRollingFood from '../../assets/logo.jpg';
+import logoRollingFood from '../../assets/resource/media/img-footer/logo-letrasDoradas.png';
 import { FaFacebook, FaInstagram, FaTwitterSquare, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
@@ -7,10 +7,10 @@ const Footer = () => {
     <>
       <footer className='container-fluid text-center mt-5'>
         <div className='row'>
-          <div className='col col-md-4 mt-5'>
+          <div className='col col-md-3 pt-5 mt-4 mb-4'>
             <a href=''>
               {/* --->>>>   CAMBIAR 'href' cuando se use ruteo <------ */}
-              <img src={logoRollingFood} className="w-50" alt="Logo Rolling Food" />
+              <img src={logoRollingFood} className="w-75" alt="Logo Rolling Food" />
             </a>
           </div>
 
@@ -33,7 +33,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className='col-md-4'>
+          <div className='col-md-5'>
             <h4 className='sombreado titulo p-3'>
               <strong>¿TENÉS ALGUNA DUDA?</strong>
             </h4>
@@ -51,7 +51,7 @@ const Footer = () => {
                 </h6>
               </a>
             </div>
-            <h4 className='sombreado titulo p-4'>
+            <h4 className='sombreado titulo pt-5 pb-2'>
               <strong>¡SEGUINOS AHORA!</strong>
             </h4>
             <div>
