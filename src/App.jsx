@@ -1,10 +1,11 @@
 import Footer from "../src/components/footer/Footer"
+import Rutas from "./components/routes/Rutas";
 
 function App() {
   return (
     <>
-      <h1>hola mundo</h1>
-      <Footer  />
+      <Rutas />
+      <Footer />
     </>
   );
 }
