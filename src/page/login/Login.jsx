@@ -58,21 +58,21 @@ const Login = () => {
           <div className="pt-1 d-inline-block text-center ">
             <a
               href="#"
-              class="text-decoration-none text-dark fw-semibold fst-italic"
+              className="text-decoration-none text-dark fw-semibold fst-italic"
             >
               ¿Olvidaste tu contraseña?
             </a>
           </div>
         </div>
-        <div class="d-flex gap-1 justify-content-center mt-2">
+        <div className="d-flex gap-1 justify-content-center mt-2">
           <div>
             <a>
-              <p class="text-black">¿No posees cuenta?</p>
+              <p className="text-black">¿No posees cuenta?</p>
             </a>
           </div>
           <a
-            href="../registro/registro.html"
-            class="text-decoration-none text-dark fw-bold text__shadow"
+            href=""
+            className="text-decoration-none text-dark fw-bold text__shadow"
           >
             Registrate
           </a>
