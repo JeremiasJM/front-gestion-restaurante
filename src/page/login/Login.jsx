@@ -42,12 +42,7 @@ const Login = () => {
                   maxLength="40"
                   minLength="5"
                 />
-{/*                 
-                <div className="invalid-feedback w-100 bg-danger ">
-                  <p className="d-block text center fw-bold  text-dark rounded-1 ">
-                    Credenciales incorrectas
-                  </p>
-                </div> */}
+
               </div>
             </Form.Group>
             <Button className="mt-4 w-100  button-login" variant="" type="submit">
