@@ -17,8 +17,8 @@
 }
 
 .card_login{
-    border: 0.2rem #c9932e solid;
-    border-radius: 8%;
+    border: 0.2rem var(--bg-color-primary) solid;
+    border-radius: 5%;
 	background-color: rgb(232, 182, 89, 0.5);
 	width: 50%;
 }
@@ -33,6 +33,9 @@
 	
 }
 .form-check-input[type=checkbox] {
+	margin-top: 1%;
+	
+	
     background-color: #8a631c;
     border-radius: .25em;
 	border-color: #8a631c solid;
