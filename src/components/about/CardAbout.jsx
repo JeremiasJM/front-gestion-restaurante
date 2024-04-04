@@ -1,4 +1,4 @@
-import './CardAbout.css';
+import './cardAbout.css';
 import PropTypes from "prop-types";
 
 const CardAbout = (props) => {

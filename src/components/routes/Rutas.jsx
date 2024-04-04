@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import About from '../../page/about/About'
 
@@ -7,6 +6,7 @@ const Rutas = () => {
     <>
       <Routes>
         <Route path='/About' element={<About />} />
+        {/* <Route path='*' element= {<Error404 />} /> */}
       </Routes>
     </>
   )
