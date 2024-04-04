@@ -26,7 +26,7 @@
 
 .redes-sociales{
     /* color: #8a6113; */
-    color: white;
+    color: var(--bg-color-white);
 }
 
 .color-NoTitulosNiSub{
@@ -61,6 +61,10 @@
     transition:all 5s;
   }
 
+  .bi-facebook{
+    font-size: 20px;
+  }
+
   .bi-facebook:hover{
     color: #365fb8;
     /* color: white; */
@@ -80,45 +84,3 @@
 
 
 
-
-  :root {
-	--color-fondo: #;
-	--color-primario: #;
-	--color-secundario: #;
-	--color-secundarioDos: #;
-	--fuente-color-primario: #ffffff;
-	--fuente-color-secundario: #000;
-	--fuente-color-secundarioDos: #;
-	--fuente-principal: '', ;
-	--fuente-secundaria: ;
-	--fuente-tamanio-titulo: 2rem;
-	--fuente-tamanio-titulo-tablet: 2.5rem;
-	--fuente-tamanio-titulo-desktop: 3rem;
-	--fuente-tamanio-subtitulo: 1.5rem;
-	--fuente-tamanio-subtitulo-tablet: 2rem;
-	--fuente-tamanio-subtitulo-desktop: 2.5rem;
-	--fuente-tamanio-parrafo: 1rem;
-	--fuente-tamanio-parrafo-tablet: 1.15rem;
-	--fuente-tamanio-parrafo-desktop: 1.25rem;
-}
-
-
-.titulo, strong {
-	font-family: var(--fuente-principal);
-	font-size: var(--fuente-tamanio-titulo);
-	/* color:  #8a6113; */
-    color:  #c29747;
-}
-
-.subtitulo {
-	color: var(--fuente-color-primario);
-	font-family: var(--fuente-secundaria);
-	font-size: var(--fuente-tamanio-subtitulo);
-}
-
-.parrafo {
-	color: var(--fuente-color-primario);
-	font-family: var(--fuente-secundaria);
-	font-size: var(--fuente-tamanio-parrafo);
-	line-height: 2rem;
-}
