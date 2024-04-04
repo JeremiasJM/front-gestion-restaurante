@@ -1,6 +1,6 @@
 import './Footer.css';
 import logoRollingFood from '../../assets/resource/media/img-footer/logo-letrasDoradas.png';
-import { FaFacebook, FaInstagram, FaTwitterSquare, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTwitterSquare, FaYoutube, FaWhatsapp, FaPhoneAlt, FaMapPin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -25,10 +25,11 @@ const Footer = () => {
             <h4 className='sombreado titulo p-3'>
               <strong>ENCONTRANOS EN</strong>
             </h4>
-            <a href='' className='btn btn-outline-light btn-mapa pb-3'>
-              <i className='bi bi-pin-map-fill'></i>{' '}
-              <span className='fw-bold fs-4'>
-                Gral. Paz 576, piso 9 of 2 - S.M. Tucumán{' '}
+            <a href='https://www.google.com.ar/maps/place/Gral.+Paz+576+piso+9+of+2,+T4000+San+Miguel+de+Tucum%C3%A1n,+Tucum%C3%A1n/@-26.8362027,-65.2096526,17z/data=!3m1!4b1!4m5!3m4!1s0x94225c0e8d0271b7:0xf8248f974b58de5d!8m2!3d-26.8362027!4d-65.2070777?entry=ttu'
+              className='text-decoration-none' target='_blank'>
+              <FaMapPin className='btn-outline-light' />
+              <span className='fw-bold fs-4 colorLetras'>
+                Gral. Paz 576, piso 9 of 2 - S.M. Tucumán
               </span>
             </a>
           </div>
@@ -39,19 +40,17 @@ const Footer = () => {
             </h4>
             <div className='border border-3 rounded p-3'>
               <a className='subtitulo text-decoration-none'>
-                <h6 className='subtitulo sombreado'>
-                  <i className='bi bi-whatsapp me-2'></i>
+                <p className='subtitulo'>
+                  <FaWhatsapp className='me-2' />
                   <strong>PEDIDOS:</strong> +549 3838 402-648
-                </h6>
-              </a>
-              <a className='text-decoration-none'>
-                <h6 className='subtitulo sombreado'>
-                  <i className='bi bi-whatsapp me-2'></i>
+                </p>
+                <p className='subtitulo'>
+                  <FaPhoneAlt className='me-2' />
                   <strong>RESERVAS:</strong> +549 381 486-268
-                </h6>
+                </p>
               </a>
             </div>
-            <h4 className='sombreado titulo pt-5 pb-2'>
+            <h4 className='sombreado titulo p-3'>
               <strong>¡SEGUINOS AHORA!</strong>
             </h4>
             <div>
