@@ -4,7 +4,7 @@ import Navegador from "../../components/navegador/Navegador";
 export const Home = () => {
   return (
     <>
-    <Navegador/>
+    
     <div>Home</div>
     
     </>
