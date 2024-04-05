@@ -1,20 +1,20 @@
 import './Footer.css';
-import logoRollingFood from '../../assets/resource/media/img-footer/logo-letrasDoradas.png';
+import logoRollingFood from '../../assets/resource/media/img-footer/logo-letrasDoradas-removebg.png';
 import { FaFacebook, FaInstagram, FaTwitterSquare, FaYoutube, FaWhatsapp, FaPhoneAlt, FaMapPin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <>
-      <footer className='container-fluid text-center mt-5'>
-        <div className='row'>
-          <div className='col col-md-3 pt-5 mt-4 mb-4'>
+      <footer className='container-fluid text-center colorFondo'>
+        <div className='row mb-5'>
+          <div className='col col-md-3'>
             <a href=''>
               {/* --->>>>   CAMBIAR 'href' cuando se use ruteo <------ */}
-              <img src={logoRollingFood} className="w-75" alt="Logo Rolling Food" />
+              <img src={logoRollingFood} className="w-75 mt-5 pt-5" alt="Logo Rolling Food" />
             </a>
           </div>
 
-          <div className='col-md-4'>
+          <div className='col-md-4 mt-5'>
             <h4 className='sombreado titulo p-3'>
               <strong>NUESTROS HORARIOS</strong>
             </h4>
@@ -22,11 +22,11 @@ const Footer = () => {
               <p>Martes a Domingos</p>
               <p>12:00hs a 16hs | 20:00hs a 00:30hs</p>
             </div>
-            <h4 className='sombreado titulo p-3'>
-              <strong>ENCONTRANOS EN</strong>
+            <h4 className='sombreado titulo p-4'>
+              <strong>ENCONTRANOS EN:</strong>
             </h4>
             <a href='https://www.google.com.ar/maps/place/Gral.+Paz+576+piso+9+of+2,+T4000+San+Miguel+de+Tucum%C3%A1n,+Tucum%C3%A1n/@-26.8362027,-65.2096526,17z/data=!3m1!4b1!4m5!3m4!1s0x94225c0e8d0271b7:0xf8248f974b58de5d!8m2!3d-26.8362027!4d-65.2070777?entry=ttu'
-              className='text-decoration-none' target='_blank'>
+              className='text-decoration-none p-4' target='_blank'>
               <FaMapPin className='btn-outline-light' />
               <span className='fw-bold fs-4 colorLetras'>
                 Gral. Paz 576, piso 9 of 2 - S.M. Tucumán
@@ -34,7 +34,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className='col-md-5'>
+          <div className='col-md-5 mt-5'>
             <h4 className='sombreado titulo p-3'>
               <strong>¿TENÉS ALGUNA DUDA?</strong>
             </h4>
@@ -50,7 +50,7 @@ const Footer = () => {
                 </p>
               </a>
             </div>
-            <h4 className='sombreado titulo p-3'>
+            <h4 className='sombreado titulo p-4'>
               <strong>¡SEGUINOS AHORA!</strong>
             </h4>
             <div>
