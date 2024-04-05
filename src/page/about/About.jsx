@@ -1,10 +1,10 @@
 import CardAbout from "../../components/about/CardAbout.jsx";
 import './styleAbout.css';
-import imagenAndrea from '../../resource/media/img-about/img-andrea.png';
-import imagenGeorgina from '../../resource/media/img-about/img-georgina.png';
-import imagenJeremias from '../../resource/media/img-about/img-jeremias.png';
-import imagenBraian from '../../resource/media/img-about/img-braian.png';
-import imagenCristian from '../../resource/media/img-about/img-cristian.png';
+import imagenAndrea from '../../assets/resource/media/img-about/img-andrea.png';
+import imagenGeorgina from '../../assets/resource/media/img-about/img-georgina.png';
+import imagenJeremias from '../../assets/resource/media/img-about/img-jeremias.png';
+import imagenBraian from '../../assets/resource/media/img-about/img-braian.png';
+import imagenCristian from '../../assets/resource/media/img-about/img-cristian.png';
 import { FaEnvelope } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
 import { FaLinkedinIn } from 'react-icons/fa';
