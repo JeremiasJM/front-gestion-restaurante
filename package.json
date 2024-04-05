@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
-    "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "nodemailer": "^6.9.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {

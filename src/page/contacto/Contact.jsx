@@ -1,8 +1,7 @@
 import React from "react";
 import "./contact.css";
-
-
-
+import { MdAttachEmail } from "react-icons/md";
+import { BsFillTelephoneForwardFill } from "react-icons/bs";
 
 const Contact = () => {
   return (
@@ -10,7 +9,7 @@ const Contact = () => {
       <section className="container-md align-items-center justify-content-center">
         <article className="row justify-content-center contact__container">
           <div className="col-12">
-            <h2 className="text-center titulo py-2">En que Podemos Ayudarte</h2>
+            <h2 className="text-center titulo py-2">¿En qué podemos ayudarte?</h2>
             <h4 className="text-center subtitulo ">
               No dudes en ponerte en contacto con nosotros si tienes dudas o
               sugerencias.
@@ -55,7 +54,7 @@ const Contact = () => {
               </label>
               <div className="input-group has-validation">
                 <span className="input-group-text" id="inputGroupPrepend">
-                  <i className="bi bi-envelope" />
+                <MdAttachEmail className="fs-4"  />
                 </span>
                 <input
                   aria-describedby="inputGroupPrepend"
@@ -76,7 +75,7 @@ const Contact = () => {
               </label>
               <div className="input-group has-validation">
                 <span className="input-group-text" id="inputGroupPrepend">
-                  <i className="bi bi-telephone" />
+                <BsFillTelephoneForwardFill className="fs-5" />
                 </span>
                 <input
                   aria-describedby="inputGroupPrepend"
@@ -114,7 +113,7 @@ const Contact = () => {
             </div>
             <div className="col-12 my-4 d-flex align-self-center justify-content-center">
               <button
-                className="btn contact__form__btnSubmit Light w-50"
+                className="btn contact__form__btnSubmit Light w-50 button-enviar"
                 type="submit"
               >
                 Enviar
@@ -125,7 +124,7 @@ const Contact = () => {
         <article className="row mt-2 contact__sucursales border-subtle">
           <div className="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center contact__sucursales__text">
             <h2 className="text-center">Conoce nuestras sucursales</h2>
-            <i className="bi bi-globe-americas" />
+            <i className="bi bi-globe-americas parrafo" />
             <p>Av. Juan Domingo Perón 1800</p>
             <p>Yerba Buena, Tucumán</p>
           </div>
@@ -151,5 +150,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
