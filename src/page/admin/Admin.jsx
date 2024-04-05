@@ -15,7 +15,7 @@ const Admin = () => {
                   <th scope="col">Usuario</th>
                   <th scope="col">Mail</th>
                   <th scope="col" className="text-end">
-                    Accion
+                    Acción
                   </th>
                 </tr>
               </thead>
