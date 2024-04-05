@@ -1,9 +1,11 @@
-import Error404 from "./page/error404/Error404";
+import Rutas from "../src/components/routes/Rutas";
+// import Error404 from "../src/page/error404/Error404";
 
 function App() {
   return (
     <>
-      <Error404 />
+      <Rutas />
+      {/* <Error404 /> */}
     </>
   );
 }
