@@ -1,9 +1,15 @@
-import Rutas from "../src/components/routes/Rutas";
+
+
+import Rutas from "./components/routes/Rutas";
+import Error404 from "./page/error404/Error404";
+
 
 function App() {
   return (
     <>
-      <Rutas />
+
+      <Rutas/>
+      <Error404 />
     </>
   );
 }
