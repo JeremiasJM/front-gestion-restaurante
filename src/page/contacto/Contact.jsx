@@ -21,7 +21,7 @@ const Contact = () => {
                 Nombre
               </label>
               <input
-                className="form-control bg-transparent "
+                className="form-control input-contacto"
                 defaultValue=""
                 id="validationName"
                 maxLength="20"
@@ -37,7 +37,7 @@ const Contact = () => {
                 Apellido
               </label>
               <input
-                className="form-control bg-transparent "
+                className="form-control input-contacto "
                 defaultValue=""
                 id="validationLastName"
                 maxLength="20"
@@ -53,12 +53,12 @@ const Contact = () => {
                 Correo
               </label>
               <div className="input-group has-validation">
-                <span className="input-group-text" id="inputGroupPrepend">
-                <MdAttachEmail className="fs-4"  />
+                <span className="input-group-text bg-transparent" id="inputGroupPrepend">
+                <MdAttachEmail className="fs-4 icono-contacto"  />
                 </span>
                 <input
                   aria-describedby="inputGroupPrepend"
-                  className="form-control bg-transparent "
+                  className="form-control input-contacto "
                   id="validationEmail"
                   maxLength="100"
                   minLength="3"
@@ -74,12 +74,12 @@ const Contact = () => {
                 Telefono
               </label>
               <div className="input-group has-validation">
-                <span className="input-group-text" id="inputGroupPrepend">
-                <BsFillTelephoneForwardFill className="fs-5" />
+                <span className="input-group-text bg-transparent" id="inputGroupPrepend">
+                <BsFillTelephoneForwardFill className="fs-5 icono-contacto" />
                 </span>
                 <input
                   aria-describedby="inputGroupPrepend"
-                  className="form-control bg-transparent "
+                  className="form-control input-contacto "
                   id="validationPhone"
                   maxLength="20"
                   minLength="8"
@@ -93,7 +93,7 @@ const Contact = () => {
             </div>
             <div className="col-12 form-floating mt-4">
               <textarea
-                className="form-control bg-transparent  "
+                className="form-control input-contacto "
                 id="validationMessage"
                 maxLength="300"
                 minLength="5"
