@@ -1,6 +1,5 @@
 import './galeria.css';
 import 'animate.css';
-
 const Galeria = () => {
   return (
     <>
