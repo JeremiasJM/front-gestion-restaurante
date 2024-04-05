@@ -20,12 +20,13 @@ nav .container-fluid{
 	border: 1px solid var(--bg-color-primary);
 }
 .navbar-nav .nav-link.active{
-	color: var(--bg-color-primary);
+	color: var(--font-color-primary);
 	font-family: var(--font-family-subtitle);
 }
 .navbar-nav .nav-link.active:hover{
 	color: var(--font-color-primary);
 	font-weight: 600;
+	text-decoration: underline;
 }
 
 .navbar-toggler{
