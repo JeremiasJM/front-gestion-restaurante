@@ -14,7 +14,7 @@ const Rutas = () => {
         <Route path='*' element={<Error404 />} />
       </Routes>
     </>
-  )
-}
+  );
+};
 
-export default Rutas
+export default Rutas;
