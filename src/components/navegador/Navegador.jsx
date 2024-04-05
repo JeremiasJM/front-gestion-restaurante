@@ -1,84 +1,112 @@
 import React from "react";
-import './navegador.css';
-import logo from '../../resource/media/img-logo/logo-sin-bg.png';
-
+import "./navegador.css";
+import logo from "../../resource/media/img-logo/logo-sin-bg.png";
+import { Link } from "react-router-dom";
 
 const Navegador = () => {
   return (
     <>
-      <nav className="navbar bg-body-tertiary sticky-top">
-        <div className="container-fluid ">
-          <a className="navbar-brand" href="">
-            <img
-              alt="logo de Rolling Food Reservas"
-              className="navbar__logo"
-              src={logo}
-            />
-          </a>
-          <a className="navbar-brand" href="#">
-        
-        
-          </a>
-          <button
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-            className="navbar-toggler"
-            data-bs-target="#offcanvasNavbar"
-            data-bs-toggle="offcanvas"
-            type="button"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div
-            aria-labelledby="offcanvasNavbarLabel"
-            className="offcanvas offcanvas-end"
-            id="offcanvasNavbar"
-            tabIndex="-1"
-          >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-              
-              </h5>
-              <button
-                aria-label="Close"
-                className="btn-close"
-                data-bs-dismiss="offcanvas"
-                type="button"
-              />
-            </div>
-            <div className="offcanvas-body">
-              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li className="nav-item">
-                  <a aria-current="page" className="nav-link active" href="#">
-                    Home
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Reservas
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Nosotros
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Contacto
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Login
-                  </a>
-                </li>
-              </ul>
-             
+      <header className="container-fluid">
+        <nav class="navbar bg-body-css fixed-top">
+          <div class="container-fluid ">
+            <Link class="navbar-brand" to="/home">
+              <img src={logo} alt="logo" />
+            </Link>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+              aria-label="Toggle navigation"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-list"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+                />
+              </svg>
+            </button>
+            <div
+              class="offcanvas offcanvas-end"
+              tabindex="-1"
+              id="offcanvasNavbar"
+              aria-labelledby="offcanvasNavbarLabel"
+            >
+              <div class="offcanvas-header">
+                <h5
+                  class="offcanvas-title text-uppercase"
+                  id="offcanvasNavbarLabel"
+                >
+                  Rolling Food
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <Link
+                      class="nav-link active  text-uppercase"
+                      aria-current="page"
+                      to="/Inicio"
+                    >
+                      Inicio
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link
+                      class="nav-link active  text-uppercase"
+                      aria-current="page"
+                      to="/Reserva"
+                    >
+                      Reserva
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link
+                      class="nav-link active  text-uppercase"
+                      aria-current="page"
+                      to="/Galeria"
+                    >
+                      Galeria
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link
+                      class="nav-link active  text-uppercase"
+                      aria-current="page"
+                      to="/Nosotros"
+                    >
+                      Nosotros
+                    </Link>
+                    <li class="nav-item">
+                      <Link
+                        class="nav-link active  text-uppercase"
+                        aria-current="page"
+                        to="/Contacto"
+                      >
+                        Contacto
+                      </Link>
+                    </li>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
     </>
   );
 };
