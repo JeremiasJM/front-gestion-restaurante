@@ -1,5 +1,5 @@
-import React from "react";
 import "./admin.css";
+
 const Admin = () => {
   return (
     <>
@@ -7,7 +7,7 @@ const Admin = () => {
         <h1 className="text-center">Panel Administrador</h1>
 
         <section className="pt-3 pb-3">
-          <h2 className="text-center p-2">Gestion Usuarios</h2>
+          <h2 className="text-center p-2">Gestión Usuarios</h2>
           <div className="table-responsive">
             <table className="table table-bordered">
               <thead>
@@ -55,7 +55,7 @@ const Admin = () => {
           </div>
         </section>
         <section>
-          <h2 className="text-center">Gestion Reservas</h2>
+          <h2 className="text-center">Gestión Reservas</h2>
           <div className="table-responsive">
             <table className="table table-bordered">
               <thead>
@@ -67,7 +67,7 @@ const Admin = () => {
                   <th scope="col">Comensales</th>
 
                   <th scope="col" className="text-end">
-                    Accion
+                    Acción
                   </th>
                 </tr>
               </thead>

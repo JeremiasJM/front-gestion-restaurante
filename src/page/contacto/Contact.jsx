@@ -9,7 +9,7 @@ const Contact = () => {
       <section className="container-md align-items-center justify-content-center">
         <article className="row justify-content-center contact__container">
           <div className="col-12">
-            <h2 className="text-center titulo py-2">¿En qué podemos ayudarte?</h2>
+            <h2 className="text-center titulo py-2 text-decoration-none">¿En qué podemos ayudarte?</h2>
             <h4 className="text-center subtitulo ">
               No dudes en ponerte en contacto con nosotros si tienes dudas o
               sugerencias.
