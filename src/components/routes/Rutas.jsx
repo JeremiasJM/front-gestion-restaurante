@@ -6,6 +6,7 @@ import Error404 from '../../page/error404/Error404.jsx';
 import Register from "../../page/register/Register";
 import Home from '../../page/home/Home';
 import Contact from '../../page/contacto/Contact';
+import About from '../../page/about/About'
 
 
 const Rutas = () => {
@@ -18,6 +19,7 @@ const Rutas = () => {
         <Route path='/register' element={<Register />} />
         <Route path='/' element={<Home />} />
         <Route path='/contacto' element={<Contact />} />
+        <Route path='/About' element={<About />} />
       </Routes>
 
 
