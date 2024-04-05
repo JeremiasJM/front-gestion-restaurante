@@ -1,0 +1,73 @@
+ body{
+	background: var(--bg-color-secondary);
+	background: -webkit-linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
+	background: linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
+	} 
+
+.contact__container {
+background: var(--bg-color-secondary);
+  background: -webkit-linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
+  background: linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
+}
+
+
+ body{
+	background: var(--bg-colo--aqua);
+	} 
+.form-label,
+.contact__textarea__mensaje {
+	color: var(--font-color-primary);
+}
+
+form div .form-control {
+	border-color: var(--font-color-primary);
+	border-radius: 0;
+	border-bottom: 1px solid var(--font-color-primary);
+}
+
+.contact__form__btnSubmit {
+	background-color: var(--font-color-primary);
+	color: var(--color-background);
+}
+
+.contact__form__btnSubmit:hover,
+.contact__form__btnSubmit:active {
+	background-color: var(--font-color-tertiary);
+	color: var(--color-background);	
+	transition: all 0.5s ease-in-out;
+}
+
+.contact__sucursales {
+	height: 15rem;
+}
+
+.contact__sucursales__text {
+	background-color: var(--font-color-tertiary);
+	opacity: 0.9;
+}
+
+.contact__sucursales__text p {
+	font-family: var(--font-secundaria);
+}
+
+@media screen and (min-width: 768px) {
+	.form-label,
+	.contact__textarea__mensaje {
+		font-size: 1.2rem;
+	}
+}
+
+.button-enviar{
+	background-color: #c9932e ;
+	color: #fff;
+	border: 2px solid #8a631c;
+	border-radius: 10px;
+	
+}
+.icono-contacto{
+	color: var(--font-color-primary);
+}
+
+.input-contacto{
+	background-color: var(--bottom-color-beige);
+}

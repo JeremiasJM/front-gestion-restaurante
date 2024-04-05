@@ -1,6 +1,6 @@
-import React from "react";
 import './galeria.css';
-import 'animate.css'
+// import 'animate.css';
+
 const Galeria = () => {
   return (
     <>
