@@ -1,5 +1,5 @@
 .bg_register{
-    background-image: url(/src/assets/backgraundRegister.png);
+  background-image: url(/src/assets/resource/media/img-register/backgraundRegister.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -9,12 +9,11 @@
 	padding: 2rem 0;
 	align-items: center;
 	min-height: 100vh;
-
 }
 
 .card_register{
-    border: 0.2rem var(--bg-color-primary) solid;
-    border-radius: 5%;
+  border: 0.2rem var(--bg-color-primary) solid;
+  border-radius: 5%;
 	background-color: rgb(232, 182, 89, 0.5);
 	width: 75%;
 }
@@ -28,7 +27,7 @@
 }
 
 .border-warning {
-    border: 2px solid #8a631c;
+  border: 2px solid #8a631c;
 }
 
 .button-login{
@@ -36,11 +35,10 @@
 	color: #fff;
 	border: 2px solid #8a631c;
 	border-radius: 10px;
-	
 }
 
 .btn .btn-warning{
-    background-color: #c9932e ;
+  background-color: #c9932e ;
 	color: #fff;
 	border: 2px solid #8a631c;
 }

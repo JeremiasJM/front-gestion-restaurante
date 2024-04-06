@@ -1,4 +1,3 @@
-import React from "react";
 import "./contact.css";
 import { MdAttachEmail } from "react-icons/md";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
@@ -6,7 +5,7 @@ import { BsFillTelephoneForwardFill } from "react-icons/bs";
 const Contact = () => {
   return (
     <>
-      <section className="container-md align-items-center justify-content-center">
+      <section className="container-md align-items-center justify-content-center mt-4">
         <article className="row justify-content-center contact__container">
           <div className="col-12">
             <h2 className="text-center titulo py-2 text-decoration-none">¿En qué podemos ayudarte?</h2>

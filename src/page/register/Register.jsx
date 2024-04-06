@@ -121,9 +121,8 @@ const Register = ({ tipo }) => {
                 type="submit"
               >
                 Registrarse
-              </Button>
+            </Button>
 
-              
           </Form>
         </Col>
       </Row>

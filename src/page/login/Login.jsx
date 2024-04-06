@@ -1,8 +1,8 @@
 import { Form, Button, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
-import iconUsers from "../../resource/media/iconos/icons-user.png";
-import iconPassword from "../../resource/media/iconos/icons-password.png";
+import iconUsers from "../../assets/resource/media/iconos/icons-user.png";
+import iconPassword from "../../assets/resource/media/iconos/icons-password.png";
 import { useNavigate } from "react-router";
 import Register from "../../page/register/Register"
 
@@ -14,7 +14,7 @@ const Login = () => {
       <div className="bg_login d-flex justify-content-center align-items-center vh-100">
         <div className="card_login px-4 shadow p-1 p-md-5 mt-5 ">
           <div>
-            <div className="text-center titulo">Inicia Sesion</div>
+            <div className="text-center titulo">Inicia Sesión</div>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <div className="input-group mt-3">
@@ -53,7 +53,7 @@ const Login = () => {
                 variant=""
                 type="submit"
               >
-                Iniciar Sesion
+                Iniciar Sesión
               </Button>
             </Form>
           </div>
