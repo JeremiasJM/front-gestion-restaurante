@@ -1,19 +1,7 @@
- body{
-	background: var(--bg-color-secondary);
-	background: -webkit-linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
-	background: linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
-	} 
-
-.contact__container {
-background: var(--bg-color-secondary);
-  background: -webkit-linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
-  background: linear-gradient(to right, var(--bg-color-tertiary), var(--bg-color-primary));
+body {
+	background: var(--bg-colo--aqua);
 }
 
-
- body{
-	background: var(--bg-colo--aqua);
-	} 
 .form-label,
 .contact__textarea__mensaje {
 	color: var(--font-color-primary);
@@ -64,6 +52,7 @@ form div .form-control {
 	border-radius: 10px;
 	
 }
+
 .icono-contacto{
 	color: var(--font-color-primary);
 }

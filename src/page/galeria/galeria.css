@@ -60,13 +60,16 @@ h2 {
   width: 18rem;
   padding: 0.5rem 1rem;
 }
+
 .cardReview img {
   border-radius: 50%;
   height: 300px;
 }
+
 .hoverCard img {
   transition: 2s;
 }
+
 .hoverCard:hover {
   border-radius: 8px;
   box-shadow: 7px 7px 14px #e0b047, -7px -7px 14px #ffe05b;

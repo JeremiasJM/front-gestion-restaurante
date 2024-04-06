@@ -5,7 +5,7 @@ const Galeria = () => {
   return (
     <>
       <section  className="container">
-        <h2 className="text-center pt-5 animate__animated  animate__zoomInDown ">Un Poco de Nosotros</h2>
+        <h2 className="text-center pt-5 animate__animated  animate__zoomInDown text-decoration-none mb-5">Un Poco de Nosotros</h2>
         <article className="container text-center mt-4">
           <div className="grid-gallery">
             <a className="grid-gallery__item animate__animated  animate__tada">
