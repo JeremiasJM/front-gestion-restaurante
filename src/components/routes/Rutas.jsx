@@ -1,5 +1,8 @@
 
 import { Route, Routes } from 'react-router-dom'
+
+import Login from "../../page/login/Login"
+
 import Galeria from '../../page/galeria/Galeria'
 import Admin from '../../page/admin/Admin'
 import Error404 from '../../page/error404/Error404.jsx';
@@ -9,9 +12,13 @@ import Contact from '../../page/contacto/Contact';
 import About from '../../page/about/About'
 
 
+
 const Rutas = () => {
   return (
     <>
+
+    
+
       <Routes>
         <Route path='*' element={<Error404 />} />
         <Route path='/galeria' element={<Galeria />} />
@@ -19,8 +26,10 @@ const Rutas = () => {
         <Route path='/register' element={<Register />} />
         <Route path='/' element={<Home />} />
         <Route path='/contacto' element={<Contact />} />
-        <Route path='/About' element={<About />} />
+        <Route path='/About' element={<About />} /> 
+          <Route path='/login' element={ <Login/> } />
       </Routes>
+
 
 
     </>
