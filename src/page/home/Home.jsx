@@ -1,11 +1,14 @@
+
 import { Carousel, Card } from 'react-bootstrap';
 import flyer1 from '../../assets/resource/media/img-carousel/flyer-principal.png';
 import flyer2 from '../../assets/resource/media/img-carousel/flyer-secundario.png';
 import './home.css';
 
+
 const Home = () => {
   return (
     <>
+
       <Carousel style={{ width: '75%', margin: '3% auto' }}>
         <Carousel.Item>
           <img
@@ -46,3 +49,4 @@ const Home = () => {
 }
 
 export default Home
+

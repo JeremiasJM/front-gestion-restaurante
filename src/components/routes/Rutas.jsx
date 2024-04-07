@@ -8,9 +8,11 @@ import Home from '../../page/home/Home';
 import Contact from '../../page/contacto/Contact';
 import About from '../../page/about/About'
 
+
 const Rutas = () => {
   return (
     <>
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<Error404 />} />
@@ -21,6 +23,7 @@ const Rutas = () => {
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
       </Routes>
+
     </>
   );
 };
