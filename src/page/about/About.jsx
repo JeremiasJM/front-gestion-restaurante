@@ -1,4 +1,4 @@
-import CardAbout from "../../components/about/CardAbout.jsx";
+import CardAbout from '../../components/about/CardAbout.jsx';
 import './styleAbout.css';
 import imagenAndrea from '../../assets/resource/media/img-about/img-andrea.png';
 import imagenGeorgina from '../../assets/resource/media/img-about/img-georgina.png';

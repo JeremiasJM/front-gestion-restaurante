@@ -1,6 +1,6 @@
-import "./contact.css";
-import { MdAttachEmail } from "react-icons/md";
-import { BsFillTelephoneForwardFill } from "react-icons/bs";
+import './contact.css';
+import { MdAttachEmail } from 'react-icons/md';
+import { BsFillTelephoneForwardFill } from 'react-icons/bs';
 
 const Contact = () => {
   return (
@@ -53,7 +53,7 @@ const Contact = () => {
               </label>
               <div className="input-group has-validation">
                 <span className="input-group-text bg-transparent" id="inputGroupPrepend">
-                <MdAttachEmail className="fs-4 icono-contacto"  />
+                  <MdAttachEmail className="fs-4 icono-contacto" />
                 </span>
                 <input
                   aria-describedby="inputGroupPrepend"
@@ -74,7 +74,7 @@ const Contact = () => {
               </label>
               <div className="input-group has-validation">
                 <span className="input-group-text bg-transparent" id="inputGroupPrepend">
-                <BsFillTelephoneForwardFill className="fs-5 icono-contacto" />
+                  <BsFillTelephoneForwardFill className="fs-5 icono-contacto" />
                 </span>
                 <input
                   aria-describedby="inputGroupPrepend"
@@ -122,28 +122,28 @@ const Contact = () => {
         </article>
         <article className="row mt-2 contact__sucursales border-subtle">
           <div className="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center contact__sucursales__text">
-            <h2 className="text-center">Conoce nuestras sucursales</h2>
+            <h2 className="text-center text-decoration-none mb-3">Conoce nuestras sucursales</h2>
             <i className="bi bi-globe-americas parrafo" />
-            <p>Av. Juan Domingo Perón 1800</p>
-            <p>Yerba Buena, Tucumán</p>
+            <p>Gral. Paz 576</p>
+            <p>San Miguel de Tucumán - Argentina</p>
           </div>
 
           <div className="col-12 col-md-8 mt-2 mt-md-0 ps-md-0">
-          <iframe
-                allowFullScreen
-                height="100%"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.262682594325!2d-65.2930908!3d-26.799763300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942242ceb5fd108f%3A0x9a698fce9e76eda4!2sAv.%20Juan%20Domingo%20Per%C3%B3n%201800%2C%20T4107%20Yerba%20Buena%2C%20Tucum%C3%A1n!5e0!3m2!1ses-419!2sar!4v1711936128819!5m2!1ses-419!2sar"
-                style={{
-                  border: '0'
-                }}
-                width="100%"
-              />
+            <iframe
+              allowFullScreen
+              height="100%"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.262682594325!2d-65.2930908!3d-26.799763300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942242ceb5fd108f%3A0x9a698fce9e76eda4!2sAv.%20Juan%20Domingo%20Per%C3%B3n%201800%2C%20T4107%20Yerba%20Buena%2C%20Tucum%C3%A1n!5e0!3m2!1ses-419!2sar!4v1711936128819!5m2!1ses-419!2sar"
+              style={{
+                border: '0'
+              }}
+              width="100%"
+            />
           </div>
         </article>
       </section>
-      
+
     </>
   );
 };

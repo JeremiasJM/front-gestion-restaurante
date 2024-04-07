@@ -1,7 +1,6 @@
-import React from "react";
-import "./navegador.css";
-import logo from "../../resource/media/img-logo/logo-sin-bg.png";
-import { Link } from "react-router-dom";
+import './navegador.css';
+import logo from '../../assets/resource/media/img-logo/logo-sin-bg.png';
+import { Link } from 'react-router-dom';
 
 const Navegador = () => {
   return (
@@ -9,7 +8,7 @@ const Navegador = () => {
       <header className="container-fluid">
         <nav class="navbar bg-body-css fixed-top">
           <div class="container-fluid ">
-            <Link class="navbar-brand" to="/home">
+            <Link class="navbar-brand" to="/">
               <img src={logo} alt="logo" />
             </Link>
             <button
@@ -60,7 +59,7 @@ const Navegador = () => {
                     <Link
                       class="nav-link active  text-uppercase"
                       aria-current="page"
-                      to="/Inicio"
+                      to="/"
                     >
                       Inicio
                     </Link>
@@ -87,7 +86,7 @@ const Navegador = () => {
                     <Link
                       class="nav-link active  text-uppercase"
                       aria-current="page"
-                      to="/Nosotros"
+                      to="/About"
                     >
                       Nosotros
                     </Link>

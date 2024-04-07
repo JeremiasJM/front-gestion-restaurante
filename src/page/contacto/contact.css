@@ -1,7 +1,3 @@
-body {
-	background: var(--bg-colo--aqua);
-}
-
 .form-label,
 .contact__textarea__mensaje {
 	color: var(--font-color-primary);

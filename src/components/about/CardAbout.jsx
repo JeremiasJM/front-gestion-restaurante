@@ -1,5 +1,5 @@
 import './CardAbout.css';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const CardAbout = (props) => {
   return (

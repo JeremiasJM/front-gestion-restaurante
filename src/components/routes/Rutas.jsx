@@ -1,18 +1,16 @@
-import { Route, Routes } from 'react-router-dom'
-import Login from "../../page/login/Login"
-import Galeria from '../../page/galeria/Galeria'
-import Admin from '../../page/admin/Admin'
+import { Route, Routes } from 'react-router-dom';
+import Login from "../../page/login/Login";
+import Galeria from '../../page/galeria/Galeria';
+import Admin from '../../page/admin/Admin';
 import Error404 from '../../page/error404/Error404.jsx';
 import Register from "../../page/register/Register";
 import Home from '../../page/home/Home';
 import Contact from '../../page/contacto/Contact';
-import About from '../../page/about/About'
-
+import About from '../../page/about/About';
 
 const Rutas = () => {
   return (
     <>
-
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<Error404 />} />
@@ -23,7 +21,6 @@ const Rutas = () => {
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
       </Routes>
-
     </>
   );
 };

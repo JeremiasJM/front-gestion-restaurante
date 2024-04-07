@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
-import "./Register.css"
+import { useState } from 'react';
+import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
+import './Register.css';
 
 const Register = ({ tipo }) => {
   const [usuario, setUsuario] = useState({
