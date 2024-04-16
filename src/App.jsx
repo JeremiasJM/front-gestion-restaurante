@@ -1,11 +1,13 @@
-import Rutas from "../src/components/routes/Rutas";
-// import Error404 from "../src/page/error404/Error404";
+import Rutas from './components/routes/Rutas';
+import Footer from './components/footer/Footer';
+import Navegador from './components/navegador/Navegador';
 
 function App() {
   return (
     <>
+      <Navegador />
       <Rutas />
-      {/* <Error404 /> */}
+      <Footer />
     </>
   );
 }

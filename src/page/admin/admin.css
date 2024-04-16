@@ -1,0 +1,15 @@
+h1 {
+  color: var(--font-color-primary);
+  font-weight: 800;
+}
+
+h2 {
+  font-family: var(--font-family-subtitle);
+  color: var(--font-color-primary);
+  text-decoration: underline;
+}
+
+.table {
+  --bs-table-bg: var(--bg-color-secundary);
+  --bs-table-border-color: var(--font-color-primary);
+}

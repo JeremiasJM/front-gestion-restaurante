@@ -1,0 +1,42 @@
+nav .container-fluid {
+  flex-wrap: nowrap !important;
+}
+
+.bg-body-css {
+  background-color: var(--bottom-color-beige);
+}
+
+.bg-body-css img {
+  width: 35%;
+}
+
+.offcanvas {
+  background-color: var(--bottom-color-beige);
+}
+
+.offcanvas-title {
+  color: var(--font-color-primary);
+  font-family: var(--font-family-title);
+  font-weight: 700;
+}
+
+.offcanvas-header {
+  margin: .5rem;
+  border: 1px solid var(--bg-color-primary);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--font-color-primary);
+  font-family: var(--font-family-subtitle);
+}
+
+.navbar-nav .nav-link.active:hover {
+  color: var(--font-color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.navbar-toggler {
+  color: var(--font-color-primary);
+  border: 1px solid var(--font-color-primary);
+}

@@ -4,7 +4,7 @@
 	--bg-color-white: #ffffff;
 	--bg-color-primary: #e8b659;
 	--bg-color-secondary: #efe7df;
-	--bg-color-tertiary:#f9f8f0;
+	--bg-color-tertiary: #f9f8f0;
 
 	--font-color-primary: #8A6113;
 	--font-color-secondary: #ffffff;
@@ -12,16 +12,16 @@
 
 	--bottom-color-green: #1c7323;
 	--bottom-color-red: #a52a2a;
-	--bottom-color-blue:#08266f;
+	--bottom-color-blue: #08266f;
 	--bottom-color-white: #ffffff;
 	--bottom-color-aqua: #ACEBE0;
 	--bottom-color-beige: #F8F8F5;
-	--bottom-color-brown:#8A6113;
-    --bottom-color-lightblue: #0F3E8D;
+	--bottom-color-brown: #8A6113;
+	--bottom-color-lightblue: #0F3E8D;
 
-	--font-family-title:"Montserrat", sans-serif;
-	--font-family-subtitle:"Lora", serif;
-	--font-family-paragraph:"Hind Madurai", sans-serif;
+	--font-family-title: "Montserrat", sans-serif;
+	--font-family-subtitle: "Lora", serif;
+	--font-family-paragraph: "Hind Madurai", sans-serif;
 	--font-size-title: 2rem;
 	--font-size-title-tablet: 2.5rem;
 	--font-size-title-desktop: 3rem;

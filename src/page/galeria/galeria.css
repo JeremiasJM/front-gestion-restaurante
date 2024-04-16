@@ -1,0 +1,186 @@
+h2 {
+  font-family: var(--font-family-subtitle);
+  font-size: var(--font-size-title);
+}
+
+.grid-gallery {
+  display: grid;
+  grid-auto-rows: 200px;
+  gap: 1rem;
+  grid-auto-flow: row dense;
+}
+
+.grid-gallery__item:nth-child(11n + 1) {
+  grid-column: span 1;
+}
+
+.grid-gallery__item:nth-child(11n + 4) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.grid-gallery__item:nth-child(11n + 6) {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.grid-gallery__item:nth-child(11n + 7) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.grid-gallery__item:nth-child(11n + 8) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.grid-gallery__item:nth-child(11n + 9) {
+  grid-row: span 3;
+}
+
+.grid-gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-slider-review-left {
+  left: -50px;
+}
+.gradiendCardReview {
+  background: rgb(18, 22, 24);
+  background: linear-gradient(
+    0deg,
+    rgba(18, 22, 24, 1) 0%,
+    rgba(255, 200, 81, 0.48503151260504207) 100%
+  );
+}
+
+.cardReview {
+  width: 18rem;
+  padding: 0.5rem 1rem;
+}
+
+.cardReview img {
+  border-radius: 50%;
+  height: 300px;
+}
+
+.hoverCard img {
+  transition: 2s;
+}
+
+.hoverCard:hover {
+  border-radius: 8px;
+  box-shadow: 7px 7px 14px #e0b047, -7px -7px 14px #ffe05b;
+}
+
+.hoverCard:hover img {
+  transform: scale(1.3);
+  transition: 2s;
+}
+
+.slider-review {
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+
+.slide-track-review {
+  overflow: hidden;
+  animation: scroll-review 60s linear infinite;
+  white-space: wrap;
+  display: flex;
+  flex-direction: row;
+  width: calc(17vw * 40);
+}
+.slide-track-review:hover {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+.scrollFadeAnimation {
+  view-timeline-name: --scrollFade;
+  view-timeline-axis: block;
+  animation-timeline: --scrollFade;
+  animation-name: show;
+  animation-range: entry 10% cover 50%;
+  animation-fill-mode: both;
+}
+
+@keyframes scroll-review {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-17vw * 7));
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    scale: 25%;
+  }
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
+
+@media all and (min-width: 320px) {
+  .grid-gallery {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .gradiendCardReview img {
+    height: 200px;
+  }
+  .cardReview {
+    width: 15rem;
+    padding: 0.1rem 0.1rem;
+  }
+  .cardReview im {
+    height: 200px;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .grid-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .imgSliderBanner {
+    height: 100vh;
+  }
+
+  .title {
+    font-size: var(--font-size-title-tablet);
+  }
+  .subtitle {
+    font-size: var(--font-size-subtitle-tablet);
+  }
+
+  .paragraph {
+    font-size: var(--font-size-parrafo-tablet);
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .grid-gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .title {
+    font-size: var(--font-size-title-desktop);
+  }
+  .subtitle {
+    font-size: var(--font-size-subtitle-desktop);
+  }
+  .paragraph {
+    font-size: var(--font-size-parrafo-desktop);
+  }
+}
