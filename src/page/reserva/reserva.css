@@ -1,0 +1,8 @@
+.reservaPage{
+    margin-top: 8%;
+}
+.seccion-reserva{
+    
+    border-radius: 1rem;
+    border: 0.3rem solid var(--bottom-color-brown);
+}
