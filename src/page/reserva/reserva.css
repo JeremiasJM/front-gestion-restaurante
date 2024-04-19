@@ -6,3 +6,16 @@
     border-radius: 1rem;
     border: 0.3rem solid var(--bottom-color-brown);
 }
+
+ @media (max-width: 994px) {
+	
+	.reservaPage {
+       
+		display: flex !important;
+		flex-direction: column;
+
+	}
+	.reservaPage.col{
+        width: 100%;
+    }
+} 
