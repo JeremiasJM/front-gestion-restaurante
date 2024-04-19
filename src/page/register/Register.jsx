@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import './Register.css';
+import { UsersProvider } from '../../context/UsersContext';
+import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
-const Register = ({ tipo }) => {
+const Register = () => {
+  const { createUser, usuarios} = useContext(UsersProvider);
+  const navigate = useNavigate();
+
   const [usuario, setUsuario] = useState({
-    id: "",
     nombre: "",
     apellido: "",
     email: "",
@@ -22,16 +27,42 @@ const Register = ({ tipo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(usuario, "<-- Usuario a enviar");
+    const existe = usuarios.find((user) => user.email === usuario.email);
 
-    setUsuario({
-      id: "",
-      nombre: "",
-      apellido: "",
-      email: "",
-      password: "",
-      admin: false,
-    });
+    if(usuario.nombre.length !== 0 && usuario.apellido.length !== 0 && usuario.password.length !== 0 && !existe){
+      
+      console.log(usuarios, "<--usuarios Register");
+
+      createUser(usuario);
+      
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Usuario registrado!",
+        showConfirmButtom: false,
+        timer: 1500,
+      });
+
+      setUsuario({
+        nombre: "",
+        apellido: "",
+        email: "",
+        password: "",
+        admin: false,
+      });
+      navigate("/");
+
+    }else{
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Verifique e ingrese correctamente todos los datos, por favor.",
+        showConfirmButtom: false,
+        timer: 1500,
+      });
+      console.error("Verifique e ingrese correctamente todos los datos, por favor.");
+    }
+
   };
 
   return (
