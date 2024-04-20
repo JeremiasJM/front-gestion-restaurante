@@ -33,7 +33,7 @@ const ReservaContext = ( {children }) => {
     const deleteReserve = async (id) =>{
         try{
             await axios.delete('');
-            setReserva(reserva.filter((reserva) => reserva.id !== id));
+            setReserve(reserve.filter((reserva) => reserva.id !== id));
         } catch (error){
             console.log(error)
         }
