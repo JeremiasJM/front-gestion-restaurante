@@ -1,13 +1,16 @@
-import Rutas from './components/routes/Rutas';
-import Footer from './components/footer/Footer';
-import Navegador from './components/navegador/Navegador';
+import Rutas from "./components/routes/Rutas";
+import Footer from "./components/footer/Footer";
+import Navegador from "./components/navegador/Navegador";
+import ReservaContext from "./context/ReserveContext";
 
 function App() {
   return (
     <>
-      <Navegador />
-      <Rutas />
-      <Footer />
+      <ReservaContext>
+        <Navegador />
+        <Rutas />
+        <Footer />
+      </ReservaContext>
     </>
   );
 }

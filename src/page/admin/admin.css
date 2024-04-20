@@ -13,3 +13,10 @@ h2 {
   --bs-table-bg: var(--bg-color-secundary);
   --bs-table-border-color: var(--font-color-primary);
 }
+.loading{
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8A6113;
+}
