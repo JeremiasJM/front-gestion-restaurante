@@ -46,3 +46,11 @@
 .--bs-warning-bg-subtle{
 	background-color: #c9932e ;
 }
+
+.labels{
+	color: var(--font-color-primary);
+}
+
+.input-group-text{
+	background-color: rgb(248, 249, 250);
+}
