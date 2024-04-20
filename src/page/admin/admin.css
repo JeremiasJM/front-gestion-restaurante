@@ -20,3 +20,6 @@ h2 {
   align-items: center;
   color: #8A6113;
 }
+.suspended-row {
+  background-color: #a52a2a; /* Cambia este valor al color gris oscuro que desees */
+}

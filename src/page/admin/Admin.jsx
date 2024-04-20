@@ -3,6 +3,7 @@ import "./admin.css";
 import Swal from "sweetalert2";
 import { ReservaProvider } from "../../context/ReserveContext";
 import { PulseLoader } from "react-spinners";
+import { UsersProvider } from "../../context/UsersContext";
 
 const Admin = () => {
   const { reservas, updateReserva, loading, deleteReserva } =
@@ -15,6 +16,14 @@ const Admin = () => {
   const [comensales, setComensales] = useState("");
   const [validationError, setValidationError] = useState(false);
 
+  const { usuarios, updateUser, deleteUser, disableUser ,enableUser} =
+    useContext(UsersProvider);
+  const [modalData2, setModalData2] = useState(null);
+  const [usuario, setUsuario] = useState("");
+  const [apellidoUser, setApellidoUser] = useState("");
+  const [mail, setMail] = useState("");
+
+  //reservas
   const extractDate = (isoDateString) => {
     const dateOnly = isoDateString.split("T")[0];
     return dateOnly;
@@ -59,7 +68,7 @@ const Admin = () => {
       return;
     }
 
-    console.log(reservas);
+   
     //entra a las reservas y valida que ninguna de las otras reservas tengan el mismo dia y hora
     for (let i = 0; i < reservas.length; i++) {
       const reserva = reservas[i];
@@ -94,7 +103,7 @@ const Admin = () => {
       if (result.isConfirmed) {
         updateReserva(_id, updatedReserva)
           .then((response) => {
-            console.log("Reserva actualizada:", response);
+           
             setNombre("");
             setApellido("");
             setFecha("");
@@ -117,7 +126,7 @@ const Admin = () => {
       }
     });
   };
-  //crea una funcion para eliminar reserva
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Eliminar Reserva!",
@@ -131,11 +140,154 @@ const Admin = () => {
       if (result.isConfirmed) {
         deleteReserva(id)
           .then((response) => {
-            console.log("Reserva eliminada:", response);
-            window.location.reload();
+           
+            Swal.fire({
+              title: "Reserva Eliminado!",
+              icon: "success",
+              confirmButtonText: "OK",
+            })
           })
           .catch((error) => {
             console.error("Error al eliminar la reserva:", error);
+          });
+      }
+    });
+  };
+
+  //usuarios
+  const openModal2 = (usuario) => {
+    setModalData2(usuario);
+    setUsuario(usuario.nombre);
+    setMail(usuario.email);
+  };
+  const closeModal2 = () => {
+    setModalData2(null);
+  };
+  const handleSubmitUsuario = (e) => {
+    e.preventDefault();
+    if (!usuario || !apellidoUser || !mail) {
+      setValidationError("Complete los Campos Correspondientes");
+      return;
+    }
+    if (usuario.length > 10 || !/^[a-zA-Z\s]+$/.test(usuario)) {
+      setValidationError("Dato no válido para Usuario: Solo letras");
+      return;
+    }
+    if (apellidoUser.length > 15 || !/^[a-zA-Z\s]+$/.test(apellidoUser)) {
+      setValidationError("Dato no válido para Usuario: Solo letras");
+      return;
+    }
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(mail)) {
+      setValidationError(
+        "Dato no válido para Mail: Formato de correo incorrecto"
+      );
+      return;
+    }
+    const { _id } = modalData2;
+    const updatedUser = {
+      _id,
+      nombre: usuario,
+      apellido: apellidoUser,
+      email: mail,
+    };
+    updateUser(_id, updatedUser)
+      .then((response) => {
+        
+        setUsuario("");
+        setMail("");
+        setValidationError(false);
+        Swal.fire({
+          title: "Usuario Actualizado!",
+          icon: "success",
+          confirmButtonText: "Ok",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Error al actualizar el usuario:", error);
+        Swal.fire({
+          title: "Error",
+          text: "Hubo un error al actualizar el usuario. Por favor, inténtalo de nuevo.",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      });
+  };
+  const handleDeleteUsuario = (id) => {
+    Swal.fire({
+      title: "Eliminar Usuario!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteUser(id)
+          .then((response) => {
+           
+            Swal.fire({
+              title: "Usuario Eliminado!",
+              icon: "success",
+              confirmButtonText: "OK",
+            })
+          })
+          .catch((error) => {
+            console.error("Error al eliminar el Usuario:", error);
+          });
+      }
+    });
+  };
+  const handleDisableUsuario = (id) => {
+    Swal.fire({
+      title: "Suspender Usuario!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        disableUser(id)
+          .then((response) => {
+            Swal.fire({
+              title: "Usuario Suspendido!",
+              icon: "success",
+              confirmButtonText: "OK",
+            })
+          })
+          .catch((error) => {
+            console.error("Error al eliminar el Usuario:", error);
+          });
+      }
+    });
+  };
+  const handleEnableUsuario = (id) => {
+    Swal.fire({
+      title: "Habilitado Usuario!",
+      icon: "success",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        enableUser(id)
+          .then((response) => {
+            Swal.fire({
+              title: "Usuario Habilitado!",
+              icon: "success",
+              confirmButtonText: "OK",
+            })
+          })
+          .catch((error) => {
+            console.error("Error al habilitar el Usuario:", error);
           });
       }
     });
@@ -159,44 +311,68 @@ const Admin = () => {
               <table className="table table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">Usuario</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
                     <th scope="col">Mail</th>
-                    <th scope="col" className="text-end">
+                    <th scope="col" className="text-center">
                       Acción
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Juan</td>
-                    <td>juan@gmail.com</td>
-                    <td className="d-flex justify-content-end gap-2">
-                      <button type="button" className="btn btn-primary">
-                        Editar
-                      </button>
-                      <button type="button" className="btn btn-warning">
-                        Suspender
-                      </button>
-                      <button type="button" className="btn btn-danger">
-                        Eliminar
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Juan</td>
-                    <td>juan@gmail.com</td>
-                    <td className="d-flex justify-content-end gap-2">
-                      <button type="button" className="btn btn-primary">
-                        Editar
-                      </button>
-                      <button type="button" className="btn btn-warning">
-                        Suspender
-                      </button>
-                      <button type="button" className="btn btn-danger">
-                        Eliminar
-                      </button>
-                    </td>
-                  </tr>
+                  {usuarios.map((usuario) => {
+                    // Agregar clase condicional si el usuario está suspendido
+                    const rowClass = usuario.estado ? "" : "suspended-row";
+
+                    return (
+                      <tr key={usuario._id} className={rowClass}>
+                        <td>{usuario.nombre}</td>
+                        <td>{usuario.apellido}</td>
+                        <td>{usuario.email}</td>
+                        <td className="d-flex justify-content-end gap-2">
+                          <button
+                            type="button"
+                            className={`btn btn-success ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
+                            onClick={() => openModal2(usuario)}
+                            data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2"
+                            disabled={!usuario.estado}
+                          >
+                            Editar
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-primary"
+                            onClick={() => handleEnableUsuario(usuario._id)}
+                          >
+                            Habilitar
+                          </button>
+                          <button
+                            type="button"
+                            className={`btn btn-warning ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
+                            onClick={() => handleDisableUsuario(usuario._id)}
+                            disabled={!usuario.estado}
+                          >
+                            Suspender
+                          </button>
+                          <button
+                            type="button"
+                            className={`btn btn-danger ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
+                            onClick={() => handleDeleteUsuario(usuario._id)}
+                            disabled={!usuario.estado}
+                          >
+                            Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
@@ -354,6 +530,77 @@ const Admin = () => {
                     </div>
                   </div>
                 )}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="modal fade"
+        id="staticBackdrop2"
+        tabIndex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="staticBackdropLabel">
+                Editar Usuario
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onClick={closeModal2}
+              ></button>
+            </div>
+            <div className="modal-body">
+              <form onSubmit={handleSubmitUsuario}>
+                <div className="mb-3">
+                  <label htmlFor="usuario" className="form-label">
+                    Usuario
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="usuario"
+                    value={usuario}
+                    onChange={(e) => setUsuario(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="usuario" className="form-label">
+                    Apellido
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="usuario"
+                    value={apellidoUser}
+                    onChange={(e) => setApellidoUser(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="mail" className="form-label">
+                    Mail
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="mail"
+                    value={mail}
+                    onChange={(e) => setMail(e.target.value)}
+                  />
+                </div>
+                {validationError && (
+                  <div className="alert alert-danger">{validationError}</div>
+                )}
+                <button type="submit" className="btn btn-primary">
+                  Guardar Cambios
+                </button>
               </form>
             </div>
           </div>
