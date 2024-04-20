@@ -5,7 +5,8 @@ import { ReservaProvider } from "../../context/ReserveContext";
 import { PulseLoader } from "react-spinners";
 
 const Admin = () => {
-  const { reservas, updateReserva, loading ,deleteReserva} = useContext(ReservaProvider);
+  const { reservas, updateReserva, loading, deleteReserva } =
+    useContext(ReservaProvider);
   const [modalData, setModalData] = useState(null);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -14,18 +15,15 @@ const Admin = () => {
   const [comensales, setComensales] = useState("");
   const [validationError, setValidationError] = useState(false);
 
-  const formatDateForInput = (isoDateString) => {
-    const date = new Date(isoDateString);
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const day = date.getDate().toString().padStart(2, "0");
-    return `${year}-${month}-${day}`;
+  const extractDate = (isoDateString) => {
+    const dateOnly = isoDateString.split("T")[0];
+    return dateOnly;
   };
   const openModal = (reserva) => {
     setModalData(reserva);
     setNombre(reserva.nombre);
     setApellido(reserva.apellido);
-    setFecha(formatDateForInput(reserva.fecha));
+    setFecha(extractDate(reserva.fecha));
     setHora(reserva.hora);
     setComensales(reserva.comensales);
   };
@@ -57,8 +55,22 @@ const Admin = () => {
       return;
     }
     if (!comensales || comensales < 1 || comensales >= 5) {
-      setValidationError("Dato no Valido:Solo numero");
+      setValidationError("Dato no Valido: Solo numero");
       return;
+    }
+
+    console.log(reservas);
+    //entra a las reservas y valida que ninguna de las otras reservas tengan el mismo dia y hora
+    for (let i = 0; i < reservas.length; i++) {
+      const reserva = reservas[i];
+      if (
+        extractDate(reserva.fecha) === extractDate(fecha) &&
+        reserva.hora === hora &&
+        reserva._id !== modalData._id
+      ) {
+        setValidationError("Ya hay una reserva en ese dia y hora");
+        return;
+      }
     }
     const { _id } = modalData;
     const updatedReserva = {
@@ -71,13 +83,13 @@ const Admin = () => {
     };
 
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Seguro que desea Editar",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, update it!",
+      confirmButtonText: "Si",
+      cancelButtonText: "No",
     }).then((result) => {
       if (result.isConfirmed) {
         updateReserva(_id, updatedReserva)
@@ -89,7 +101,15 @@ const Admin = () => {
             setHora("");
             setComensales("");
             setValidationError(false);
-            window.location.reload();
+            Swal.fire({
+              title: "Reserva Actualizada!",
+              icon: "success",
+              confirmButtonText: "Ok",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload();
+              }
+            });
           })
           .catch((error) => {
             console.error("Error al actualizar la reserva:", error);
@@ -97,7 +117,7 @@ const Admin = () => {
       }
     });
   };
-  //crea una funcion para eliminar reserva 
+  //crea una funcion para eliminar reserva
   const handleDelete = (id) => {
     Swal.fire({
       title: "Eliminar Reserva!",
@@ -107,7 +127,6 @@ const Admin = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Si",
       cancelButtonText: "No",
-
     }).then((result) => {
       if (result.isConfirmed) {
         deleteReserva(id)
@@ -120,9 +139,7 @@ const Admin = () => {
           });
       }
     });
-
-    
-  }
+  };
   return (
     <>
       {loading ? (
@@ -207,7 +224,7 @@ const Admin = () => {
                     <tr key={reserva._id}>
                       <td>{reserva.nombre}</td>
                       <td>{reserva.apellido}</td>
-                      <td>{formatDateForInput(reserva.fecha)}</td>
+                      <td>{extractDate(reserva.fecha)}</td>
                       <td>{reserva.hora}</td>
                       <td>{reserva.comensales}</td>
                       <td className="d-flex justify-content-end gap-2">
@@ -220,8 +237,10 @@ const Admin = () => {
                         >
                           Editar
                         </button>
-                        <button type="button" className="btn btn-danger"
-                        onClick={() => handleDelete(reserva._id)}
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() => handleDelete(reserva._id)}
                         >
                           Eliminar
                         </button>
