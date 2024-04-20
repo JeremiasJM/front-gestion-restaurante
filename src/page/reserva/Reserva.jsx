@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./reserva.css";
 import { Row, Col, Form, Button, Dropdown } from "react-bootstrap";
-import { ReservaProvider } from "../../context/ReservaContext";
+
 import dayjs from "dayjs";
 import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -11,21 +11,23 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { PropTypes } from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 
-const Reserva = ({ editReserve, handleClose }) => {
+const Reserva = ({ editReserva, handleClose }) => {
   
   const [selectedDate, setSelectedDate] = useState(dayjs());
-  const { createReserve, updateReserve } = useContext(ReservaProvider);
+  const { createReserva, updateReserva } = useContext(ReservaProvider);
+  
 
-  const [reserve, setReserve] = useState({
-    id: editReserve ? editReserve.id : uuidv4(),
-    nombre: editReserve ? editReserve.nombre : "",
-    fecha: editReserve ? editReserve.fecha : "",
-    hora: editReserve ? editReserve.hora : "2",
-    comensales: editReserve ? editReserve.comensales : "",
+
+  const [reservas, setReservas] = useState({
+    id: editReserva ? editReserva.id : uuidv4(),
+    nombre: editReserva ? editReserva.nombre : "",
+    fecha: editReserva ? editReserva.fecha : "",
+    hora: editReserva ? editReserva.hora : "2",
+    comensales: editReserva ? editReserva.comensales : "",
   });
   const handleChange = (e) => {
-    setReserve({
-      ...reserve,
+    setReservas({
+      ...reservas,
       [e.target.name]: e.target.value,
     });
   };
@@ -33,10 +35,10 @@ const Reserva = ({ editReserve, handleClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (editReserve) {
-      updateReserve(reserve);
+    if (editReserva) {
+      updateReserva(reservas);
       handleClose();
-      setReserve({
+      setReservas({
         id: uuidv4(),
         nombre: "",
         fecha: "",
@@ -44,8 +46,8 @@ const Reserva = ({ editReserve, handleClose }) => {
         comensales: "",
       });
     } else {
-      createReserve(reserve);
-      setReserve({
+      createReserva(reservas);
+      setReservas({
         id: uuidv4(),
         nombre: "",
         fecha: "",
@@ -102,7 +104,7 @@ const Reserva = ({ editReserve, handleClose }) => {
                       <Form.Label>Nombre y Apellido</Form.Label>
                       <Form.Control
                         type="text"
-                        value={reserve.nombre}
+                        value={reserva.nombre}
                         onChange={handleChange}
                         name="nombre"
                         placeholder="Nombre del usuario"
