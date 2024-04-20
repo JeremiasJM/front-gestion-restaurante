@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./reserva.css";
 import { Row, Col, Form, Button, Dropdown } from "react-bootstrap";
@@ -8,54 +8,9 @@ import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { PropTypes } from "prop-types";
-import { v4 as uuidv4 } from "uuid";
 
-const Reserva = ({ editReserva, handleClose }) => {
-  
-  const [selectedDate, setSelectedDate] = useState(dayjs());
-  const { createReserva, updateReserva } = useContext(ReservaProvider);
-  
-
-
-  const [reservas, setReservas] = useState({
-    id: editReserva ? editReserva.id : uuidv4(),
-    nombre: editReserva ? editReserva.nombre : "",
-    fecha: editReserva ? editReserva.fecha : "",
-    hora: editReserva ? editReserva.hora : "2",
-    comensales: editReserva ? editReserva.comensales : "",
-  });
-  const handleChange = (e) => {
-    setReservas({
-      ...reservas,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (editReserva) {
-      updateReserva(reservas);
-      handleClose();
-      setReservas({
-        id: uuidv4(),
-        nombre: "",
-        fecha: "",
-        hora: "",
-        comensales: "",
-      });
-    } else {
-      createReserva(reservas);
-      setReservas({
-        id: uuidv4(),
-        nombre: "",
-        fecha: "",
-        hora: "",
-        comensales: "",
-      });
-    }
-  };
+const Reserva = () => {
+  const [value, setValue] = useState(dayjs());
 
   return (
     <>
@@ -99,23 +54,17 @@ const Reserva = ({ editReserva, handleClose }) => {
             <div className="px-4 shadow p-1 p-md-5 ">
               <Row>
                 <Col>
-                  <Form onSubmit={handleSubmit}>
+                  <Form>
                     <Form.Group className="mb-3">
                       <Form.Label>Nombre y Apellido</Form.Label>
                       <Form.Control
                         type="text"
-                        value={reserva.nombre}
-                        onChange={handleChange}
                         name="nombre"
                         placeholder="Nombre del usuario"
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                      <Dropdown
-                        id="comensales"
-                        value={reserve.comensales}
-                        onChange={handleChange}
-                      >
+                      <Dropdown id="comensales">
                         <Dropdown.Toggle className="" id="dropdown-basic">
                           Cantidad de comensales:
                         </Dropdown.Toggle>
@@ -127,8 +76,6 @@ const Reserva = ({ editReserva, handleClose }) => {
                           <Dropdown.Item value="5">5 personas</Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
-
-                      
                     </Form.Group>
                     <Form.Group className="mb-3 row">
                       <Form.Label className="col-sm-6 col-md-4 w-100">
@@ -138,63 +85,36 @@ const Reserva = ({ editReserva, handleClose }) => {
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                           <DatePicker
                             className="form-control"
-                            value={selectedDate}
-                            onChange={(date) => {
-                              setSelectedDate(date);
+                            value={value}
+                            onChange={(newValue) => {
+                              setValue(newValue);
                             }}
                             renderInput={(params) => <TextField {...params} />}
                           />
                         </LocalizationProvider>
                       </div>
                       <div className="col-sm-6 col-md-4 mt-2">
-                      {/* <Dropdown
-                        id="horario"
-                        value={reserve.hora}
-                        onChange={handleChange}
-                      > */}
-                        {/* <Dropdown.Toggle className="" id="dropdown-basic">
-                          21:00 Hs
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                          <Dropdown.Item value="1" >21:00 Hs</Dropdown.Item>
-                          <Dropdown.Item value="2">22:00 Hs</Dropdown.Item>
-                          <Dropdown.Item value="3">23:00 Hs</Dropdown.Item>
-                          <Dropdown.Item value="4">00:00 Hs</Dropdown.Item>
-                          <Dropdown.Item value="5">01:00 Hs</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown> */}
-                        <select
-                          id="horario"
-                          className="form-control"
-                          value={reserve.hora}
-                          onChange={handleChange}
-                        >
-                          <option value="21:00">21:00 Hs</option>
-                          <option value="22:00">
-                            22:00 Hs
-                          </option>
-                          <option value="23:00">23:00 Hs</option>
-                          <option value="00:00">00:00 Hs</option>
-                          <option value="01:00">01:00 Hs</option>
-                        </select> 
+                        <Dropdown id="horario">
+                          <Dropdown.Toggle className="" id="dropdown-basic">
+                            21:00 Hs
+                          </Dropdown.Toggle>
+                          <Dropdown.Menu>
+                            <Dropdown.Item value="1">21:00 Hs</Dropdown.Item>
+                            <Dropdown.Item value="2">22:00 Hs</Dropdown.Item>
+                            <Dropdown.Item value="3">23:00 Hs</Dropdown.Item>
+                            <Dropdown.Item value="4">00:00 Hs</Dropdown.Item>
+                            <Dropdown.Item value="5">01:00 Hs</Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
                       </div>
                     </Form.Group>
 
                     <Button
                       className="universal-button mt-5 w-100"
                       type="submit"
-                      
                     >
                       Enviar Reserva
                     </Button>
-                    <div className="mt-4 button-borders w-100">
-                    <Button
-                      className="primary-button w-100"
-                      type="submit"
-                      
-                    >
-                      Enviar Reserva
-                    </Button></div>
                   </Form>
                 </Col>
               </Row>
@@ -204,10 +124,6 @@ const Reserva = ({ editReserva, handleClose }) => {
       </div>
     </>
   );
-};
-
-Reserva.propTypes = {
-  editReserve: PropTypes.object,
 };
 
 export default Reserva;
