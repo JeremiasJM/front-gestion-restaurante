@@ -54,3 +54,9 @@
 .input-group-text{
 	background-color: rgb(248, 249, 250);
 }
+
+h2 {
+	font-family: var(--font-family-subtitle);
+	color: var(--font-color-primary);
+	text-decoration: none;
+  }

@@ -16,7 +16,7 @@ const Register = () => {
 
   const [eye1, setEye1] = useState(false);
   const [equalPasswords, setEqualPasswords] = useState(true);
-  const [camposValidos, setCamposValidos] = useState(true);
+  let [existe, setExiste] = useState(false);
 
   const [usuario, setUsuario] = useState({
     nombre: "",
@@ -44,7 +44,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const existe = usuarios.find((user) => user.email === usuario.email);
+    existe = usuarios.find((user) => user.email === usuario.email);
     
     if(usuario.nombre.length !== 0 && usuario.apellido.length !== 0 && usuario.password.length !== 0 && !existe && equalPasswords){
       
@@ -57,7 +57,7 @@ const Register = () => {
         icon: "success",
         title: "Usuario registrado!",
         showConfirmButtom: false,
-        timer: 1500,
+        timer: 2500,
       });
 
       setUsuario({
@@ -68,10 +68,12 @@ const Register = () => {
         admin: false,
         repeatPass: ""
       });
+
+      setExiste(false);
       navigate("/");
 
     }else{
-      setCamposValidos(false);
+      setExiste(true)
       Swal.fire({
         position: "center",
         icon: "error",
@@ -93,7 +95,7 @@ const Register = () => {
         >
           <h3 className="text-center mb-4 titulo">Registrate</h3>
           <Form onSubmit={handleSubmit} className="px-3">
-            <Form.Group className="mb-3">
+            <Form.Group className="my-3">
               <InputGroup className="mb-3">
                 <InputGroup.Text className="labels">
                 <FaUserAlt />
@@ -112,7 +114,7 @@ const Register = () => {
               </InputGroup>
             </Form.Group>
 
-            <Form.Group className="mb-3">
+            <Form.Group className="my-3">
               <InputGroup>
                 <InputGroup.Text className="labels">
                   <FaHouseChimneyUser />
@@ -130,7 +132,7 @@ const Register = () => {
               </InputGroup>
             </Form.Group>
 
-            <Form.Group className="mb-3">
+            <Form.Group className="my-3">
               <InputGroup>
                 <InputGroup.Text className="labels">
                   <MdEmail />
@@ -149,7 +151,9 @@ const Register = () => {
               </InputGroup>
             </Form.Group>
 
-            <Form.Group className="mb-3">
+            {existe ? <div className="text-center text-danger mb-2"><MdDangerous />El email ya está en uso. Introduzca uno nuevo.</div> : null}
+
+            <Form.Group className="my-3">
               <InputGroup>
                 <InputGroup.Text className="labels">
                   <RiLockPasswordLine />
@@ -170,7 +174,7 @@ const Register = () => {
               </InputGroup>
             </Form.Group>
 
-            <Form.Group className="mb-1">
+            <Form.Group className="my-3">
               <InputGroup>
                 <InputGroup.Text className="labels">
                   <MdPassword />
@@ -184,15 +188,16 @@ const Register = () => {
                   onChange={handleChange}
                   maxLength="40"
                   minLength="5"
+                  onPaste={(e)=> e.preventDefault()}
                 />
 
                 
               </InputGroup>
             </Form.Group>
 
-            {equalPasswords ? null : <div className="text-center mt-2 text-danger"><MdDangerous />Las contraseñas no coinciden</div>}
+            {equalPasswords ? null : <div className="text-center text-danger"><MdDangerous />Las contraseñas no coinciden</div>}
 
-            {camposValidos ? null : <div className="text-center mt-2 text-danger"><MdDangerous />Verifique e ingrese correctamente todos los datos, por favor.</div>}
+            
             
             <Button
                 className="mt-3 w-100  button_register"
