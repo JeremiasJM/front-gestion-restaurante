@@ -23,14 +23,12 @@
   - La página principal contiene un carousel que hace referencia a la apertura del negocio, con información y imagen descriptiva.
   - Debajo del carousel, se ubica un saludo de bienvenida para el usuario y un botón de acceso directo a la sección de reservas. 
     
-    <img src="https://github.com/JeremiasJM/front-gestion-restaurante/blob/fix/detallesDeDise%C3%B1o/src/assets/resource/media/img-readme/home.png"></img>
+    <img src="https://github.com/JeremiasJM/front-gestion-restaurante/blob/fix/detallesDeDise%C3%B1o/src/assets/resource/media/img-readme/Home-reserva.png"></img>
     
   - El footer contiene: la ubicación, el logo de Rolling food - resrvas, las redes sociales (Facebook, Twitter, Instagram y YouTube), información adicional (Horario y días de atención - contacto) y el 
     copyright del sitio.
-    
-### Página 
 
-### Página de administración
+### Página de administración - usuarios | reservas
 
 - El administrador tendrá acceso a una interfaz de administración donde podrá ver la lista de usuarios registrados en el sistema. Podrá editar la información de los usuarios, suspender sus cuentas y 
   eliminarlos según sea necesario.
@@ -47,7 +45,11 @@ Este formulario permitirá registrar usuarios al sitio web, por lo tanto se soli
 
 ### Reserva
 
+Los usuarios logeados en el sitio, tendrán acceso a este sección del cual se podrá visualizar información relevante para el negocio y acceso a las opciones para gestionar la reserva: nombre y apellido del cliente, la fecha, el horario de la reserva y la cantidad de comensales a seleccionar.
+
 ### Galería
+
+El sitio ofrece una sección con fotos del resto para la visualización del usuario.
 
 ### Contacto: 
 Contiene un formulario de consulta totalmente validado. Una vez completado los campos, se envía un comprobante vía mail al usuario.
