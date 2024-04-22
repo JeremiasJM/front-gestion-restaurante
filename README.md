@@ -25,37 +25,35 @@
     
     <img src="https://github.com/JeremiasJM/front-gestion-restaurante/blob/fix/detallesDeDise%C3%B1o/src/assets/resource/media/img-readme/home.png"></img>
     
-  - El footer contiene el copyright del sitio y los logos de las redes sociales (Facebook, Twitter y Instagram), además incluye ...
+  - El footer contiene: la ubicación, el logo de Rolling food - resrvas, las redes sociales (Facebook, Twitter, Instagram y YouTube), información adicional (Horario y días de atención - contacto) y el 
+    copyright del sitio.
     
 ### Página 
 
 ### Página de administración
-- El navbar contiene los mismos botones que el de la página principal, pero cuando el usuario está logueado se añade..
 
-<img src= ""></img>
-
-- El administrador contiene los siguientes elementos:
-
- la misma contiene los siguientes campos:
-
-
-○ Cada fila de la tabla tiene los elementos necesarios para realizar las siguientes
-acciones: 
-Botón para editar 
+- El administrador tendrá acceso a una interfaz de administración donde podrá ver la lista de usuarios registrados en el sistema. Podrá editar la información de los usuarios, suspender sus cuentas y 
+  eliminarlos según sea necesario.
+  El mismo tendrá acceso a una lista de todas las reservas realizadas en el restaurante. Para cada reserva, se podrá ver los detalles como el nombre y apellido del cliente, la fecha, el horario y la 
+  cantidad de comensales. Además, se podrá habilitar, editar y eliminar una reserva en caso de ser necesario.
 
 ## Otras páginas del sitio:
 
 ### Iniciar sesión: 
-El formulario de login solicita al usuario un email y una contraseña (estos campos están correctamente validados); un link para registrarse en el sitio y dos extras para recuperar la contraseña e ingresar desde la cuenta de google, que actualmente redireccionan al Error 404.
+El formulario de login solicita al usuario un email y una contraseña (estos campos están correctamente validados); un link para registrarse en el sitio y dos extras para recuperar y recordar la contraseña.
 
 ### Registro: 
-Este formulario permitirá registrar usuarios al sitio web, por lo tanto se solicitará todos los datos necesarios y estos serán enviados por mail al administrador del sitio.
+Este formulario permitirá registrar usuarios al sitio web, por lo tanto se solicitará: nombre, apellido, e-mail y contraseña a elección del usuario.
+
+### Reserva
+
+### Galería
 
 ### Contacto: 
-Contiene un formulario de consulta totalmente validado. Una vez completado los campos, se envía la consulta vía mail al administrador del sitio.
+Contiene un formulario de consulta totalmente validado. Una vez completado los campos, se envía un comprobante vía mail al usuario.
 
 ### Sobre nosotros: 
-Contiene la información del equipo de desarrollo, se puede acceder a este sitio a través del navbar o del footer.
+Contiene la información del equipo de desarrollo, se puede acceder a este sitio a través del navbar.
 
 ### Error 404: 
 Todos los botones que no cumplan una función específica se redireccionan a este sitio.
@@ -68,12 +66,11 @@ El proceso es el siguiente:
 
 ○ Al completar el formulario de registro, el usuario que aún no está validado (es decir que no puede loguearse en nuestro sitio web) quedará a disposición del administrador para modificar su estado (aprobado o suspendido).
 
-○ El administrador puede modificar su estado aprobado o suspendido, por defecto....
+○ El administrador puede modificar su estado aprobado o suspendido, por defecto estará como suspendido.
 
-○ Un usuario que está aprobado podrá loguearse y será redireccionado a la web principal, que contendrá además un mensaje de bienvenida al usuario logueado.
+○ Un usuario que está aprobado podrá loguearse y será redireccionado a la web principal.
 
 ○ Cualquier usuario que esté logueado tendrá disponible la opción para cerrar su sesión.
-
 
 ## Tecnologías utilizadas <a name="tecnologias"></a>
 
