@@ -5,9 +5,58 @@ import iconUsers from "../../assets/resource/media/iconos/icons-user.png";
 import iconPassword from "../../assets/resource/media/iconos/icons-password.png";
 import { useNavigate } from "react-router";
 import Register from "../../page/register/Register"
+import { useContext, useEffect, useState } from "react";
+import { UsersProvider } from "../../context/UsersContext";
+import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
-const Login = () => {
+const Login = (handleClose) => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { loginUsuario, usuarioLogueado } = useContext(UsersProvider);
+
+   
+  useEffect(() => {
+    if (usuarioLogueado) {
+      //console.log(usuarioLogueado.nombre,"nombre necesito")
+     Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Bienvenido ",
+        showConfirmButton: false,
+        timer: 5000,
+      });
+      
+      const usuario = {
+        nombre: usuarioLogueado.nombre,
+        apellido: usuarioLogueado.apellido,
+        email: usuarioLogueado.email,
+        admin: usuarioLogueado.admin,
+        //id: usuarioLogueado.id,
+      };
+      
+      navigate("/");
+      window.location.reload(true);
+      localStorage.setItem("user", JSON.stringify(usuario));
+      handleClose();
+    } 
+  }, [usuarioLogueado, handleClose]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    try {
+      loginUsuario({ email, password });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const registro = () => {
+    navigate("/registro");
+    handleClose();
+  };
 
   return (
     <>
@@ -15,7 +64,7 @@ const Login = () => {
         <div className="card_login px-4 shadow p-1 p-md-5 mt-5 ">
           <div>
             <div className="text-center titulo">Inicia Sesión</div>
-            <Form>
+            <Form  onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <div className="input-group mt-3">
                   <div className="input-group-text bg-light">
@@ -25,10 +74,13 @@ const Login = () => {
                   </div>
                   <Form.Control
                     type="email"
-                    placeholder="Escriba su email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     name="email"
                     maxLength="40"
-                    minLength="5"
+                    minLength="3"
+                    placeholder="Escriba su email"
+                    
                   />
                 </div>
               </Form.Group>
@@ -41,10 +93,13 @@ const Login = () => {
                   </div>
                   <Form.Control
                     type="password"
-                    placeholder="Escriba su contraseña"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     name="password"
                     maxLength="40"
                     minLength="5"
+                    placeholder="Escriba su contraseña"
+                    
                   />
                 </div>
               </Form.Group>
@@ -96,4 +151,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+  export default Login; 
