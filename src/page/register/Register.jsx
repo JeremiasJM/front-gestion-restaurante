@@ -49,7 +49,7 @@ const Register = ({ tipo }) => {
             <Form.Group className="mb-3">
               <InputGroup className="mb-3">
                 <InputGroup.Text className="text-warning">
-                  <i className="bi bi-file-person"></i>
+                  <p className='colorLetra pt-1 pe-3 '>Nombre:</p>
                 </InputGroup.Text>
 
                 <Form.Control
@@ -57,7 +57,7 @@ const Register = ({ tipo }) => {
                   type="text"
                   value={usuario.nombre}
                   name="nombre"
-                  placeholder="Nombre del Usuario"
+                  placeholder="Insertar nombre del usuario"
                   onChange={handleChange}
                 />
               </InputGroup>
@@ -66,14 +66,14 @@ const Register = ({ tipo }) => {
             <Form.Group className="mb-3">
               <InputGroup>
                 <InputGroup.Text className="text-warning">
-                  <i className="bi bi-person-vcard-fill"></i>
+                <p className='colorLetra pt-1 pe-3'>Apellido:</p>
                 </InputGroup.Text>
                 <Form.Control
                   className="ps-md-4 ps-xxl-5"
                   type="text"
                   value={usuario.apellido}
                   name="apellido"
-                  placeholder="Apellido del usuario"
+                  placeholder="Insertar apellido del usuario"
                   onChange={handleChange}
                 />
               </InputGroup>
@@ -82,14 +82,14 @@ const Register = ({ tipo }) => {
             <Form.Group className="mb-3">
               <InputGroup>
                 <InputGroup.Text className="text-warning">
-                  <i className="bi bi-envelope-at-fill"></i>
+                <p className='colorLetra pt-1 pe-4'>E-mail:</p>
                 </InputGroup.Text>
                 <Form.Control
                   className="ps-md-4 ps-xxl-5"
                   type="email"
                   value={usuario.email}
                   name="email"
-                  placeholder="Insertar email del usuario"
+                  placeholder="Insertar e-mail del usuario"
                   onChange={handleChange}
                 />
               </InputGroup>
@@ -98,14 +98,14 @@ const Register = ({ tipo }) => {
             <Form.Group className="mb-3">
               <InputGroup>
                 <InputGroup.Text className="text-warning">
-                  <i className="bi bi-eye-fill"></i>
+                <p className='colorLetra pt-1'>Contraseña:</p>
                 </InputGroup.Text>
                 <Form.Control
                   className="ps-md-4 ps-xxl-5"
                   type="password"
                   value={usuario.password}
                   name="password"
-                  placeholder="Contraseña del usuario"
+                  placeholder="Insertar contraseña del usuario"
                   onChange={handleChange}
                 />
               </InputGroup>

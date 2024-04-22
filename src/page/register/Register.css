@@ -49,3 +49,8 @@
 .--bs-warning-bg-subtle {
 	background-color: #c9932e;
 }
+
+.colorLetra{
+	color: black;
+	font-size: 15px;
+}
