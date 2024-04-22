@@ -36,7 +36,7 @@ const Register = ({ tipo }) => {
 
   return (
     <Container fluid className="d-flex justify-content-center align-items-center bg_register vh-100">
-      <Row className="justify-content-center  w-100  px-5">
+      <Row className="justify-content-center w-100 px-5">
         <Col
           sm={10}
           md={9}
@@ -44,10 +44,6 @@ const Register = ({ tipo }) => {
           xl={6}
           className="border border-5 rounded border-warning p-4 card_register align-items-center shadow"
         >
-
-
-
-
           <h3 className="text-center mb-4 titulo">Registro</h3>
           <Form onSubmit={handleSubmit} className="px-3">
             <Form.Group className="mb-3">
@@ -116,11 +112,11 @@ const Register = ({ tipo }) => {
             </Form.Group>
 
             <Button
-                className="mt-4 w-100  button_register"
-                variant="warning"
-                type="submit"
-              >
-                Registrarse
+              className="mt-4 w-100  button_register"
+              variant="warning"
+              type="submit"
+            >
+              Registrarse
             </Button>
 
           </Form>

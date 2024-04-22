@@ -13,3 +13,7 @@ h2 {
   --bs-table-bg: var(--bg-color-secundary);
   --bs-table-border-color: var(--font-color-primary);
 }
+
+.colorTabla{
+  background-color: var(--bg-color-primary);
+}

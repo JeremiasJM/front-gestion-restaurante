@@ -3,14 +3,14 @@ import "./admin.css";
 const Admin = () => {
   return (
     <>
-      <main className="container-fluid">
+      <main className="container-fluid mt-5 mb-5">
         <h1 className="text-center">Panel Administrador</h1>
 
         <section className="pt-3 pb-3">
-          <h2 className="text-center p-2">Gestión Usuarios</h2>
-          <div className="table-responsive">
+          <h2 className="text-center p-2 text-decoration-none">Gestión Usuarios</h2>
+          <div className="table-responsive me-5 ms-5">
             <table className="table table-bordered">
-              <thead>
+              <thead className="colorTabla">
                 <tr>
                   <th scope="col">Usuario</th>
                   <th scope="col">Mail</th>
@@ -55,10 +55,10 @@ const Admin = () => {
           </div>
         </section>
         <section>
-          <h2 className="text-center">Gestión Reservas</h2>
-          <div className="table-responsive">
+          <h2 className="text-center text-decoration-none">Gestión Reservas</h2>
+          <div className="table-responsive me-5 ms-5">
             <table className="table table-bordered">
-              <thead>
+              <thead className="colorTabla">
                 <tr>
                   <th scope="col">Nombre</th>
                   <th scope="col">Apellido</th>

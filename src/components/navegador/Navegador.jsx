@@ -17,7 +17,7 @@ const Navegador = () => {
                 <Link to="/login" className="nav-link">
                   <FaUserLock className="iconoLogin" />
                 </Link>
-                <Link to="/reservas" className="nav-link">
+                <Link to="/Reserva" className="nav-link">
                   <button className="buttonDos">Reservas</button>
                 </Link>
               </div>

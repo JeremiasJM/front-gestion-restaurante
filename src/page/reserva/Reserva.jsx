@@ -14,7 +14,7 @@ const Reserva = () => {
 
   return (
     <>
-      <div className="container reservaPage  py-3">
+      <div className="container reservaPage mt-4 mb-5 py-3">
         <div className="row">
           <div className="col-12 col-lg-6  d-flex  justify-content-center align-items-center  ">
             <div className="px-4 shadow p-1 p-md-5  ">
@@ -34,7 +34,7 @@ const Reserva = () => {
                     <p>
                       Nuestro horario de atención es de{" "}
                       <span className="fst-italic fw-semibold">
-                        Lunes a Domingo, de 21:00 a 02:00
+                        Martes a Domingo, de 20:00 a 02:00
                       </span>
                       , para que puedas disfrutar de nuestra cocina de alta
                       calidad en cualquier día de la semana.
@@ -79,7 +79,7 @@ const Reserva = () => {
                     </Form.Group>
                     <Form.Group className="mb-3 row">
                       <Form.Label className="col-sm-6 col-md-4 w-100">
-                        Elegi el dia y hora :
+                        Elegí el dia y hora :
                       </Form.Label>
                       <div className="col-sm-6 col-md-4 ">
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
