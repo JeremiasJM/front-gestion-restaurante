@@ -1,16 +1,101 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./reserva.css";
 import { Row, Col, Form, Button, Dropdown } from "react-bootstrap";
-
 import dayjs from "dayjs";
 import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { PropTypes } from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
-const Reserva = () => {
-  const [value, setValue] = useState(dayjs());
+const Reserva = ({ editReserva, handleClose }) => {
+  const { createReserva, updateReserva } = useContext(ReservaProvider);
+
+  const [selectedDate, setSelectedDate] = useState(dayjs());
+
+  const [validationError, setValidationError] = useState("");
+
+  const [reserva, setReserva] = useState({
+    id: editReserva ? editReserva.id : uuidv4(),
+    nombre: editReserva ? editReserva.nombre : "",
+    fecha: editReserva ? editReserva.fecha : "",
+    hora: editReserva ? editReserva.hora : "",
+    comensales: editReserva ? editReserva.comensales : "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setReserva({
+      ...reserva,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { nombre, apellido, fecha, hora, comensales } = reserva;
+    let validationError = "";
+
+    if (!nombre || !apellido || !fecha || !hora || !comensales) {
+      validationError("Complete los Campos Correspondientes");
+      return;
+    }
+    if (!nombre || nombre.length > 10 || !/^[a-zA-Z\s]+$/.test(nombre)) {
+      validationError("Dato no Valido: Solo letras");
+      return;
+    }
+
+    if (!apellido || apellido.length > 15 || !/^[a-zA-Z\s]+$/.test(apellido)) {
+      validationError("Dato no Valido: Solo letras");
+      return;
+    }
+    if (isNaN(comensales) || comensales < 1 || comensales > 5) {
+      validationError("Seleccione un numero de comensales entre 1 y 5");
+    } else {
+      const horaValida = ["21:00", "22:00", "23:00", "00:00", "01:00"].includes(
+        hora
+      );
+      if (!horaValida) {
+        validationError(
+          "Seleccione una hora valida entre las 21:00 y las 01:00"
+        );
+      }
+      const fechaActual = new Date();
+      const fechaReserva = new Date(fecha);
+      if (fechaReserva < fechaActual) {
+        validationError("La fecha de reserva debe ser en el futuro");
+      }
+    }
+
+    setValidationError(validationError);
+
+    if (!validationError) {
+      if (editReserva) {
+        updateReserva(reserva);
+        handleClose();
+      }
+    } else {
+      createReserva(reserva);
+    }
+
+    setReserva({
+      id: uuidv4(),
+      nombre: "",
+      fecha: "",
+      hora: "",
+      comensales: "",
+    });
+
+    Swal.fire({
+      position: "top-center",
+      iconHtml: "",
+      title: "Reserva enviada con exito.",
+      showConfirmButton: false,
+      timer: 3500,
+    });
+  };
 
   return (
     <>
@@ -54,17 +139,44 @@ const Reserva = () => {
             <div className="px-4 shadow p-1 p-md-5 ">
               <Row>
                 <Col>
-                  <Form>
+                  <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3">
-                      <Form.Label>Nombre y Apellido</Form.Label>
+                      <Form.Label>Nombre</Form.Label>
                       <Form.Control
                         type="text"
+                        value={reserva.nombre}
+                        onChange={handleChange}
                         name="nombre"
                         placeholder="Nombre del usuario"
                       />
                     </Form.Group>
+
+                    {validationError && (
+                      <Form.Text className="text-danger">
+                        Completa el campo
+                      </Form.Text>
+                    )}
                     <Form.Group className="mb-3">
-                      <Dropdown id="comensales">
+                      <Form.Label> Apellido</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={reserva.apellido}
+                        onChange={handleChange}
+                        name="apellido"
+                        placeholder="Nombre del usuario"
+                      />
+                    </Form.Group>
+                    {validationError && (
+                      <Form.Text className="text-danger">
+                        Completa el campo
+                      </Form.Text>
+                    )}
+                    <Form.Group className="mb-3">
+                      <Dropdown
+                        id="comensales"
+                        value={reserva.comensales}
+                        onChange={handleChange}
+                      >
                         <Dropdown.Toggle className="" id="dropdown-basic">
                           Cantidad de comensales:
                         </Dropdown.Toggle>
@@ -85,16 +197,20 @@ const Reserva = () => {
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                           <DatePicker
                             className="form-control"
-                            value={value}
-                            onChange={(newValue) => {
-                              setValue(newValue);
+                            value={selectedDate}
+                            onChange={(date) => {
+                              setSelectedDate(date);
                             }}
                             renderInput={(params) => <TextField {...params} />}
                           />
                         </LocalizationProvider>
                       </div>
                       <div className="col-sm-6 col-md-4 mt-2">
-                        <Dropdown id="horario">
+                        <Dropdown
+                          id="horario"
+                          value={reserva.hora}
+                          onChange={handleChange}
+                        >
                           <Dropdown.Toggle className="" id="dropdown-basic">
                             21:00 Hs
                           </Dropdown.Toggle>
@@ -115,6 +231,11 @@ const Reserva = () => {
                     >
                       Enviar Reserva
                     </Button>
+                    <div className="mt-4 button-borders w-100">
+                      <Button className="primary-button w-100" type="submit">
+                        Enviar Reserva
+                      </Button>
+                    </div>
                   </Form>
                 </Col>
               </Row>
@@ -124,6 +245,10 @@ const Reserva = () => {
       </div>
     </>
   );
+};
+
+Reserva.propTypes = {
+  editReserva: PropTypes.object,
 };
 
 export default Reserva;
