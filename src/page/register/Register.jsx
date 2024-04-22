@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import './Register.css';
 import { UsersProvider } from '../../context/UsersContext';
@@ -18,6 +18,7 @@ const Register = () => {
   let [existe, setExiste] = useState(false);
 
   const [usuario, setUsuario] = useState({
+    id: "",
     nombre: "",
     apellido: "",
     email: "",
