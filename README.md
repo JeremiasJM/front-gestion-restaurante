@@ -23,7 +23,7 @@
   - La página principal contiene un carousel que hace referencia a la apertura del negocio, con información y imagen descriptiva.
   - Debajo del carousel, se ubica un saludo de bienvenida para el usuario y un botón de acceso directo a la sección de reservas. 
     
-    <img src= ""></img>
+    <img src="https://github.com/JeremiasJM/front-gestion-restaurante/blob/fix/detallesDeDise%C3%B1o/src/assets/resource/media/img-readme/home.png"></img>
     
   - El footer contiene el copyright del sitio y los logos de las redes sociales (Facebook, Twitter y Instagram), además incluye ...
     
