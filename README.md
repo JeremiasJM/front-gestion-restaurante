@@ -18,9 +18,10 @@
 
   ### ¿Cómo se ve nuestro proyecto?
   ### Página principal:
-  - Este sitio contiene un navbar fijo con el logo de Rolling food - reservas; botones que redirigen a las siguientes páginas: ...
-  - La página principal contiene un carousel que hace referencia a...
-  - Debajo del carousel, se ubica ...
+  - Este sitio contiene un navbar fijo con el logo de Rolling food - reservas; botones que redirigen a las siguientes páginas: login, reservas y menú (del cual se desplegara un total de seis opciones para 
+    recorrer el sitio)
+  - La página principal contiene un carousel que hace referencia a la apertura del negocio, con información y imagen descriptiva.
+  - Debajo del carousel, se ubica un saludo de bienvenida para el usuario y un botón de acceso directo a la sección de reservas. 
     
     <img src= ""></img>
     
