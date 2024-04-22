@@ -1,16 +1,16 @@
 import Rutas from './components/routes/Rutas';
 import Footer from './components/footer/Footer';
 import Navegador from './components/navegador/Navegador';
-// import ReservaContext from './context/ReservaContext';
+import UsersContext from './context/UsersContext';
 
 function App() {
   return (
     <>
-      {/* <ReservaContext> */}
-      <Navegador />
-      <Rutas />
-      <Footer />
-      {/* </ReservaContext> */}
+      <UsersContext>
+        <Navegador />
+        <Rutas />
+        <Footer />
+      </UsersContext>
     </>
   );
 }
