@@ -31,13 +31,14 @@
 	color: #fff;
 	border: 2px solid #8a631c;
 	border-radius: 10px;
-	
+}
+
+.button-login:hover{
+	background-color: var(--font-color-tertiary);
 }
 
 .form-check-input[type=checkbox] {
 	margin-top: 1%;
-	
-	
     background-color: #8a631c;
     border-radius: .25em;
 	border-color: #8a631c solid;
