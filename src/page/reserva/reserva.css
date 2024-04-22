@@ -1,0 +1,73 @@
+.reservaPage {
+  margin-top: 8%;
+}
+
+.seccion-reserva {
+  border-radius: 1rem;
+  border: 0.3rem solid var(--bottom-color-brown);
+}
+
+#dropdown-basic {
+  background-color: var(--bs-body-bg);
+  border-radius: 0%;
+  border-color: var(--font-color-primary);
+  font-size: 1rem;
+  color: var(--bs-body-color);
+}
+
+.universal-button {
+  background-color: #efe7df;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #8A6113;
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid #8A6113;
+}
+
+.universal-button:hover {
+  color: #8A6113;
+
+  transform: scale(1.1);
+  outline: 2px solid #ead7c4;
+  box-shadow: 4px 5px 17px -4px #c8a96f;
+}
+
+.universal-button::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #ead7c4;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.universal-button:hover::before {
+  width: 250%;
+}
+
+
+@media (max-width: 994px) {
+
+  .reservaPage {
+
+    display: flex !important;
+    flex-direction: column;
+
+  }
+
+  .reservaPage.col {
+    width: 100%;
+  }
+}
