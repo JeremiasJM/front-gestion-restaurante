@@ -1,5 +1,9 @@
 # Rolling food - reservas
-> Nuestro sitio web ofrece una experiencia intuitiva, permitiendo a los usuarios encontrar disponibilidad, seleccionar la hora y el día deseado y confirmar sus reservas sin complicaciones.
+> ¡Bienvenido a Rolling Food!
+
+> Nuestro sitio web ofrece una experiencia intuitiva para que los usuarios registrados gestionen sus reservas en Rolling Food de manera sencilla y eficiente. Con una variedad de opciones disponibles, como verificar la disponibilidad, seleccionar la hora y el día deseados, y confirmar reservas sin complicaciones.
+
+> ¡Explora nuestras funciones y comienza a disfrutar de la conveniencia de gestionar tus reservas con nosotros!
 
 ## Tabla de contenidos
 * [Información del proyecto](#informacion)
@@ -15,12 +19,14 @@
   - Usa el comando "cd" para cambiar al directorio en el que deseas almacenar el proyecto.
   - Utiliza el comando git clone seguido de la URL que copiaste anteriormente.
   - Presiona Enter y se descargará automáticamente el repositorio en tu máquina local.
+  - Instalar dependencias: npm install
+  - Utilizar el proyecto desde: npm run dev
 
   ### ¿Cómo se ve nuestro proyecto?
   ### Página principal:
-  - Este sitio contiene un navbar fijo con el logo de Rolling food - reservas; botones que redirigen a las siguientes páginas: login, reservas y menú (del cual se desplegara un total de seis opciones para 
-    recorrer el sitio)
-  - La página principal contiene un carousel que hace referencia a la apertura del negocio, con información y imagen descriptiva.
+  - Este sitio contiene un navbar fijo con el logo de Rolling food - reservas; botones que redirigen a las siguientes páginas: iniciar sesión, reservas y un menú (del cual se desplegara un total de seis 
+    opciones para recorrer el sitio).
+  - La página principal contiene un carousel que hace referencia a la apertura del negocio, con información relevante y una imagen descriptiva.
   - Debajo del carousel, se ubica un saludo de bienvenida para el usuario y un botón de acceso directo a la sección de reservas. 
     
     <img src="https://github.com/JeremiasJM/front-gestion-restaurante/blob/fix/detallesDeDise%C3%B1o/src/assets/resource/media/img-readme/Home-reserva.png"></img>
@@ -35,6 +41,8 @@
   El mismo tendrá acceso a una lista de todas las reservas realizadas en el restaurante. Para cada reserva, se podrá ver los detalles como el nombre y apellido del cliente, la fecha, el horario y la 
   cantidad de comensales. Además, se podrá habilitar, editar y eliminar una reserva en caso de ser necesario.
 
+  <img src="https://github.com/JeremiasJM/front-gestion-restaurante/blob/fix/detallesDeDise%C3%B1o/src/assets/resource/media/img-readme/reservas.png"></img>
+
 ## Otras páginas del sitio:
 
 ### Iniciar sesión: 
@@ -44,11 +52,9 @@ El formulario de login solicita al usuario un email y una contraseña (estos cam
 Este formulario permitirá registrar usuarios al sitio web, por lo tanto se solicitará: nombre, apellido, e-mail y contraseña a elección del usuario.
 
 ### Reserva
-
 Los usuarios logeados en el sitio, tendrán acceso a este sección del cual se podrá visualizar información relevante para el negocio y acceso a las opciones para gestionar la reserva: nombre y apellido del cliente, la fecha, el horario de la reserva y la cantidad de comensales a seleccionar.
 
 ### Galería
-
 El sitio ofrece una sección con fotos del resto para la visualización del usuario.
 
 ### Contacto: 
@@ -59,20 +65,6 @@ Contiene la información del equipo de desarrollo, se puede acceder a este sitio
 
 ### Error 404: 
 Todos los botones que no cumplan una función específica se redireccionan a este sitio.
-
-### Página de administración de usuarios
-Una vez que un usuario completa el formulario de registro, en la web del administrador además de la administración  tendrá disponible una
-tabla para administrar los usuarios:
-
-El proceso es el siguiente:
-
-○ Al completar el formulario de registro, el usuario que aún no está validado (es decir que no puede loguearse en nuestro sitio web) quedará a disposición del administrador para modificar su estado (aprobado o suspendido).
-
-○ El administrador puede modificar su estado aprobado o suspendido, por defecto estará como suspendido.
-
-○ Un usuario que está aprobado podrá loguearse y será redireccionado a la web principal.
-
-○ Cualquier usuario que esté logueado tendrá disponible la opción para cerrar su sesión.
 
 ## Tecnologías utilizadas <a name="tecnologias"></a>
 
