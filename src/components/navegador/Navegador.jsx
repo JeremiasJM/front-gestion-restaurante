@@ -1,38 +1,51 @@
 import "./navegador.css";
 import logo from "../../assets/resource/media/img-logo/logo-sin-bg.png";
 import { Link } from "react-router-dom";
+import { FaUserLock } from 'react-icons/fa';
 
 const Navegador = () => {
   return (
     <>
-      <header className="container-fluid">
-        <nav className="navbar bg-body-css fixed-top">
-          <div className="container-fluid ">
-            <Link className="navbar-brand" to="/">
+      <header>
+        <nav className="container-fluid navbar bg-body-css p-3">
+          <div className="container-fluid">
+            <Link className="navbar-brand d-none d-md-block" to="/">
               <img src={logo} alt="logo" />
             </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar"
-              aria-controls="offcanvasNavbar"
-              aria-label="Toggle navigation"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                className="bi bi-list"
-                viewBox="0 0 16 16"
+            <div className="navbar">
+              <div className="nav-links">
+                <Link to="/login" className="nav-link">
+                  <FaUserLock className="iconoLogin" />
+                </Link>
+                <Link to="/reservas" className="nav-link">
+                  <button className="buttonDos">Reservas</button>
+                </Link>
+              </div>
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
+                aria-label="Toggle navigation"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
-                />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  fill="currentColor"
+                  className="bi bi-list"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+                  />
+                </svg>
+                <span className="menu"> MENU</span>
+              </button>
+            </div>
+
             <div
               className="offcanvas offcanvas-end"
               tabIndex="-1"
@@ -98,6 +111,15 @@ const Navegador = () => {
                       to="/Contacto"
                     >
                       Contacto
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link active  text-uppercase"
+                      aria-current="page"
+                      to="/login"
+                    >
+                      Iniciar sesión
                     </Link>
                   </li>
                 </ul>
