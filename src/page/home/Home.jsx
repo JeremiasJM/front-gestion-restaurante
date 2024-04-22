@@ -2,8 +2,13 @@ import { Carousel, Card } from 'react-bootstrap';
 import flyer1 from '../../assets/resource/media/img-carousel/flyer-principal.png';
 import flyer2 from '../../assets/resource/media/img-carousel/flyer-secundario.png';
 import './home.css';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+
+
+
+  const navigate = useNavigate();
   return (
     <>
 
@@ -39,7 +44,7 @@ const Home = () => {
             está listo para prepararte tus cócteles preferidos, mientras disfrutas de la mejor música en vivo o de nuestros eventos
             temáticos.
           </Card.Text>
-          <button className="button type1"></button>
+          <button className="button type1" onClick={() => navigate("/reserva")}></button>
         </Card.Body>
       </Card>
     </>

@@ -43,7 +43,7 @@ const Contact = () => {
 
   return (
     <>
-      <section className="container-md align-items-center justify-content-center mt-4">
+      <section className="container-md align-items-center justify-content-center mt-4 mb-4">
         <article className="row justify-content-center contact__container">
           <div className="col-12">
             <h2 className="text-center titulo py-2 text-decoration-none">
@@ -172,7 +172,28 @@ const Contact = () => {
             </div>
           </form>
         </article>
-        {/* Otro contenido */}
+        <article className="row mt-2 contact__sucursales border-subtle">
+          <div className="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center contact__sucursales__text">
+            <h2 className="text-center text-white">Conoce nuestras sucursales</h2>
+            <i className="bi bi-globe-americas parrafo" />
+            <p>Av. Juan Domingo Perón 1800</p>
+            <p>Yerba Buena, Tucumán</p>
+          </div>
+
+          <div className="col-12 col-md-8 mt-2 mt-md-0 ps-md-0">
+            <iframe
+              allowFullScreen
+              height="100%"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1100201477684!2d-65.20963307589784!3d-26.836452770675116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c0e93a13151%3A0xb598352fc0c71f5b!2sGral.%20Paz%20576%2C%20T4000%20San%20Miguel%20de%20Tucum%C3%A1n%2C%20Tucum%C3%A1n!5e0!3m2!1ses!2sar!4v1713819676291!5m2!1ses!2sar"
+              style={{
+                border: "0",
+              }}
+              width="100%"
+            />
+          </div>
+        </article>
       </section>
     </>
   );

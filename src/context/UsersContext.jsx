@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const UsersProvider = createContext();
 
-// eslint-disable-next-line react/prop-types
 const UsersContext = ({ children }) => {
   const [usuarios, setUsuarios] = useState([]);
 
