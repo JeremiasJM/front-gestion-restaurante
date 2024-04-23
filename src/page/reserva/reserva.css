@@ -57,6 +57,25 @@
   width: 250%;
 }
 
+.swal2-title {
+	color: var(--font-color-primary);
+}
+.swal2-icon {
+	background-color: var(--bg-color-secondary);
+	color: #C29747;
+}
+.swal2-confirm.swal2-styled {
+	border: 0;
+	border-radius: 0.25em;
+	background: initial;
+	background-color: #efe7df;
+	color: #C29747;
+	font-size: 1em;
+}
+.swal2-icon.swal2-icon-show {
+	border-color: #8A6113;
+}
+
 
 @media (max-width: 994px) {
 
