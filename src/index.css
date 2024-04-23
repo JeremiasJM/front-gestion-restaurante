@@ -67,3 +67,48 @@ body {
 	font-size: var(--font-size-paragraph);
 	line-height: 2rem;
 }
+
+/* Sweet Alert*/
+
+div:where(.swal2-container).swal2-center>.swal2-popup {
+	background-color:#efe7df ;
+	border: 3px solid #8A6113 ;
+	border-radius: 10%;
+    grid-column: 2;
+    grid-row: 2;
+    place-self: center center;
+}
+
+div:where(.swal2-container) img:where(.swal2-image) {
+    max-width: 100%;
+    align-items: center;
+	border-radius: 30%;
+}
+
+
+div:where(.swal2-container) h2:where(.swal2-title) {
+	font-family: var(--font-family-title);
+	font-size: var(--font-size-title);
+	color: var(--font-color-primary);
+	text-decoration: none; 
+}
+
+.swal2-container h2.swal2-title {
+	font-family: var(--font-family-title);
+	font-size: var(--font-size-title);
+	color: var(--font-color-primary);
+}
+
+.swal2-html-container {
+   
+	font-family: var(--font-family-subtitle);
+	font-size: var(--font-size-subtitle);
+	
+}
+.swal2-html-container p {
+	color: #8A6113; 
+  }
+
+
+
+/* Sweet Alert*/
