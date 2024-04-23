@@ -121,6 +121,16 @@ const Navegador = () => {
                     >
                       Iniciar sesión
                     </Link>
+                    <li class="nav-item">
+                      <Link
+                        class="nav-link active  text-uppercase"
+                        aria-current="page"
+                        to="/Contacto"
+                      >
+                        Contacto
+                      </Link>
+                    </li>
+                    
                   </li>
                 </ul>
               </div>
