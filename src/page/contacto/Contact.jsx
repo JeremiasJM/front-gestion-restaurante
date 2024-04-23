@@ -27,6 +27,7 @@ const Contact = () => {
             imageWidth:"240",
             title: "Correo Enviado",
             html: "<p>Gracias por contactarnos. Nos pondremos en contacto contigo lo antes posible.</p>",
+            showConfirmButton: false,
            timer:"3500"
           });
           form.current.reset();
@@ -39,6 +40,7 @@ const Contact = () => {
             imageWidth:"240",
             title: "Error al Enviar el Correo",
             html: "<p>Vuelva a intertar mas tarde</p>",
+            showConfirmButton: false,
               timer:"3500"
           });
         }
