@@ -23,7 +23,6 @@ const Admin = () => {
   const [apellidoUser, setApellidoUser] = useState("");
   const [mail, setMail] = useState("");
 
-  //reservas
   const extractDate = (isoDateString) => {
     const dateOnly = isoDateString.split("T")[0];
     return dateOnly;
@@ -102,7 +101,6 @@ const Admin = () => {
       if (result.isConfirmed) {
         updateReserva(_id, updatedReserva)
           .then((response) => {
-
             setNombre("");
             setApellido("");
             setFecha("");
@@ -139,12 +137,11 @@ const Admin = () => {
       if (result.isConfirmed) {
         deleteReserva(id)
           .then((response) => {
-
             Swal.fire({
               title: "Reserva Eliminado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar la reserva:", error);
@@ -191,7 +188,6 @@ const Admin = () => {
     };
     updateUser(_id, updatedUser)
       .then((response) => {
-
         setUsuario("");
         setMail("");
         setValidationError(false);
@@ -228,12 +224,11 @@ const Admin = () => {
       if (result.isConfirmed) {
         deleteUser(id)
           .then((response) => {
-
             Swal.fire({
               title: "Usuario Eliminado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar el Usuario:", error);
@@ -258,7 +253,7 @@ const Admin = () => {
               title: "Usuario Suspendido!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar el Usuario:", error);
@@ -283,7 +278,7 @@ const Admin = () => {
               title: "Usuario Habilitado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al habilitar el Usuario:", error);
@@ -305,7 +300,9 @@ const Admin = () => {
           <h1 className="text-center">Panel Administrador</h1>
 
           <section className="pt-3 pb-3">
-            <h2 className="text-center p-2 text-decoration-none">Gestión Usuarios</h2>
+            <h2 className="text-center p-2 text-decoration-none">
+              Gestión Usuarios
+            </h2>
             <div className="table-responsive me-5 ms-5">
               <table className="table table-bordered">
                 <thead className="colorTabla">
@@ -331,8 +328,9 @@ const Admin = () => {
                         <td className="d-flex justify-content-end gap-2">
                           <button
                             type="button"
-                            className={`btn btn-success botonEditar ${usuario.estado ? "" : "disabled"
-                              }`}
+                            className={`btn btn-success botonEditar ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
                             onClick={() => openModal2(usuario)}
                             data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop2"
@@ -349,8 +347,9 @@ const Admin = () => {
                           </button>
                           <button
                             type="button"
-                            className={`btn btn-warning botonSuspender ${usuario.estado ? "" : "disabled"
-                              }`}
+                            className={`btn btn-warning botonSuspender ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
                             onClick={() => handleDisableUsuario(usuario._id)}
                             disabled={!usuario.estado}
                           >
@@ -358,8 +357,9 @@ const Admin = () => {
                           </button>
                           <button
                             type="button"
-                            className={`btn btn-danger botonEliminar ${usuario.estado ? "" : "disabled"
-                              }`}
+                            className={`btn btn-danger botonEliminar ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
                             onClick={() => handleDeleteUsuario(usuario._id)}
                             disabled={!usuario.estado}
                           >
@@ -375,7 +375,9 @@ const Admin = () => {
           </section>
 
           <section>
-            <h2 className="text-center p-2 text-decoration-none">Gestión Reservas</h2>
+            <h2 className="text-center p-2 text-decoration-none">
+              Gestión Reservas
+            </h2>
             <div className="table-responsive me-5 ms-5">
               <table className="table table-bordered">
                 <thead className="colorTabla">

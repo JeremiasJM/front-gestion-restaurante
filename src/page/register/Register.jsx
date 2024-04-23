@@ -1,8 +1,8 @@
-import { useState,useContext } from 'react';
-import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
-import './Register.css';
-import { UsersProvider } from '../../context/UsersContext';
-import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from "react";
+import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import "./Register.css";
+import { UsersProvider } from "../../context/UsersContext";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { MdPassword, MdEmail, MdDangerous } from "react-icons/md";
@@ -10,7 +10,7 @@ import { FaUserAlt, FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { FaHouseChimneyUser } from "react-icons/fa6";
 
 const Register = () => {
-  const { createUser, usuarios } = useContext(UsersProvider);
+  const { addUser, usuarios } = useContext(UsersProvider);
   const navigate = useNavigate();
 
   const [eye1, setEye1] = useState(false);
@@ -24,7 +24,7 @@ const Register = () => {
     email: "",
     password: "",
     admin: false,
-    repeatPass: ""
+    repeatPass: "",
   });
 
   const handleChange = (e) => {
@@ -40,16 +40,25 @@ const Register = () => {
     }
   };
 
+  // ...
+
+  let usuariosArray = Object.values(usuarios);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    existe = usuarios.find((user) => user.email === usuario.email);
+    const existe = usuariosArray.some((user) => user.email === usuario.email);
 
-    if (usuario.nombre.length !== 0 && usuario.apellido.length !== 0 && usuario.password.length !== 0 && !existe && equalPasswords) {
-
+    if (
+      usuario.nombre.length !== 0 &&
+      usuario.apellido.length !== 0 &&
+      usuario.password.length !== 0 &&
+      !existe &&
+      equalPasswords
+    ) {
       console.log(usuarios, "<--usuarios Register");
 
-      createUser(usuario);
+      addUser(usuario);
 
       Swal.fire({
         position: "center",
@@ -65,14 +74,11 @@ const Register = () => {
         email: "",
         password: "",
         admin: false,
-        repeatPass: ""
+        repeatPass: "",
       });
 
-      setExiste(false);
-      navigate("/");
-
+      navigate("/login");
     } else {
-      setExiste(true)
       Swal.fire({
         position: "center",
         icon: "error",
@@ -80,15 +86,23 @@ const Register = () => {
         showConfirmButtom: false,
         timer: 1500,
       });
-      console.error("Verifique e ingrese correctamente todos los datos, por favor.");
+      console.error(
+        "Verifique e ingrese correctamente todos los datos, por favor."
+      );
     }
-
   };
 
   return (
-    <Container fluid className="d-flex justify-content-center align-items-center bg_register vh-100">
+    <Container
+      fluid
+      className="d-flex justify-content-center align-items-center bg_register vh-100"
+    >
       <Row className="justify-content-center  w-100  px-5">
-        <Col sm={10} md={9} lg={8} xl={6}
+        <Col
+          sm={10}
+          md={9}
+          lg={8}
+          xl={6}
           className="border border-5 rounded border-warning p-4 card_register align-items-center shadow"
         >
           <h3 className="text-center mb-4 titulo">Registrate</h3>
@@ -148,7 +162,12 @@ const Register = () => {
               </InputGroup>
             </Form.Group>
 
-            {existe ? <div className="text-center text-danger mb-2"><MdDangerous />El email ya está en uso. Introduzca uno nuevo.</div> : null}
+            {existe ? (
+              <div className="text-center text-danger mb-2">
+                <MdDangerous />
+                El email ya está en uso. Introduzca uno nuevo.
+              </div>
+            ) : null}
 
             <Form.Group className="my-3">
               <InputGroup>
@@ -165,7 +184,11 @@ const Register = () => {
                   maxLength="40"
                   minLength="5"
                 />
-                <Button variant='' className='labels border border-2 border-start-0' onClick={() => setEye1(!eye1)}>
+                <Button
+                  variant=""
+                  className="labels border border-2 border-start-0"
+                  onClick={() => setEye1(!eye1)}
+                >
                   {eye1 ? <FaRegEye /> : <FaRegEyeSlash />}
                 </Button>
               </InputGroup>
@@ -190,7 +213,12 @@ const Register = () => {
               </InputGroup>
             </Form.Group>
 
-            {equalPasswords ? null : <div className="text-center text-danger"><MdDangerous />Las contraseñas no coinciden</div>}
+            {equalPasswords ? null : (
+              <div className="text-center text-danger">
+                <MdDangerous />
+                Las contraseñas no coinciden
+              </div>
+            )}
 
             <Button
               className="mt-3 w-100  button_register"
@@ -199,7 +227,6 @@ const Register = () => {
             >
               Registrarse
             </Button>
-
           </Form>
         </Col>
       </Row>
