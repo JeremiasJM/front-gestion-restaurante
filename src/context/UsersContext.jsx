@@ -6,7 +6,9 @@ export const UsersProvider = createContext();
 
 const UsersContext = ({ children }) => {
   const [usuarios, setUsuarios] = useState([]);
-  const [usuarioLogueado, setUsuarioLogueado] = useState();
+  const [validationErrorLogin, setValidationErrorLogin] = useState(false);
+
+  const [usuarioLogueado, setUsuarioLogueado,] = useState();
 
   const getUsers = async () => {
     try {
@@ -14,7 +16,7 @@ const UsersContext = ({ children }) => {
         "https://gestion-restaurante.onrender.com/api/user"
       );
       setUsuarios(response.data);
-      console.log(response,"usuarios Rolling Food Reservas")
+    
     } catch (error) {
       console.log(error);
       
@@ -40,7 +42,7 @@ const UsersContext = ({ children }) => {
     };
 
     const editUsuario = async (usuario) => {
-      console.log(usuario, "editUsuario");
+     
       const token = localStorage.getItem("token");
 
       if (!token) {
@@ -64,33 +66,41 @@ const UsersContext = ({ children }) => {
     };
 
   const logOut = () => {
-    localStorage.removeItem("user");
     localStorage.removeItem("token");
     window.location.href = "/";
   };
 
   const loginUsuario = async (usuario) => {
-    console.log(usuario, "loginUsuario");
+   
     try {
       const response = await axios.post(
         "https://gestion-restaurante.onrender.com/api/user/login",
         usuario
       );
-      console.log(response.data, "response.data desde el context");
+    
 
       const { token } = response.data.data;
+
       localStorage.setItem("token", token);
       const decoded = jwtDecode(token);
+   
+
 
       setUsuarioLogueado(decoded);
     } catch (error) {
       console.log(error);
-    }
+      const errorLogin = error.response.data.message;
+      setValidationErrorLogin (errorLogin)
+      
+
+    } 
   };
 
   useEffect(() => {
     getUsers();
   }, []);
+
+
 
   return (
     <UsersProvider.Provider
@@ -103,6 +113,8 @@ const UsersContext = ({ children }) => {
         editUsuario,
         loginUsuario,
         usuarioLogueado,
+        validationErrorLogin,
+        
       }}
    
    >

@@ -14,13 +14,13 @@ const Login = (handleClose) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { loginUsuario, usuarioLogueado } = useContext(UsersProvider);
+  const { loginUsuario, usuarioLogueado, validationErrorLogin} = useContext(UsersProvider);
 
+  
    
   useEffect(() => {
     if (usuarioLogueado) {
-      //console.log(usuarioLogueado.nombre,"nombre necesito")
-     Swal.fire({
+      Swal.fire({
         position: "center",
         icon: "success",
         title: "Bienvenido ",
@@ -28,20 +28,14 @@ const Login = (handleClose) => {
         timer: 5000,
       });
       
-      const usuario = {
-        nombre: usuarioLogueado.nombre,
-        apellido: usuarioLogueado.apellido,
-        email: usuarioLogueado.email,
-        admin: usuarioLogueado.admin,
-        //id: usuarioLogueado.id,
-      };
       
       navigate("/");
       window.location.reload(true);
-      localStorage.setItem("user", JSON.stringify(usuario));
-      handleClose();
+      //localStorage.setItem("user", JSON.stringify(usuario));
+      
+      
     } 
-  }, [usuarioLogueado, handleClose]);
+  }, [usuarioLogueado]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -103,6 +97,13 @@ const Login = (handleClose) => {
                   />
                 </div>
               </Form.Group>
+              {validationErrorLogin && (
+                  <div className="col-12 h-75 ">
+                    <div className="alert alert-danger text " role="alert">
+                      {validationErrorLogin}
+                    </div>
+                  </div>
+                )}
               <Button
                 className="mt-4 w-100  button-login"
                 variant=""
@@ -114,16 +115,7 @@ const Login = (handleClose) => {
           </div>
 
           <Form.Group className="d-flex flex-column align-items-center flex-md-row  justify-content-center my-4 gap-4 ">
-            <Form.Check
-              className="d-flex align-items-center gap-1"
-              type="checkbox"
-              id="recuerdameInput"
-            />
-            <Form.Label className="pt-1 text-dark" htmlFor="recuerdameInput">
-              Recuerdame
-            </Form.Label>
-
-            <div className="pt-1 d-inline-block text-center ">
+           <div className="pt-1 d-inline-block text-center ">
               <a
                 href="#"
                 className="text-decoration-none text-dark fw-semibold fst-italic"
