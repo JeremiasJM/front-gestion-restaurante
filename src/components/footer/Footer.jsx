@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitterSquare, FaYoutube, FaPhoneAlt, FaMapP
 const Footer = () => {
   return (
     <>
-      <footer className='container-fluid text-center colorFondo curved'>
+      <footer className='container-fluid text-center colorFondo'>
         <div className='row mb-3'>
           <div className='col col-md-4'>
             <img src={logoRollingFood} className="w-50 mt-4 mb-3 pt-5" alt="Logo Rolling Food" />
