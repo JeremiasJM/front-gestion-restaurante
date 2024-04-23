@@ -10,14 +10,9 @@
   font-size: var(--font-size-paragraph-desktop) !important;
 }
 
-.sombreado {
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-}
-
 .btn-outline-light,
 .colorLetras {
   color: var(--font-color-tertiary);
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .btn-outline-light,
@@ -30,7 +25,7 @@
 .twitter,
 .youTube {
   color: var(--font-color-primary);
-  font-size: 33px;
+  font-size: 25px;
   margin-left: 20px;
   margin-right: 20px;
 }

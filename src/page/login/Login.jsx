@@ -55,7 +55,7 @@ const Login = (handleClose) => {
   return (
     <>
       <div className="bg_login d-flex justify-content-center align-items-center vh-100">
-        <div className="card_login px-4 shadow p-1 p-md-5 mt-5 ">
+        <div className="card_login px-4 shadow p-1 p-md-5">
           <div>
             <div className="text-center titulo">Inicia Sesión</div>
             <Form  onSubmit={handleSubmit}>

@@ -7,6 +7,7 @@ import Register from "../../page/register/Register";
 import Home from '../../page/home/Home';
 import Contact from '../../page/contacto/Contact';
 import About from '../../page/about/About';
+import Reserva from '../../page/reserva/Reserva.jsx';
 
 const Rutas = () => {
   return (
@@ -18,8 +19,10 @@ const Rutas = () => {
         <Route path='/admin' element={<Admin />} />
         <Route path='/register' element={<Register />} />
         <Route path='/contacto' element={<Contact />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/about' element={<About />} /> 
+        <Route path='/reserva' element={<Reserva />} />
         <Route path='/login' element={<Login />} />
+       
       </Routes>
     </>
   );
