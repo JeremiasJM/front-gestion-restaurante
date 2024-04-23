@@ -2,7 +2,7 @@ import "./contact.css";
 import { MdAttachEmail } from "react-icons/md";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
 import { useRef } from "react";
-import emailjs from "@emailjs/browser"; // Cambiado el import
+import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 
 const Contact = () => {
@@ -174,10 +174,10 @@ const Contact = () => {
         </article>
         <article className="row mt-2 contact__sucursales border-subtle">
           <div className="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center contact__sucursales__text">
-            <h2 className="text-center text-white">Conoce nuestras sucursales</h2>
-            <i className="bi bi-globe-americas parrafo" />
-            <p>Av. Juan Domingo Perón 1800</p>
-            <p>Yerba Buena, Tucumán</p>
+            <h3 className="text-center text-white text-decoration-none">Conoce nuestro local:</h3>
+            <i className="bi bi-globe-americas parrafo mt-3" />
+            <p>General Paz 576</p>
+            <p>San miguel de Tucumán</p>
           </div>
 
           <div className="col-12 col-md-8 mt-2 mt-md-0 ps-md-0">
