@@ -49,19 +49,3 @@
   color: #1DA1F2;
   transition: all 1s;
 }
-
-.curved {
-  position: relative;
-  background: var(--bg-color-white);
-  height: 50vh;
-  border-bottom-left-radius: 50% 30%;
-  border-bottom-right-radius: 50% 30%;
-}
-
-@media screen and (max-width: 768px) {
-  .curved {
-    height: 95vh;
-    border-bottom-left-radius: 50% 10%;
-    border-bottom-right-radius: 50% 10%;
-  }
-}

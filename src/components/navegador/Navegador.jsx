@@ -1,5 +1,5 @@
 import "./navegador.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import logo from "../../assets/resource/media/img-logo/logo-sin-bg.png";
 import { Link } from "react-router-dom";
@@ -8,15 +8,50 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { createTheme } from "@mui/material/styles";
+import { jwtDecode } from "jwt-decode";
+import { set } from "react-hook-form";
 const Navegador = () => {
-  const isLogeado = false;
-  const isAdmin = false;
+  const [isLogin, setIsLogin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [nombre, setNombre] = useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setIsLogin(true);
+        setNombre(decoded.nombre);
+        setIsAdmin(decoded.admin);
+      } catch (error) {
+        console.error("Error al decodificar el token:", error);
+        setIsLogin(false);
+        setIsAdmin(false);
+      }
+    } else {
+      setIsLogin(false);
+      setIsAdmin(false);
+    }
+  }, []);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLogin(false);
+    setIsAdmin(false);
+    setNombre(null);
+    setAnchorEl(null);
+  };
+  const handleAdmin = () => {
+    window.location.href = "/Admin";
     setAnchorEl(null);
   };
   const theme = createTheme({
@@ -29,13 +64,13 @@ const Navegador = () => {
   return (
     <>
       <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container-fluid ">
-            <Link className="navbar-brand d-none d-md-block" to="/">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <div className="container-fluid ">
+            <Link className="navbar-brand d-md-block" to="/">
               <img src={logo} className="" alt="logo" />
             </Link>
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -43,41 +78,41 @@ const Navegador = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
             <div
-              class="collapse navbar-collapse mt-4"
+              className="collapse navbar-collapse mt-4"
               id="navbarSupportedContent"
             >
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
                   <Link to="/" className="nav-link ">
                     <button className="buttonDos">Inicio</button>
                   </Link>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                   <Link to="/Reserva" className="nav-link ">
                     <button className="buttonDos">Reservas</button>
                   </Link>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                   <Link to="/Galeria" className="nav-link ">
                     <button className="buttonDos">Galeria</button>
                   </Link>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                   <Link to="/About" className="nav-link ">
                     <button className="buttonDos">Nosotros</button>
                   </Link>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                   <Link to="/Contacto" className="nav-link ">
                     <button className="buttonDos">Contacto</button>
                   </Link>
                 </li>
               </ul>
-              <div class="d-flex">
-                {!isLogeado ? (
+              <div className="d-flex">
+                {isLogin ? (
                   <div>
                     <Button
                       id=""
@@ -89,7 +124,7 @@ const Navegador = () => {
                       theme={theme}
                       color="primary"
                     >
-                      Nombre
+                      {nombre}
                       <IoPersonCircleOutline size={32} />
                     </Button>
 
@@ -103,15 +138,18 @@ const Navegador = () => {
                       }}
                     >
                       {!isAdmin ? (
-                        <MenuItem onClick={handleClose} className="buttonDos">
+                        <MenuItem onClick={handleLogout} className="buttonDos">
                           Cerra Session
                         </MenuItem>
                       ) : (
                         <div>
-                          <MenuItem onClick={handleClose} className="buttonDos">
-                            Cerra Session
+                          <MenuItem onClick={handleAdmin} className="buttonDos">
+                            Panel de Administrador
                           </MenuItem>
-                          <MenuItem onClick={handleClose} className="buttonDos">
+                          <MenuItem
+                            onClick={handleLogout}
+                            className="buttonDos"
+                          >
                             Cerra Session
                           </MenuItem>
                         </div>

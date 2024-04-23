@@ -13,13 +13,47 @@ h2 {
   --bs-table-bg: var(--bg-color-secundary);
   --bs-table-border-color: var(--font-color-primary);
 }
-.loading{
+
+.loading {
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #8A6113;
 }
+
 .suspended-row {
-  background-color: #a52a2a; /* Cambia este valor al color gris oscuro que desees */
+  background-color: #A9A9A9;
+}
+
+.colorTabla {
+  background-color: var(--bg-color-primary);
+}
+
+.botonEliminar {
+  background-color: var(--bg-color-tertiary);
+  border: 2px solid #DC143C;
+  color: #DC143C;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.botonSuspender {
+  background-color: var(--bg-color-tertiary);
+  border: 2px solid var(--font-color-primary);
+  color: var(--font-color-primary);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.botonHabilitar {
+  background-color: var(--bg-color-tertiary);
+  border: 2px solid var(--bottom-color-lightblue);
+  color: var(--bottom-color-lightblue);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.botonEditar {
+  background-color: var(--bg-color-tertiary);
+  border: 2px solid var(--bottom-color-green);
+  color: var(--bottom-color-green);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }

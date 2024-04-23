@@ -16,14 +16,13 @@ const Admin = () => {
   const [comensales, setComensales] = useState("");
   const [validationError, setValidationError] = useState(false);
 
-  const { usuarios, updateUser, deleteUser, disableUser ,enableUser} =
+  const { usuarios, updateUser, deleteUser, disableUser, enableUser } =
     useContext(UsersProvider);
   const [modalData2, setModalData2] = useState(null);
   const [usuario, setUsuario] = useState("");
   const [apellidoUser, setApellidoUser] = useState("");
   const [mail, setMail] = useState("");
 
-  //reservas
   const extractDate = (isoDateString) => {
     const dateOnly = isoDateString.split("T")[0];
     return dateOnly;
@@ -68,7 +67,6 @@ const Admin = () => {
       return;
     }
 
-   
     //entra a las reservas y valida que ninguna de las otras reservas tengan el mismo dia y hora
     for (let i = 0; i < reservas.length; i++) {
       const reserva = reservas[i];
@@ -103,7 +101,6 @@ const Admin = () => {
       if (result.isConfirmed) {
         updateReserva(_id, updatedReserva)
           .then((response) => {
-           
             setNombre("");
             setApellido("");
             setFecha("");
@@ -140,12 +137,11 @@ const Admin = () => {
       if (result.isConfirmed) {
         deleteReserva(id)
           .then((response) => {
-           
             Swal.fire({
               title: "Reserva Eliminado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar la reserva:", error);
@@ -192,7 +188,6 @@ const Admin = () => {
     };
     updateUser(_id, updatedUser)
       .then((response) => {
-        
         setUsuario("");
         setMail("");
         setValidationError(false);
@@ -229,12 +224,11 @@ const Admin = () => {
       if (result.isConfirmed) {
         deleteUser(id)
           .then((response) => {
-           
             Swal.fire({
               title: "Usuario Eliminado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar el Usuario:", error);
@@ -259,7 +253,7 @@ const Admin = () => {
               title: "Usuario Suspendido!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar el Usuario:", error);
@@ -284,7 +278,7 @@ const Admin = () => {
               title: "Usuario Habilitado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al habilitar el Usuario:", error);
@@ -302,14 +296,16 @@ const Admin = () => {
           </div>
         </div>
       ) : (
-        <main className="container-fluid">
+        <main className="container-fluid mt-5 mb-5">
           <h1 className="text-center">Panel Administrador</h1>
 
           <section className="pt-3 pb-3">
-            <h2 className="text-center p-2">Gestión Usuarios</h2>
-            <div className="table-responsive">
+            <h2 className="text-center p-2 text-decoration-none">
+              Gestión Usuarios
+            </h2>
+            <div className="table-responsive me-5 ms-5">
               <table className="table table-bordered">
-                <thead>
+                <thead className="colorTabla">
                   <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
@@ -332,7 +328,7 @@ const Admin = () => {
                         <td className="d-flex justify-content-end gap-2">
                           <button
                             type="button"
-                            className={`btn btn-success ${
+                            className={`btn btn-success botonEditar ${
                               usuario.estado ? "" : "disabled"
                             }`}
                             onClick={() => openModal2(usuario)}
@@ -344,14 +340,14 @@ const Admin = () => {
                           </button>
                           <button
                             type="button"
-                            className="btn btn-primary"
+                            className="btn btn-primary botonHabilitar"
                             onClick={() => handleEnableUsuario(usuario._id)}
                           >
                             Habilitar
                           </button>
                           <button
                             type="button"
-                            className={`btn btn-warning ${
+                            className={`btn btn-warning botonSuspender ${
                               usuario.estado ? "" : "disabled"
                             }`}
                             onClick={() => handleDisableUsuario(usuario._id)}
@@ -361,7 +357,7 @@ const Admin = () => {
                           </button>
                           <button
                             type="button"
-                            className={`btn btn-danger ${
+                            className={`btn btn-danger botonEliminar ${
                               usuario.estado ? "" : "disabled"
                             }`}
                             onClick={() => handleDeleteUsuario(usuario._id)}
@@ -379,11 +375,12 @@ const Admin = () => {
           </section>
 
           <section>
-            <h2 className="text-center">Gestión Reservas</h2>
-            <h2>Reservas</h2>
-            <div className="table-responsive">
+            <h2 className="text-center p-2 text-decoration-none">
+              Gestión Reservas
+            </h2>
+            <div className="table-responsive me-5 ms-5">
               <table className="table table-bordered">
-                <thead>
+                <thead className="colorTabla">
                   <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
@@ -406,7 +403,7 @@ const Admin = () => {
                       <td className="d-flex justify-content-end gap-2">
                         <button
                           type="button"
-                          className="btn btn-primary"
+                          className="btn btn-success botonEditar"
                           onClick={() => openModal(reserva)}
                           data-bs-toggle="modal"
                           data-bs-target="#staticBackdrop"
@@ -415,7 +412,7 @@ const Admin = () => {
                         </button>
                         <button
                           type="button"
-                          className="btn btn-danger"
+                          className="btn btn-danger botonEliminar"
                           onClick={() => handleDelete(reserva._id)}
                         >
                           Eliminar

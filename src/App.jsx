@@ -7,13 +7,13 @@ import ReservaContext from "./context/ReserveContext";
 function App() {
   return (
     <>
-        <UsersContext>
+      <UsersContext>
         <ReservaContext>
-            <Navegador />
-            <Rutas />
-            <Footer />
+          <Navegador />
+          <Rutas />
+          <Footer />
         </ReservaContext>
-        </UsersContext>
+      </UsersContext>
     </>
   );
 }

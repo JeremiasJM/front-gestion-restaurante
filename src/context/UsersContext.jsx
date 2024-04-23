@@ -1,11 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 export const UsersProvider = createContext();
 
 const UsersContext = ({ children }) => {
   const [usuarios, setUsuarios] = useState([]);
+  const [validationErrorLogin, setValidationErrorLogin] = useState(false);
 
+  const [usuarioLogueado, setUsuarioLogueado] = useState();
   useEffect(() => {
     getUsers();
   }, []);
@@ -17,74 +20,93 @@ const UsersContext = ({ children }) => {
       );
       setUsuarios(response.data.users);
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 
-  const createUser = async (usuario) => {
+  const addUser = async (usuario) => {
     try {
-      console.log(usuario, "<-- user Context");
       await axios.post(
         "https://gestion-restaurante.onrender.com/api/user/registro",
         usuario
       );
-      await getUsers();
+      await getUsers(); //actualizar la lista de usuarios
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
-  const updateUser = async (id, usuario) => {
-    try {
-      await axios.put(
-        `https://gestion-restaurante.onrender.com/api/user/update/${id}`,
-        usuario
-      );
-      await getUsers();
-    } catch (error) {
-      console.error(error);
-      setError("Error al actualizar el usuario");
-    }
-  };
-  const deleteUser = async (id) => {
+
+  const deleteUsuario = async (id) => {
     try {
       await axios.delete(
         `https://gestion-restaurante.onrender.com/api/user/delete/${id}`
       );
       await getUsers();
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
-  const disableUser = async (id) => {
+
+  const editUsuario = async (usuario) => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      throw new Error("No se proporcionó un token");
+    }
+
     try {
       await axios.put(
-        `https://gestion-restaurante.onrender.com/api/user/disable/${id}`
+        `https://gestion-restaurante.onrender.com/api/user/update/${usuario.id}`,
+        usuario,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       await getUsers();
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
-  const enableUser = async (id) => {
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  };
+
+  const loginUsuario = async (usuario) => {
     try {
-      await axios.put(
-        `https://gestion-restaurante.onrender.com/api/user/enable/${id}`
+      const response = await axios.post(
+        "https://gestion-restaurante.onrender.com/api/user/login",
+        usuario
       );
-      await getUsers();
+
+      const { token } = response.data.data;
+
+      localStorage.setItem("token", token);
+      const decoded = jwtDecode(token);
+
+      setUsuarioLogueado(decoded);
     } catch (error) {
-      console.error(error);
+      console.log(error);
+      const errorLogin = error.response.data.message;
+      setValidationErrorLogin(errorLogin);
     }
   };
+
   return (
     <UsersProvider.Provider
       value={{
         usuarios,
         getUsers,
-        createUser,
-        updateUser,
-        deleteUser,
-        disableUser,
-        enableUser,
+        addUser,
+        logOut,
+        deleteUsuario,
+        editUsuario,
+        loginUsuario,
+        usuarioLogueado,
+        validationErrorLogin,
       }}
     >
       {children}
