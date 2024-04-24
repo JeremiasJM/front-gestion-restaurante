@@ -63,3 +63,12 @@ h2 {
 	color: var(--font-color-primary);
 	text-decoration: none;
 }
+
+@media (max-width: 768px ){
+	
+	.card_register {
+		width: 1500px;
+		margin: 10%;
+	}
+	
+}

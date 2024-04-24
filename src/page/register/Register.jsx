@@ -56,8 +56,6 @@ const Register = () => {
       !existe &&
       equalPasswords
     ) {
-      console.log(usuarios, "<--usuarios Register");
-
       addUser(usuario);
 
       Swal.fire({
@@ -100,7 +98,7 @@ const Register = () => {
   return (
     <Container
       fluid
-      className="d-flex justify-content-center align-items-center bg_register vh-100"
+      className="d-flex justify-content-center align-items-center  bg_register vh-100"
     >
       <Row className="justify-content-center  w-100  px-5">
         <Col

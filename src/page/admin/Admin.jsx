@@ -108,7 +108,6 @@ const Admin = () => {
         setValidationError("Reservas Agotadas");
         return;
       }
-      console.log(contador);
     }
     const { _id } = modalData;
     const updatedReserva = {

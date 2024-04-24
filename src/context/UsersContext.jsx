@@ -19,9 +19,7 @@ const UsersContext = ({ children }) => {
         "https://gestion-restaurante.onrender.com/api/user"
       );
       setUsuarios(response.data.users);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const addUser = async (usuario) => {
@@ -30,10 +28,8 @@ const UsersContext = ({ children }) => {
         "https://gestion-restaurante.onrender.com/api/user/registro",
         usuario
       );
-      await getUsers(); //actualizar la lista de usuarios
-    } catch (error) {
-      console.log(error);
-    }
+      await getUsers();
+    } catch (error) {}
   };
 
   const deleteUsuario = async (id) => {
@@ -42,9 +38,7 @@ const UsersContext = ({ children }) => {
         `https://gestion-restaurante.onrender.com/api/user/delete/${id}`
       );
       await getUsers();
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const editUsuario = async (usuario) => {
@@ -65,9 +59,7 @@ const UsersContext = ({ children }) => {
         }
       );
       await getUsers();
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const logOut = () => {
@@ -89,7 +81,6 @@ const UsersContext = ({ children }) => {
 
       setUsuarioLogueado(decoded);
     } catch (error) {
-      console.log(error);
       const errorLogin = error.response.data.message;
       setValidationErrorLogin(errorLogin);
     }
