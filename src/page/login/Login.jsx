@@ -15,38 +15,34 @@ const Login = (handleClose) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { loginUsuario, usuarioLogueado, validationErrorLogin} = useContext(UsersProvider);
-
   
-   
+
   useEffect(() => {
     if (usuarioLogueado) {
       Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Bienvenido ",
+        imageUrl: "https://i.pinimg.com/originals/98/e1/2a/98e12ad7295a3b653cae1d3e7f4de764.gif",
+        imageHeight: 200,
+        imageWidth: 240,
+        title: 'Hola!',
+        html: "<p><i>Reserva elegancia, saborea perfección</i></p>",
         showConfirmButton: false,
-        timer: 5000,
+        timer: 4500,
+      }).then(() => {
+        navigate("/");
       });
-      
-      
-      navigate("/");
-      window.location.reload(true);
-      //localStorage.setItem("user", JSON.stringify(usuario));
-      
-      
-    } 
+    }
   }, [usuarioLogueado]);
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      loginUsuario({ email, password });
+      await loginUsuario({ email, password });
     } catch (error) {
       console.log(error);
     }
   };
-
+  
   const registro = () => {
     navigate("/registro");
     handleClose();
@@ -54,8 +50,8 @@ const Login = (handleClose) => {
 
   return (
     <>
-      <div className="bg_login d-flex justify-content-center align-items-center vh-100">
-        <div className="card_login px-4 shadow p-1 p-md-5">
+      <div className="bg_login d-flex justify-content-center align-items-center vh-100 bg-danger ">
+        <div className="card_login px-4 shadow p-1 p-md-5 m-4  w-100 ">
           <div>
             <div className="text-center titulo">Inicia Sesión</div>
             <Form  onSubmit={handleSubmit}>
