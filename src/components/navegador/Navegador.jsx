@@ -1,128 +1,166 @@
 import "./navegador.css";
+import React, { useEffect, useState } from "react";
+import { IoPersonCircleOutline } from "react-icons/io5";
 import logo from "../../assets/resource/media/img-logo/logo-sin-bg.png";
 import { Link } from "react-router-dom";
-import { FaUserLock } from 'react-icons/fa';
-
+import { FaUserLock } from "react-icons/fa";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { createTheme } from "@mui/material/styles";
+import { jwtDecode } from "jwt-decode";
 const Navegador = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [nombre, setNombre] = useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setIsLogin(true);
+        setNombre(decoded.nombre);
+        setIsAdmin(decoded.admin);
+      } catch (error) {
+        console.error("Error al decodificar el token:", error);
+        setIsLogin(false);
+        setIsAdmin(false);
+      }
+    } else {
+      setIsLogin(false);
+      setIsAdmin(false);
+    }
+  }, []);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLogin(false);
+    setIsAdmin(false);
+    setNombre(null);
+    setAnchorEl(null);
+    window.location.href = "/";
+  };
+  const handleAdmin = () => {
+    window.location.href = "/Admin";
+    setAnchorEl(null);
+  };
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "rgb(193, 163, 98)",
+      },
+    },
+  });
   return (
     <>
       <header>
-        <nav className="container-fluid navbar bg-body-css p-3">
-          <div className="container-fluid">
-            <Link className="navbar-brand d-none d-md-block" to="/">
-              <img src={logo} alt="logo" />
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <div className="container-fluid ">
+            <Link className="navbar-brand d-md-block" to="/">
+              <img src={logo} className="" alt="logo" />
             </Link>
-            <div className="navbar">
-              <div className="nav-links">
-                <Link to="/login" className="nav-link">
-                  <FaUserLock className="iconoLogin" />
-                </Link>
-                <Link to="/Reserva" className="nav-link">
-                  <button className="buttonDos">Reservas</button>
-                </Link>
-              </div>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar"
-                aria-label="Toggle navigation"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  fill="currentColor"
-                  className="bi bi-list"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
-                  />
-                </svg>
-                <span className="menu"> MENU</span>
-              </button>
-            </div>
-
-            <div
-              className="offcanvas offcanvas-end"
-              tabIndex="-1"
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
-              <div className="offcanvas-header">
-                <h5
-                  className="offcanvas-title text-uppercase"
-                  id="offcanvasNavbarLabel"
-                >
-                  Rolling Food
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div className="offcanvas-body">
-                <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active  text-uppercase"
-                      aria-current="page"
-                      to="/"
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className="collapse navbar-collapse mt-4"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link to="/" className="nav-link ">
+                    <button className="buttonDos">Inicio</button>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/Reserva" className="nav-link ">
+                    <button className="buttonDos">Reservas</button>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/Galeria" className="nav-link ">
+                    <button className="buttonDos">Galeria</button>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/About" className="nav-link ">
+                    <button className="buttonDos">Nosotros</button>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/Contacto" className="nav-link ">
+                    <button className="buttonDos">Contacto</button>
+                  </Link>
+                </li>
+              </ul>
+              <div className="d-flex">
+                {isLogin ? (
+                  <div>
+                    <Button
+                      id=""
+                      className="buttonDos"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      theme={theme}
+                      color="primary"
                     >
-                      Inicio
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active  text-uppercase"
-                      aria-current="page"
-                      to="/Reserva"
+                      {nombre}
+                      <IoPersonCircleOutline size={32} />
+                    </Button>
+
+                    <Menu
+                      id="basic-menu"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      MenuListProps={{
+                        "aria-labelledby": "basic-button",
+                      }}
                     >
-                      Reserva
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active  text-uppercase"
-                      aria-current="page"
-                      to="/Galeria"
-                    >
-                      Galeria
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active  text-uppercase"
-                      aria-current="page"
-                      to="/About"
-                    >
-                      Nosotros
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active  text-uppercase"
-                      aria-current="page"
-                      to="/Contacto"
-                    >
-                      Contacto
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active  text-uppercase"
-                      aria-current="page"
-                      to="/login"
-                    >
-                      Iniciar sesión
-                    </Link>
-                  </li>
-                </ul>
+                      {!isAdmin ? (
+                        <MenuItem onClick={handleLogout} className="buttonDos">
+                          Cerra Session
+                        </MenuItem>
+                      ) : (
+                        <div>
+                          <MenuItem onClick={handleAdmin} className="buttonDos">
+                            Panel de Administrador
+                          </MenuItem>
+                          <MenuItem
+                            onClick={handleLogout}
+                            className="buttonDos"
+                          >
+                            Cerra Session
+                          </MenuItem>
+                        </div>
+                      )}
+                    </Menu>
+                  </div>
+                ) : (
+                  <Link to="/login" className="nav-link">
+                    <FaUserLock className="iconoLogin" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>

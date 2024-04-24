@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Error404.css';
 
 const Error404 = () => {
@@ -17,7 +18,7 @@ const Error404 = () => {
           <div className='seccion-contenedor'>
             <p>Pero puedes regresar al inicio desde aquí</p>
             <div className='botones-regresar'>
-              <a className='boton-regresar' href=''>Regresar</a>
+              <Link className='boton-regresar' to='/'>Regresar</Link>
             </div>
           </div>
         </div>

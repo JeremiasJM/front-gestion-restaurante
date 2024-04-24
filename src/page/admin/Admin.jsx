@@ -1,11 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./admin.css";
 import Swal from "sweetalert2";
 import { ReservaProvider } from "../../context/ReserveContext";
 import { PulseLoader } from "react-spinners";
 import { UsersProvider } from "../../context/UsersContext";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
+  const navigate = useNavigate();
   const { reservas, updateReserva, loading, deleteReserva } =
     useContext(ReservaProvider);
   const [modalData, setModalData] = useState(null);
@@ -22,8 +25,33 @@ const Admin = () => {
   const [usuario, setUsuario] = useState("");
   const [apellidoUser, setApellidoUser] = useState("");
   const [mail, setMail] = useState("");
+  const [isLogin, setIsLogin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  //reservas
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        if (decoded.admin === true) {
+          setIsLogin(true);
+          setIsAdmin(true);
+        } else {
+          setIsLogin(true);
+          setIsAdmin(false);
+          navigate("/404");
+        }
+      } catch (error) {
+        setIsLogin(false);
+        setIsAdmin(false);
+        navigate("/404");
+      }
+    } else {
+      setIsLogin(false);
+      setIsAdmin(false);
+      navigate("/404");
+    }
+  }, [navigate]);
   const extractDate = (isoDateString) => {
     const dateOnly = isoDateString.split("T")[0];
     return dateOnly;
@@ -67,18 +95,20 @@ const Admin = () => {
       setValidationError("Dato no Valido: Solo numero");
       return;
     }
-
-    //entra a las reservas y valida que ninguna de las otras reservas tengan el mismo dia y hora
+    let contador = 0;
     for (let i = 0; i < reservas.length; i++) {
       const reserva = reservas[i];
       if (
         extractDate(reserva.fecha) === extractDate(fecha) &&
-        reserva.hora === hora &&
-        reserva._id !== modalData._id
+        reserva.hora === hora
       ) {
-        setValidationError("Ya hay una reserva en ese dia y hora");
+        contador++;
+      }
+      if (contador >= 5) {
+        setValidationError("Reservas Agotadas");
         return;
       }
+      console.log(contador);
     }
     const { _id } = modalData;
     const updatedReserva = {
@@ -102,7 +132,6 @@ const Admin = () => {
       if (result.isConfirmed) {
         updateReserva(_id, updatedReserva)
           .then((response) => {
-
             setNombre("");
             setApellido("");
             setFecha("");
@@ -139,12 +168,11 @@ const Admin = () => {
       if (result.isConfirmed) {
         deleteReserva(id)
           .then((response) => {
-
             Swal.fire({
               title: "Reserva Eliminado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar la reserva:", error);
@@ -153,7 +181,6 @@ const Admin = () => {
     });
   };
 
-  //usuarios
   const openModal2 = (usuario) => {
     setModalData2(usuario);
     setUsuario(usuario.nombre);
@@ -191,7 +218,6 @@ const Admin = () => {
     };
     updateUser(_id, updatedUser)
       .then((response) => {
-
         setUsuario("");
         setMail("");
         setValidationError(false);
@@ -228,12 +254,11 @@ const Admin = () => {
       if (result.isConfirmed) {
         deleteUser(id)
           .then((response) => {
-
             Swal.fire({
               title: "Usuario Eliminado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar el Usuario:", error);
@@ -258,7 +283,7 @@ const Admin = () => {
               title: "Usuario Suspendido!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al eliminar el Usuario:", error);
@@ -283,7 +308,7 @@ const Admin = () => {
               title: "Usuario Habilitado!",
               icon: "success",
               confirmButtonText: "OK",
-            })
+            });
           })
           .catch((error) => {
             console.error("Error al habilitar el Usuario:", error);
@@ -305,7 +330,9 @@ const Admin = () => {
           <h1 className="text-center">Panel Administrador</h1>
 
           <section className="pt-3 pb-3">
-            <h2 className="text-center p-2 text-decoration-none">Gestión Usuarios</h2>
+            <h2 className="text-center p-2 text-decoration-none">
+              Gestión Usuarios
+            </h2>
             <div className="table-responsive me-5 ms-5">
               <table className="table table-bordered">
                 <thead className="colorTabla">
@@ -331,8 +358,9 @@ const Admin = () => {
                         <td className="d-flex justify-content-end gap-2">
                           <button
                             type="button"
-                            className={`btn btn-success botonEditar ${usuario.estado ? "" : "disabled"
-                              }`}
+                            className={`btn btn-success botonEditar ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
                             onClick={() => openModal2(usuario)}
                             data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop2"
@@ -349,8 +377,9 @@ const Admin = () => {
                           </button>
                           <button
                             type="button"
-                            className={`btn btn-warning botonSuspender ${usuario.estado ? "" : "disabled"
-                              }`}
+                            className={`btn btn-warning botonSuspender ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
                             onClick={() => handleDisableUsuario(usuario._id)}
                             disabled={!usuario.estado}
                           >
@@ -358,8 +387,9 @@ const Admin = () => {
                           </button>
                           <button
                             type="button"
-                            className={`btn btn-danger botonEliminar ${usuario.estado ? "" : "disabled"
-                              }`}
+                            className={`btn btn-danger botonEliminar ${
+                              usuario.estado ? "" : "disabled"
+                            }`}
                             onClick={() => handleDeleteUsuario(usuario._id)}
                             disabled={!usuario.estado}
                           >
@@ -375,7 +405,9 @@ const Admin = () => {
           </section>
 
           <section>
-            <h2 className="text-center p-2 text-decoration-none">Gestión Reservas</h2>
+            <h2 className="text-center p-2 text-decoration-none">
+              Gestión Reservas
+            </h2>
             <div className="table-responsive me-5 ms-5">
               <table className="table table-bordered">
                 <thead className="colorTabla">
@@ -496,7 +528,7 @@ const Admin = () => {
                     onChange={(e) => setHora(e.target.value)}
                   >
                     <option value={hora}>Su hora {hora} </option>
-                    <option value="21:30">21:30</option>
+                    <option value="20:00">20:00</option>
                     <option value="23:30">23:30</option>
                   </select>
                 </div>

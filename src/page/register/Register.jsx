@@ -10,7 +10,7 @@ import { FaUserAlt, FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { FaHouseChimneyUser } from "react-icons/fa6";
 
 const Register = () => {
-  const { createUser, usuarios } = useContext(UsersProvider);
+  const { addUser, usuarios } = useContext(UsersProvider);
   const navigate = useNavigate();
 
   const [eye1, setEye1] = useState(false);
@@ -40,10 +40,14 @@ const Register = () => {
     }
   };
 
+  // ...
+
+  let usuariosArray = Object.values(usuarios);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    existe = usuarios.find((user) => user.email === usuario.email);
+    const existe = usuariosArray.some((user) => user.email === usuario.email);
 
     if (
       usuario.nombre.length !== 0 &&
@@ -54,7 +58,7 @@ const Register = () => {
     ) {
       console.log(usuarios, "<--usuarios Register");
 
-      createUser(usuario);
+      addUser(usuario);
 
       Swal.fire({
         imageUrl:
@@ -75,10 +79,8 @@ const Register = () => {
         repeatPass: "",
       });
 
-      setExiste(false);
-      navigate("/");
+      navigate("/login");
     } else {
-      setExiste(true);
       Swal.fire({
         imageUrl:
           "https://i.pinimg.com/originals/ab/a7/24/aba724ba3b793dbd8058bccf0b5f3b9e.gif",
@@ -89,7 +91,6 @@ const Register = () => {
         showConfirmButton: false,
         timer: "4500",
       });
-
       console.error(
         "Verifique e ingrese correctamente todos los datos, por favor."
       );
