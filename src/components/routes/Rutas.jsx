@@ -8,6 +8,8 @@ import Home from '../../page/home/Home';
 import Contact from '../../page/contacto/Contact';
 import About from '../../page/about/About';
 import Reserva from '../../page/reserva/Reserva.jsx';
+import RecoverPassword from '../../page/recover password/RecoverPassword.jsx';
+import ChangePassword from '../../page/changePassword/ChangePassword.jsx';
 
 const Rutas = () => {
   return (
@@ -22,6 +24,9 @@ const Rutas = () => {
         <Route path='/about' element={<About />} /> 
         <Route path='/reserva' element={<Reserva />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/recoverpassword' element={<RecoverPassword />} />
+        <Route path='/changepassword' element={<ChangePassword/>} />
+
        
       </Routes>
     </>

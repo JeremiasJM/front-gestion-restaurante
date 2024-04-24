@@ -8,7 +8,7 @@ import Register from "../../page/register/Register"
 import { useContext, useEffect, useState } from "react";
 import { UsersProvider } from "../../context/UsersContext";
 import Swal from "sweetalert2";
-import { useForm } from "react-hook-form";
+
 
 const Login = (handleClose) => {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Login = (handleClose) => {
       
       navigate("/");
       window.location.reload(true);
-      //localStorage.setItem("user", JSON.stringify(usuario));
+      
       
       
     } 
@@ -54,7 +54,7 @@ const Login = (handleClose) => {
 
   return (
     <>
-      <div className="bg_login d-flex justify-content-center align-items-center vh-100">
+      <div className="bg_login conteiner-fluid d-flex justify-content-center align-items-center vh-100">
         <div className="card_login px-4 shadow p-1 p-md-5">
           <div>
             <div className="text-center titulo">Inicia Sesión</div>
@@ -126,8 +126,11 @@ const Login = (handleClose) => {
           </Form.Group>
           <div className="d-flex gap-1 justify-content-center mt-2">
             <div>
-              <a>
+              <a
+              onClick={() => navigate("/recoverpassword")}
+              >
                 <p className="text-black">¿No posees cuenta?</p>
+                 
               </a>
             </div>
             <a
