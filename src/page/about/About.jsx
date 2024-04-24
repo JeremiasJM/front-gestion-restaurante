@@ -14,7 +14,7 @@ function About() {
     <>
       <div className='App'>
         <div className='contenedor-principal'>
-          <h1 className='titulo estilos-titulo-about'>Sobre nosotros..</h1>
+          <h1 className='titulo estilos-titulo-about'>Sobre Nosotros..</h1>
           <CardAbout
             nombre='Andrea Orlandi'
             imagen={imagenAndrea}

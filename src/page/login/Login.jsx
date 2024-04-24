@@ -10,6 +10,7 @@ import { UsersProvider } from "../../context/UsersContext";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 
+
 const Login = (handleClose) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -25,24 +26,26 @@ const Login = (handleClose) => {
         imageWidth: 240,
         title: 'Hola!',
         html: "<p><i>Reserva elegancia, saborea perfección</i></p>",
-        showConfirmButton: false,
+        showConfirmButton: true,
         timer: 4500,
       }).then(() => {
         navigate("/");
+        window.location.reload(true)
       });
     }
   }, [usuarioLogueado]);
-  
-  const handleSubmit = async (e) => {
+
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     try {
-      await loginUsuario({ email, password });
+      loginUsuario({ email, password });
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   const registro = () => {
     navigate("/registro");
     handleClose();
@@ -50,8 +53,9 @@ const Login = (handleClose) => {
 
   return (
     <>
-      <div className="bg_login d-flex justify-content-center align-items-center vh-100 bg-danger ">
-        <div className="card_login px-4 shadow p-1 p-md-5 m-4  w-100 ">
+      <div className="bg_login d-flex justify-content-center align-items-center vh-100">
+        
+        <div className="card_login px-4 shadow p-1 p-md-5">
           <div>
             <div className="text-center titulo">Inicia Sesión</div>
             <Form  onSubmit={handleSubmit}>

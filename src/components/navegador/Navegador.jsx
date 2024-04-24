@@ -51,7 +51,7 @@ const Navegador = () => {
     window.location.href = "/";
   };
   const handleAdmin = () => {
-    window.location.href = "/Admin";
+    window.location.href = "/admin";
     setAnchorEl(null);
   };
   const theme = createTheme({
@@ -91,22 +91,22 @@ const Navegador = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/Reserva" className="nav-link ">
+                  <Link to="/reserva" className="nav-link ">
                     <button className="buttonDos">Reservas</button>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/Galeria" className="nav-link ">
+                  <Link to="/galeria" className="nav-link ">
                     <button className="buttonDos">Galeria</button>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/About" className="nav-link ">
+                  <Link to="/about" className="nav-link ">
                     <button className="buttonDos">Nosotros</button>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/Contacto" className="nav-link ">
+                  <Link to="/contacto" className="nav-link ">
                     <button className="buttonDos">Contacto</button>
                   </Link>
                 </li>
