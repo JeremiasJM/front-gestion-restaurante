@@ -61,11 +61,13 @@ const Register = () => {
       addUser(usuario);
 
       Swal.fire({
-        position: "center",
-        icon: "success",
+        imageUrl:
+          "https://i.pinimg.com/originals/98/e1/2a/98e12ad7295a3b653cae1d3e7f4de764.gif",
+        imageHeight: "200",
+        imageWidth: "240",
         title: "Usuario registrado!",
-        showConfirmButtom: false,
-        timer: 2500,
+        showConfirmButton: false,
+        timer: "4500",
       });
 
       setUsuario({
@@ -80,11 +82,14 @@ const Register = () => {
       navigate("/login");
     } else {
       Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Verifique e ingrese correctamente todos los datos, por favor.",
-        showConfirmButtom: false,
-        timer: 1500,
+        imageUrl:
+          "https://i.pinimg.com/originals/ab/a7/24/aba724ba3b793dbd8058bccf0b5f3b9e.gif",
+        imageHeight: "200",
+        imageWidth: "240",
+        title: "Error en el registro",
+        html: "<p>Verifique e ingrese correctamente todos los datos, por favor.</p>",
+        showConfirmButton: false,
+        timer: "4500",
       });
       console.error(
         "Verifique e ingrese correctamente todos los datos, por favor."

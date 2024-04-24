@@ -12,6 +12,7 @@ import { jwtDecode } from "jwt-decode";
 import { esES } from "@mui/x-date-pickers/locales";
 import { ReservaProvider } from "../../context/ReserveContext";
 import Swal from "sweetalert2";
+import gifSweet from '../../assets/resource/media/gif-sweetAlert/Restaurant.gif'
 
 const Reserva = () => {
   const { addReserva, reservas } = useContext(ReservaProvider);
@@ -104,11 +105,10 @@ const Reserva = () => {
     addReserva(reserva);
     Swal.fire({
       title: "Reserva Realizada",
-      icon: "success",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Ok",
+      imageUrl: gifSweet,
+      imageHeight: 200,
+      imageWidth: 240,
+      showConfirmButton: false
     }).then((result) => {
       if (result.isConfirmed) {
         navigate("/");

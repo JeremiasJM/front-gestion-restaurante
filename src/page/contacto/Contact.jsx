@@ -22,20 +22,26 @@ const Contact = () => {
         (result) => {
           console.log(result.text);
           Swal.fire({
-            title: "Correo enviado",
-            text: "Gracias por contactarnos. Nos pondremos en contacto contigo lo antes posible.",
-            icon: "success",
-            confirmButtonText: "Ok",
+            imageUrl: "https://i.pinimg.com/originals/98/e1/2a/98e12ad7295a3b653cae1d3e7f4de764.gif",
+            imageHeight:"200",
+            imageWidth:"240",
+            title: "Correo Enviado",
+            html: "<p>Gracias por contactarnos. Nos pondremos en contacto contigo lo antes posible.</p>",
+            showConfirmButton: false,
+           timer:"3500"
           });
           form.current.reset();
         },
         (error) => {
           console.log(error.text);
           Swal.fire({
+            imageUrl:"https://i.pinimg.com/originals/ab/a7/24/aba724ba3b793dbd8058bccf0b5f3b9e.gif",
+            imageHeight:"200",
+            imageWidth:"240",
             title: "Error al Enviar el Correo",
-            text: "Vuelva a intertar mas tarde",
-            icon: "warning",
-            confirmButtonText: "Ok",
+            html: "<p>Vuelva a intertar mas tarde</p>",
+            showConfirmButton: false,
+              timer:"3500"
           });
         }
       );
