@@ -1,0 +1,65 @@
+.bg_register {
+	background-image: url(/src/assets/resource/media/img-register/backgraundRegister.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 2rem 0;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.card_register {
+	border: 0.2rem var(--bg-color-primary) solid;
+	border-radius: 5%;
+	background-color: rgb(232, 182, 89, 0.5);
+	width: 75%;
+}
+
+.button_register {
+	background-color: #c9932e;
+	color: #fff;
+	border: 2px solid #8a631c;
+	border-radius: 10px;
+}
+
+.button_register:hover {
+	background-color: var(--font-color-tertiary);
+}
+
+.border-warning {
+	border: 2px solid #8a631c;
+}
+
+.button-login {
+	background-color: #c9932e;
+	color: #fff;
+	border: 2px solid #8a631c;
+	border-radius: 10px;
+}
+
+.btn .btn-warning {
+	background-color: #c9932e;
+	color: #fff;
+	border: 2px solid #8a631c;
+}
+
+.--bs-warning-bg-subtle {
+	background-color: #c9932e;
+}
+
+.labels {
+	color: var(--font-color-primary);
+}
+
+.input-group-text {
+	background-color: rgb(248, 249, 250);
+}
+
+h2 {
+	font-family: var(--font-family-subtitle);
+	color: var(--font-color-primary);
+	text-decoration: none;
+}

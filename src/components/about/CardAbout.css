@@ -1,0 +1,54 @@
+.contenedor-about {
+  width: 100%;
+  height: auto;
+  margin: 10px auto 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color-white);
+  box-shadow: 0 5px 15px 5px rgb(0 0 0 / 15%);
+}
+
+.imagen-about {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+.contenedor-texto-about {
+  flex: 1;
+  padding: 20px;
+}
+
+.nombre-about {
+  font-size: var(--font-size-subtitle);
+  margin: 20px;
+}
+
+.texto-about {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 20px;
+}
+
+.estilosIconos svg {
+  font-size: 30px;
+  color: var(--font-color-primary);
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+.estilosIconos svg:hover {
+  color: var(--bg-color-primary);
+}
+
+@media screen and (max-width: 768px) {
+  .contenedor-about {
+    padding: 10px;
+  }
+
+  .contenedor-texto-about {
+    padding: 10px;
+  }
+}

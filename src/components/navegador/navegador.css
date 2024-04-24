@@ -1,0 +1,108 @@
+
+nav img {
+  width: 160px;
+  height: auto;
+}
+@media screen and (max-whidth: 768px) {
+  nav img{
+    width: 100px;
+  }
+  
+}
+.dropdown-menu li::marker {
+  display: none !important;
+}
+.bg-body-css {
+  background-color: var(--bottom-color-beige);
+}
+
+.bg-body-css img {
+  width: 35%;
+}
+
+.offcanvas {
+  background-color: var(--bottom-color-beige);
+}
+
+.offcanvas-title {
+  color: var(--font-color-primary);
+  font-family: var(--font-family-title);
+  font-weight: 700;
+}
+
+.offcanvas-header {
+  margin: 0.5rem;
+  border: 1px solid var(--bg-color-primary);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--font-color-primary);
+  font-family: var(--font-family-subtitle);
+}
+
+.navbar-nav .nav-link.active:hover {
+  color: var(--font-color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.navbar-toggler {
+  color: var(--font-color-primary);
+  border: 1px solid var(--font-color-primary);
+}
+
+.buttonDos {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 0.8rem;
+  color: rgb(193, 163, 98);
+  border: 2px solid rgb(193, 163, 98);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+
+.buttonDos::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(193, 163, 98);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.buttonDos:hover::before {
+  scale: 3;
+}
+
+.buttonDos:hover {
+  color: white;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
+}
+
+.buttonDos:active {
+  scale: 1;
+}
+
+.menu {
+  font-size: 18px;
+}
+
+.iconoLogin {
+  color: var(--font-color-primary);
+  font-size: 31px;
+}
+
+.iconoLogin:hover {
+  color: rgb(193, 163, 98);
+}
+

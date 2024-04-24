@@ -1,0 +1,51 @@
+.colorFondo {
+  background-color: var(--bottom-color-beige);
+}
+
+.titulo {
+  font-size: var(--font-size-subtitle) !important;
+}
+
+.subtitulo {
+  font-size: var(--font-size-paragraph-desktop) !important;
+}
+
+.btn-outline-light,
+.colorLetras {
+  color: var(--font-color-tertiary);
+}
+
+.btn-outline-light,
+.colorLetras:hover {
+  color: var(--bg-color-primary);
+}
+
+.instagram,
+.facebook,
+.twitter,
+.youTube {
+  color: var(--font-color-primary);
+  font-size: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.instagram:hover {
+  color: #d6249f;
+  transition: all 1s;
+}
+
+.facebook:hover {
+  color: #365fb8;
+  transition: all 1s;
+}
+
+.youTube:hover {
+  color: #FF0000;
+  transition: all 1s;
+}
+
+.twitter:hover {
+  color: #1DA1F2;
+  transition: all 1s;
+}

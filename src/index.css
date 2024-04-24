@@ -1,31 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-	--color-fondo: #;
-	--color-primario: #;
-	--color-secundario: #;
-	--color-secundarioDos: #;
-	--fuente-color-primario: #ffffff;
-	--fuente-color-secundario: #000;
-	--fuente-color-secundarioDos: #;
-	--fuente-principal: '', ;
-	--fuente-secundaria: ;
-	--fuente-tamanio-titulo: 2rem;
-	--fuente-tamanio-titulo-tablet: 2.5rem;
-	--fuente-tamanio-titulo-desktop: 3rem;
-	--fuente-tamanio-subtitulo: 1.5rem;
-	--fuente-tamanio-subtitulo-tablet: 2rem;
-	--fuente-tamanio-subtitulo-desktop: 2.5rem;
-	--fuente-tamanio-parrafo: 1rem;
-	--fuente-tamanio-parrafo-tablet: 1.15rem;
-	--fuente-tamanio-parrafo-desktop: 1.25rem;
+	--bg-color-white: #ffffff;
+	--bg-color-primary: #e8b659;
+	--bg-color-secondary: #efe7df;
+	--bg-color-tertiary: #f9f8f0;
+
+	--font-color-primary: #8A6113;
+	--font-color-secondary: #ffffff;
+	--font-color-tertiary: #C29747;
+
+	--bottom-color-green: #1c7323;
+	--bottom-color-red: #a52a2a;
+	--bottom-color-blue: #08266f;
+	--bottom-color-white: #ffffff;
+	--bottom-color-aqua: #ACEBE0;
+	--bottom-color-beige: #F8F8F5;
+	--bottom-color-brown: #8A6113;
+	--bottom-color-lightblue: #0F3E8D;
+
+	--font-family-title: "Montserrat", sans-serif;
+	--font-family-subtitle: "Lora", serif;
+	--font-family-paragraph: "Hind Madurai", sans-serif;
+	--font-size-title: 2rem;
+	--font-size-title-tablet: 2.5rem;
+	--font-size-title-desktop: 3rem;
+	--font-size-subtitle: 1.5rem;
+	--font-size-subtitle-tablet: 2rem;
+	--font-size-subtitle-desktop: 2.5rem;
+	--font-size-paragraph: 1rem;
+	--font-size-paragraph-tablet: 1.15rem;
+	--font-size-paragraph-desktop: 1.25rem;
 }
 
 html {
 	scroll-behavior: smooth;
-	font-family: var(--fuente-principal);
+	font-family: var(--font-family-title);
 }
 
 body {
-	background-color: var(--color-fondo);
+	background-color: var(--bg-color-secondary);
 }
 
 * {
@@ -34,22 +48,24 @@ body {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
+a{
+	text-decoration:none;
+}
 .titulo {
-	font-family: var(--fuente-principal);
-	font-size: var(--fuente-tamanio-titulo);
-	color: var(--color-primario);
+	font-family: var(--font-family-title);
+	font-size: var(--font-size-title);
+	color: var(--font-color-primary);
 }
 
 .subtitulo {
-	color: var(--fuente-color-primario);
-	font-family: var(--fuente-secundaria);
-	font-size: var(--fuente-tamanio-subtitulo);
+	color: var(--font-color-primary);
+	font-family: var(--font-family-subtitle);
+	font-size: var(--font-size-subtitle);
 }
 
 .parrafo {
-	color: var(--fuente-color-primario);
-	font-family: var(--fuente-secundaria);
-	font-size: var(--fuente-tamanio-parrafo);
+	color: var(--font-color-primary);
+	font-family: var(--font-family-subtitle);
+	font-size: var(--font-size-paragraph);
 	line-height: 2rem;
 }
