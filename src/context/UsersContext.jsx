@@ -32,34 +32,47 @@ const UsersContext = ({ children }) => {
     } catch (error) {}
   };
 
-  const deleteUsuario = async (id) => {
+  const updateUser = async (id, usuario) => {
+    try {
+      await axios.put(
+        `https://gestion-restaurante.onrender.com/api/user/update/${id}`,
+        usuario
+      );
+      await getUsers();
+    } catch (error) {
+      console.error(error);
+      setError("Error al actualizar el usuario");
+    }
+  };
+  const deleteUser = async (id) => {
     try {
       await axios.delete(
         `https://gestion-restaurante.onrender.com/api/user/delete/${id}`
       );
       await getUsers();
-    } catch (error) {}
-  };
-
-  const editUsuario = async (usuario) => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      throw new Error("No se proporcionó un token");
+    } catch (error) {
+      console.error(error);
     }
-
+  };
+  const disableUser = async (id) => {
     try {
       await axios.put(
-        `https://gestion-restaurante.onrender.com/api/user/update/${usuario.id}`,
-        usuario,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        `https://gestion-restaurante.onrender.com/api/user/disable/${id}`
       );
       await getUsers();
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const enableUser = async (id) => {
+    try {
+      await axios.put(
+        `https://gestion-restaurante.onrender.com/api/user/enable/${id}`
+      );
+      await getUsers();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const logOut = () => {
@@ -93,11 +106,13 @@ const UsersContext = ({ children }) => {
         getUsers,
         addUser,
         logOut,
-        deleteUsuario,
-        editUsuario,
         loginUsuario,
         usuarioLogueado,
         validationErrorLogin,
+        updateUser,
+        deleteUser,
+        disableUser,
+        enableUser,
       }}
     >
       {children}

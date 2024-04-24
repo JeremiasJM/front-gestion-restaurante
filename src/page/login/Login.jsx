@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { UsersProvider } from "../../context/UsersContext";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-
+import { Link } from "react-router-dom";
 const Login = (handleClose) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -114,12 +114,12 @@ const Login = (handleClose) => {
 
           <Form.Group className="d-flex flex-column align-items-center flex-md-row  justify-content-center my-4 gap-4 ">
             <div className="pt-1 d-inline-block text-center ">
-              <a
-                href="#"
+              <Link
+                to='/404'
                 className="text-decoration-none text-dark fw-semibold fst-italic"
               >
                 ¿Olvidaste tu contraseña?
-              </a>
+              </Link>
             </div>
           </Form.Group>
           <div className="d-flex gap-1 justify-content-center mt-2">

@@ -73,8 +73,8 @@ const Reserva = () => {
       setValidationError("Fecha no Dispoble");
       return;
     }
-    if (!comensales || comensales < 1 || comensales >= 5) {
-      setValidationError("Dato no Valido: Solo numero");
+    if (!comensales || comensales < 1 || comensales >= 6) {
+      setValidationError("Cantidad No permitida");
       return;
     }
 
@@ -111,6 +111,7 @@ const Reserva = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         navigate("/");
+        window.location.reload(true);
       }
     });
   };
@@ -246,7 +247,7 @@ const Reserva = () => {
                         Enviar Reserva
                       </Button>
                       {validationError && (
-                        <div className="col-12">
+                        <div className="col-12 mt-2">
                           <div className="alert alert-danger" role="alert">
                             {validationError}
                           </div>

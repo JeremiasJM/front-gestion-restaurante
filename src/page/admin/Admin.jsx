@@ -241,6 +241,19 @@ const Admin = () => {
       });
   };
   const handleDeleteUsuario = (id) => {
+    for (let i = 0; i < usuarios.length; i++) {
+      console.log(usuario);
+      if (usuario._id === id) {
+        if (usuario.admin === true) {
+          Swal.fire({
+            title: "No se puede Eliminar Al ADMIN!",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+          return;
+        }
+      }
+    }
     Swal.fire({
       title: "Eliminar Usuario!",
       icon: "warning",
