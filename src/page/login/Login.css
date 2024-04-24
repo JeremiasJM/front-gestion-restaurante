@@ -43,3 +43,12 @@
     border-radius: .25em;
 	border-color: #8a631c solid;
 }
+
+@media (max-width: 768px ){
+	
+	.card_login{
+		width: 100% ;
+		margin: 10%;
+	}
+	
+}
