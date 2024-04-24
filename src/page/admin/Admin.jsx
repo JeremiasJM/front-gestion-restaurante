@@ -1,11 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./admin.css";
 import Swal from "sweetalert2";
 import { ReservaProvider } from "../../context/ReserveContext";
 import { PulseLoader } from "react-spinners";
 import { UsersProvider } from "../../context/UsersContext";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
+  const navigate = useNavigate();
   const { reservas, updateReserva, loading, deleteReserva } =
     useContext(ReservaProvider);
   const [modalData, setModalData] = useState(null);
@@ -22,7 +25,33 @@ const Admin = () => {
   const [usuario, setUsuario] = useState("");
   const [apellidoUser, setApellidoUser] = useState("");
   const [mail, setMail] = useState("");
+  const [isLogin, setIsLogin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        if (decoded.admin === true) {
+          setIsLogin(true);
+          setIsAdmin(true);
+        } else {
+          setIsLogin(true);
+          setIsAdmin(false);
+          navigate("/404");
+        }
+      } catch (error) {
+        setIsLogin(false);
+        setIsAdmin(false);
+        navigate("/404");
+      }
+    } else {
+      setIsLogin(false);
+      setIsAdmin(false);
+      navigate("/404");
+    }
+  }, [navigate]);
   const extractDate = (isoDateString) => {
     const dateOnly = isoDateString.split("T")[0];
     return dateOnly;
@@ -66,18 +95,20 @@ const Admin = () => {
       setValidationError("Dato no Valido: Solo numero");
       return;
     }
-
-    //entra a las reservas y valida que ninguna de las otras reservas tengan el mismo dia y hora
+    let contador = 0;
     for (let i = 0; i < reservas.length; i++) {
       const reserva = reservas[i];
       if (
         extractDate(reserva.fecha) === extractDate(fecha) &&
-        reserva.hora === hora &&
-        reserva._id !== modalData._id
+        reserva.hora === hora
       ) {
-        setValidationError("Ya hay una reserva en ese dia y hora");
+        contador++;
+      }
+      if (contador >= 5) {
+        setValidationError("Reservas Agotadas");
         return;
       }
+      console.log(contador);
     }
     const { _id } = modalData;
     const updatedReserva = {
@@ -150,7 +181,6 @@ const Admin = () => {
     });
   };
 
-  //usuarios
   const openModal2 = (usuario) => {
     setModalData2(usuario);
     setUsuario(usuario.nombre);
@@ -498,7 +528,7 @@ const Admin = () => {
                     onChange={(e) => setHora(e.target.value)}
                   >
                     <option value={hora}>Su hora {hora} </option>
-                    <option value="21:30">21:30</option>
+                    <option value="20:00">20:00</option>
                     <option value="23:30">23:30</option>
                   </select>
                 </div>

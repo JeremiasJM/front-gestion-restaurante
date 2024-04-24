@@ -9,14 +9,13 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { createTheme } from "@mui/material/styles";
 import { jwtDecode } from "jwt-decode";
-import { set } from "react-hook-form";
 const Navegador = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [nombre, setNombre] = useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  
+
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -49,6 +48,7 @@ const Navegador = () => {
     setIsAdmin(false);
     setNombre(null);
     setAnchorEl(null);
+    window.location.href = "/";
   };
   const handleAdmin = () => {
     window.location.href = "/Admin";
