@@ -11,7 +11,7 @@
 * [Integrantes del equipo](#integrantes)
 
 ## Información del proyecto <a name="informacion"></a> 
-  #### Deploy: https://
+  #### Deploy: [(https://rolling-food-reserva.vercel.app/)]
   
   ### ¿Cómo se hace una copia de esté proyecto?
   - Copiar la siguiente URL: https://github.com/JeremiasJM/front-gestion-restaurante.git
