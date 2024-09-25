@@ -83,10 +83,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="row mt-4">
-          <p className="text-center text-white bg-dark subtitulo rounded-top p-1">
-            © 2024 Rolling Food - reservas
-          </p>
+        <div className="row mt-4 text-white bg-dark subtitulo p-1 d-flex justify-content-center align-items-center">
+          © 2024 Rolling Food - reservas
         </div>
       </footer>
     </>
