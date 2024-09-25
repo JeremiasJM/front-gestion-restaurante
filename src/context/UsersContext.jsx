@@ -1,11 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 export const UsersProvider = createContext();
 
 const UsersContext = ({ children }) => {
   const [usuarios, setUsuarios] = useState([]);
+  const [validationErrorLogin, setValidationErrorLogin] = useState(false);
 
+  const [usuarioLogueado, setUsuarioLogueado] = useState();
   useEffect(() => {
     getUsers();
   }, []);
@@ -16,23 +19,19 @@ const UsersContext = ({ children }) => {
         "https://gestion-restaurante.onrender.com/api/user"
       );
       setUsuarios(response.data.users);
-    } catch (error) {
-      console.error(error);
-    }
+    } catch (error) {}
   };
 
-  const createUser = async (usuario) => {
+  const addUser = async (usuario) => {
     try {
-      console.log(usuario, "<-- user Context");
       await axios.post(
         "https://gestion-restaurante.onrender.com/api/user/registro",
         usuario
       );
       await getUsers();
-    } catch (error) {
-      console.error(error);
-    }
+    } catch (error) {}
   };
+
   const updateUser = async (id, usuario) => {
     try {
       await axios.put(
@@ -75,12 +74,41 @@ const UsersContext = ({ children }) => {
       console.error(error);
     }
   };
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  };
+
+  const loginUsuario = async (usuario) => {
+    try {
+      const response = await axios.post(
+        "https://gestion-restaurante.onrender.com/api/user/login",
+        usuario
+      );
+
+      const { token } = response.data.data;
+
+      localStorage.setItem("token", token);
+      const decoded = jwtDecode(token);
+
+      setUsuarioLogueado(decoded);
+    } catch (error) {
+      const errorLogin = error.response.data.message;
+      setValidationErrorLogin(errorLogin);
+    }
+  };
+
   return (
     <UsersProvider.Provider
       value={{
         usuarios,
         getUsers,
-        createUser,
+        addUser,
+        logOut,
+        loginUsuario,
+        usuarioLogueado,
+        validationErrorLogin,
         updateUser,
         deleteUser,
         disableUser,

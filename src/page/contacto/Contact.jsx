@@ -20,22 +20,28 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           Swal.fire({
-            title: "Correo enviado",
-            text: "Gracias por contactarnos. Nos pondremos en contacto contigo lo antes posible.",
-            icon: "success",
-            confirmButtonText: "Ok",
+            imageUrl:
+              "https://i.pinimg.com/originals/98/e1/2a/98e12ad7295a3b653cae1d3e7f4de764.gif",
+            imageHeight: "200",
+            imageWidth: "240",
+            title: "Correo Enviado",
+            html: "<p>Gracias por contactarnos. Nos pondremos en contacto contigo lo antes posible.</p>",
+            showConfirmButton: false,
+            timer: "3500",
           });
           form.current.reset();
         },
         (error) => {
-          console.log(error.text);
           Swal.fire({
+            imageUrl:
+              "https://i.pinimg.com/originals/ab/a7/24/aba724ba3b793dbd8058bccf0b5f3b9e.gif",
+            imageHeight: "200",
+            imageWidth: "240",
             title: "Error al Enviar el Correo",
-            text: "Vuelva a intertar mas tarde",
-            icon: "warning",
-            confirmButtonText: "Ok",
+            html: "<p>Vuelva a intertar mas tarde</p>",
+            showConfirmButton: false,
+            timer: "3500",
           });
         }
       );
@@ -174,7 +180,9 @@ const Contact = () => {
         </article>
         <article className="row mt-2 contact__sucursales border-subtle">
           <div className="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center contact__sucursales__text">
-            <h3 className="text-center text-white text-decoration-none">Conoce nuestro local:</h3>
+            <h3 className="text-center text-white text-decoration-none">
+              Conoce nuestro local:
+            </h3>
             <i className="bi bi-globe-americas parrafo mt-3" />
             <p>General Paz 576</p>
             <p>San miguel de Tucumán</p>
