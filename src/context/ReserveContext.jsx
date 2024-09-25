@@ -15,8 +15,7 @@ const ReservaContext = ({ children }) => {
       );
       setReservas(data);
     } catch (error) {
-      console.log(error);
-    }finally{
+    } finally {
       setLoading(false);
     }
   };
@@ -27,9 +26,7 @@ const ReservaContext = ({ children }) => {
         reserva
       );
       setReservas([...reservas, data]);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   const updateReserva = async (id, reserva) => {
     try {
@@ -37,10 +34,10 @@ const ReservaContext = ({ children }) => {
         `https://gestion-restaurante.onrender.com/api/reserve/update/${id}`,
         reserva
       );
-      setReservas(reservas.map((reserva) => (reserva._id === id ? data : reserva)));
-    } catch (error) {
-      console.log(error);
-    }
+      setReservas(
+        reservas.map((reserva) => (reserva._id === id ? data : reserva))
+      );
+    } catch (error) {}
   };
   const deleteReserva = async (id) => {
     try {
@@ -48,9 +45,7 @@ const ReservaContext = ({ children }) => {
         `https://gestion-restaurante.onrender.com/api/reserve/delete/${id}`
       );
       setReservas(reservas.filter((reserva) => reserva._id !== id));
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -58,7 +53,16 @@ const ReservaContext = ({ children }) => {
   }, []);
 
   return (
-    <ReservaProvider.Provider value={{ reservas,loading ,getReservas, addReserva, updateReserva, deleteReserva }}>
+    <ReservaProvider.Provider
+      value={{
+        reservas,
+        loading,
+        getReservas,
+        addReserva,
+        updateReserva,
+        deleteReserva,
+      }}
+    >
       {children}
     </ReservaProvider.Provider>
   );

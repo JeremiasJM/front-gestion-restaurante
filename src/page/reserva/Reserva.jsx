@@ -12,6 +12,7 @@ import { jwtDecode } from "jwt-decode";
 import { esES } from "@mui/x-date-pickers/locales";
 import { ReservaProvider } from "../../context/ReserveContext";
 import Swal from "sweetalert2";
+import gifSweet from "../../assets/resource/media/gif-sweetAlert/Restaurant.gif";
 
 const Reserva = () => {
   const { addReserva, reservas } = useContext(ReservaProvider);
@@ -65,7 +66,6 @@ const Reserva = () => {
       return;
     }
 
- 
     const selectedDate = new Date(fecha);
     const currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
@@ -73,11 +73,11 @@ const Reserva = () => {
       setValidationError("Fecha no Dispoble");
       return;
     }
-    if (!comensales || comensales < 1 || comensales >= 5) {
-      setValidationError("Dato no Valido: Solo numero");
+    if (!comensales || comensales < 1 || comensales >= 6) {
+      setValidationError("Cantidad No permitida");
       return;
     }
-   
+
     let contador = 0;
     for (let i = 0; i < reservas.length; i++) {
       const reserva = reservas[i];
@@ -92,26 +92,26 @@ const Reserva = () => {
         return;
       }
     }
-    
+
     const reserva = {
       nombre,
       apellido,
-      fecha, 
+      fecha,
       hora,
       comensales,
     };
-    console.log(reserva);
+
     addReserva(reserva);
     Swal.fire({
       title: "Reserva Realizada",
-      icon: "success",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Ok",
+      imageUrl: gifSweet,
+      imageHeight: 200,
+      imageWidth: 240,
+      showConfirmButton: false,
     }).then((result) => {
       if (result.isConfirmed) {
         navigate("/");
+        window.location.reload(true);
       }
     });
   };
@@ -247,7 +247,7 @@ const Reserva = () => {
                         Enviar Reserva
                       </Button>
                       {validationError && (
-                        <div className="col-12">
+                        <div className="col-12 mt-2">
                           <div className="alert alert-danger" role="alert">
                             {validationError}
                           </div>
