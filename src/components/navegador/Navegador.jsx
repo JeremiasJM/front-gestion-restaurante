@@ -139,7 +139,7 @@ const Navegador = () => {
                     >
                       {!isAdmin ? (
                         <MenuItem onClick={handleLogout} className="buttonDos">
-                          Cerra Session
+                          Cerrar Sesión
                         </MenuItem>
                       ) : (
                         <div>
