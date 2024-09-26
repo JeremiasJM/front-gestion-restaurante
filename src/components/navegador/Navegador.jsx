@@ -150,7 +150,7 @@ const Navegador = () => {
                             onClick={handleLogout}
                             className="buttonDos"
                           >
-                            Cerra Session
+                            Cerrar Sesión
                           </MenuItem>
                         </div>
                       )}
